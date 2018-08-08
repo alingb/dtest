@@ -203,7 +203,6 @@ if __name__ == '__main__':
                     net_id = 1
             cur.execute(cmd)
             con.commit()
-            print "#" * 25
             time.sleep(300)
     except Exception as e:
         logger.warning(e)
