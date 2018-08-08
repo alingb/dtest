@@ -10,6 +10,18 @@ try:
 except:
     import pymysql as MySQLdb
 
+import logging
+
+log_file = '/var/log/sql_update.log'
+logger = logging.getLogger(__name__)
+logger.setLevel(level=logging.INFO)
+handler = logging.FileHandler(log_file)
+handler.setLevel(logging.INFO)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
+
+
 
 def getCpuInfo():
     with open('/proc/stat', 'r') as fd:
@@ -61,6 +73,7 @@ def connMysql():
     try:
         con = MySQLdb.connect('127.0.0.1', 'root', 'Snynitfqm$janson10254415', 'janson_disk')
     except Exception as e:
+        logger.warning(e)
         return ''
     return con
 
@@ -77,7 +90,7 @@ def cpuLoad():
 
 
 def sqlSelectMsg(db, table_id, id):
-    info = "select {} from {} where {}={}".format(table_id, db, table_id, id)
+    info = 'select {} from {} where {}={}'.format(table_id, db, table_id, id)
     return info
 
 
@@ -93,23 +106,23 @@ def sqlUpdateOrInsertMsg(msg, db, table_name, cpudata, datetime, table_id, id):
 
 def sqlNetUpdateOrInsertMsg(msg, db, name, number, datetime, table_id, id):
     if msg == "update":
-        info = "update {} set name='{}',number='{}',add_time='{}' where {}='{}'".format(db, name, number, datetime,
-                                                                                        table_id, id)
+        info = 'update {} set name=\'{}\',number=\'{}\',add_time=\'{}\' where {}=\'{}\''.format(db, name, number, datetime,
+                                                                                                table_id, id)
     elif msg == "insert":
-        info = "insert into {} set name='{}',number='{}',add_time='{}',{}='{}'".format(db, name, number, datetime,
-                                                                                       table_id, id)
+        info = 'insert into {} set name=\'{}\',number=\'{}\',add_time=\'{}\',{}=\'{}\''.format(db, name, number, datetime,
+                                                                                               table_id, id)
     return info
 
 
 def sqlSelectAndExec(cur, cmd, cmd1, cmd2):
     cur.execute(cmd)
     data = cur.fetchall()
-    print data
+    logger.info(data)
     if data:
-        print cmd1
+        logger.info(cmd1)
         cur.execute(cmd1)
     else:
-        print cmd2
+        logger.info(cmd2)
         cur.execute(cmd2)
 
 
@@ -192,5 +205,6 @@ if __name__ == '__main__':
             con.commit()
             print "#" * 25
             time.sleep(300)
-    except:
+    except Exception as e:
+        logger.warning(e)
         con.close()
