@@ -3,8 +3,6 @@
 # TIME:2018/8/7 14:38
 # FILE:sql_update.py
 
-
-
 import time
 
 try:
@@ -47,6 +45,7 @@ def netSpeed():
         net[net_name] = [net_receive, net_transmit]
     return net
 
+
 def cpuUser():
     total, ide = getCpuInfo()
     time.sleep(2)
@@ -84,17 +83,21 @@ def sqlSelectMsg(db, table_id, id):
 
 def sqlUpdateOrInsertMsg(msg, db, table_name, cpudata, datetime, table_id, id):
     if msg == "update":
-        info = "update {} set {}='{}',add_time='{}' where {}='{}'".format(db, table_name, cpudata, datetime, table_id, id)
+        info = "update {} set {}='{}',add_time='{}' where {}='{}'".format(db, table_name, cpudata, datetime, table_id,
+                                                                          id)
     elif msg == "insert":
-        info = "insert into {} set {}='{}',add_time='{}',{}='{}'".format(db, table_name, cpudata, datetime, table_id, id)
+        info = "insert into {} set {}='{}',add_time='{}',{}='{}'".format(db, table_name, cpudata, datetime, table_id,
+                                                                         id)
     return info
 
 
 def sqlNetUpdateOrInsertMsg(msg, db, name, number, datetime, table_id, id):
     if msg == "update":
-        info = "update {} set name='{}',number='{}',add_time='{}' where {}='{}'".format(db, name, number, datetime, table_id, id)
+        info = "update {} set name='{}',number='{}',add_time='{}' where {}='{}'".format(db, name, number, datetime,
+                                                                                        table_id, id)
     elif msg == "insert":
-        info = "insert into {} set name='{}',number='{}',add_time='{}',{}='{}'".format(db, name, number, datetime, table_id, id)
+        info = "insert into {} set name='{}',number='{}',add_time='{}',{}='{}'".format(db, name, number, datetime,
+                                                                                       table_id, id)
     return info
 
 
@@ -115,70 +118,79 @@ if __name__ == '__main__':
     net_id = 1
     con = connMysql()
     cur = con.cursor()
-    while 1:
-        one_load, five_load, fifteen_load = cpuLoad().split()[:3]
-        if id < 24:
-            id += 1
-        else:
-            id = 1
-        cpudata = cpuUser()
-        datetime = dateTime()
-        db = "janson_cpu"
-        table_id = "janson_cpu_id"
-        table_name = "cpu"
-        cmd = sqlSelectMsg(db, table_id, id)
-        cmd1 = sqlUpdateOrInsertMsg("update", db, table_name, cpudata, datetime, table_id, id)
-        cmd2 = sqlUpdateOrInsertMsg("insert", db, table_name, cpudata, datetime, table_id, id)
-        sqlSelectAndExec(cur, cmd, cmd1, cmd2)
-        load_name = "five"
-        db = "janson_load_{}".format(load_name)
-        table_id = "janson_load_{}_id".format(load_name)
-        table_name = "percent"
-        load_one_cmd = sqlSelectMsg(db, table_id, id)
-        load_one_cmd1 = sqlUpdateOrInsertMsg("update", db, table_name, one_load, datetime, table_id, id)
-        load_one_cmd2 = sqlUpdateOrInsertMsg("insert", db, table_name, one_load, datetime, table_id, id)
-        sqlSelectAndExec(cur, load_one_cmd, load_one_cmd1, load_one_cmd2)
-        load_name = "ten"
-        db = "janson_load_{}".format(load_name)
-        table_id = "janson_load_{}_id".format(load_name)
-        table_name = "percent"
-        load_one_cmd = sqlSelectMsg(db, table_id, id)
-        load_one_cmd1 = sqlUpdateOrInsertMsg("update", db, table_name, five_load, datetime, table_id, id)
-        load_one_cmd2 = sqlUpdateOrInsertMsg("insert", db, table_name, five_load, datetime, table_id, id)
-        sqlSelectAndExec(cur, load_one_cmd, load_one_cmd1, load_one_cmd2)
-        load_name = "fifteen"
-        db = "janson_load_{}".format(load_name)
-        table_id = "janson_load_{}_id".format(load_name)
-        table_name = "percent"
-        load_one_cmd = sqlSelectMsg(db, table_id, id)
-        load_one_cmd1 = sqlUpdateOrInsertMsg("update", db, table_name, fifteen_load, datetime, table_id, id)
-        load_one_cmd2 = sqlUpdateOrInsertMsg("insert", db, table_name, fifteen_load, datetime, table_id, id)
-        sqlSelectAndExec(cur, load_one_cmd, load_one_cmd1, load_one_cmd2)
-
-        net = netSpeed()
-        db_on = "janson_flow_on"
-        db_down = "janson_flow_down"
-        table_on_id = "janson_flow_on_id"
-        table_down_id = "janson_flow_down_id"
-        for net_name, net_speed in net.iteritems():
-            name = net_name
-            net_speed_on = net_speed[0]
-            net_speed_down = net_speed[1]
-            db = "janson_flow_on"
-            net_on_cmd = sqlSelectMsg(db_on, table_on_id, net_id)
-            net_down_cmd = sqlSelectMsg(db_down, table_down_id, net_id)
-            net_on_cmd1 = sqlNetUpdateOrInsertMsg("update", db_on, name, net_speed_on, datetime, table_on_id, net_id)
-            net_down_cmd1 = sqlNetUpdateOrInsertMsg("update", db_down, name, net_speed_down, datetime, table_down_id, net_id)
-            net_on_cmd2 = sqlNetUpdateOrInsertMsg("insert", db_on, name, net_speed_on, datetime, table_on_id, net_id)
-            net_down_cmd2 = sqlNetUpdateOrInsertMsg("insert", db_down, name, net_speed_down, datetime, table_down_id, net_id)
-            sqlSelectAndExec(cur, net_on_cmd, net_on_cmd1, net_on_cmd2)
-            sqlSelectAndExec(cur, net_down_cmd, net_down_cmd1, net_down_cmd2)
-            if net_id < len(net) * 24:
-                net_id += 1
+    try:
+        while 1:
+            one_load, five_load, fifteen_load = cpuLoad().split()[:3]
+            if id < 24:
+                id += 1
             else:
-                net_id = 1
-        cur.execute(cmd)
-        con.commit()
-        print "#" * 25
-        time.sleep(300)
-    con.close()
+                id = 1
+            cpudata = cpuUser()
+            datetime = dateTime()
+            db = "janson_cpu"
+            table_id = "janson_cpu_id"
+            table_name = "cpu"
+            cmd = sqlSelectMsg(db, table_id, id)
+            cmd1 = sqlUpdateOrInsertMsg("update", db, table_name, cpudata, datetime, table_id, id)
+            cmd2 = sqlUpdateOrInsertMsg("insert", db, table_name, cpudata, datetime, table_id, id)
+            sqlSelectAndExec(cur, cmd, cmd1, cmd2)
+
+            load_name = "five"
+            db = "janson_load_{}".format(load_name)
+            table_id = "janson_load_{}_id".format(load_name)
+            table_name = "percent"
+            load_one_cmd = sqlSelectMsg(db, table_id, id)
+            load_one_cmd1 = sqlUpdateOrInsertMsg("update", db, table_name, one_load, datetime, table_id, id)
+            load_one_cmd2 = sqlUpdateOrInsertMsg("insert", db, table_name, one_load, datetime, table_id, id)
+            sqlSelectAndExec(cur, load_one_cmd, load_one_cmd1, load_one_cmd2)
+
+            load_name = "ten"
+            db = "janson_load_{}".format(load_name)
+            table_id = "janson_load_{}_id".format(load_name)
+            table_name = "percent"
+            load_one_cmd = sqlSelectMsg(db, table_id, id)
+            load_one_cmd1 = sqlUpdateOrInsertMsg("update", db, table_name, five_load, datetime, table_id, id)
+            load_one_cmd2 = sqlUpdateOrInsertMsg("insert", db, table_name, five_load, datetime, table_id, id)
+            sqlSelectAndExec(cur, load_one_cmd, load_one_cmd1, load_one_cmd2)
+
+            load_name = "fifteen"
+            db = "janson_load_{}".format(load_name)
+            table_id = "janson_load_{}_id".format(load_name)
+            table_name = "percent"
+            load_one_cmd = sqlSelectMsg(db, table_id, id)
+            load_one_cmd1 = sqlUpdateOrInsertMsg("update", db, table_name, fifteen_load, datetime, table_id, id)
+            load_one_cmd2 = sqlUpdateOrInsertMsg("insert", db, table_name, fifteen_load, datetime, table_id, id)
+            sqlSelectAndExec(cur, load_one_cmd, load_one_cmd1, load_one_cmd2)
+
+            net = netSpeed()
+            db_on = "janson_flow_on"
+            db_down = "janson_flow_down"
+            table_on_id = "janson_flow_on_id"
+            table_down_id = "janson_flow_down_id"
+            for net_name, net_speed in net.iteritems():
+                name = net_name
+                net_speed_on = net_speed[1]
+                net_speed_down = net_speed[0]
+                db = "janson_flow_on"
+                net_on_cmd = sqlSelectMsg(db_on, table_on_id, net_id)
+                net_down_cmd = sqlSelectMsg(db_down, table_down_id, net_id)
+                net_on_cmd1 = sqlNetUpdateOrInsertMsg("update", db_on, name, net_speed_on, datetime, table_on_id,
+                                                      net_id)
+                net_down_cmd1 = sqlNetUpdateOrInsertMsg("update", db_down, name, net_speed_down, datetime,
+                                                        table_down_id, net_id)
+                net_on_cmd2 = sqlNetUpdateOrInsertMsg("insert", db_on, name, net_speed_on, datetime, table_on_id,
+                                                      net_id)
+                net_down_cmd2 = sqlNetUpdateOrInsertMsg("insert", db_down, name, net_speed_down, datetime,
+                                                        table_down_id, net_id)
+                sqlSelectAndExec(cur, net_on_cmd, net_on_cmd1, net_on_cmd2)
+                sqlSelectAndExec(cur, net_down_cmd, net_down_cmd1, net_down_cmd2)
+                if net_id < len(net) * 24:
+                    net_id += 1
+                else:
+                    net_id = 1
+            cur.execute(cmd)
+            con.commit()
+            print "#" * 25
+            time.sleep(300)
+    except:
+        con.close()
