@@ -8,9 +8,5 @@ from django.shortcuts import render
 
 
 @login_required
-def base(req):
-    if req.GET:
-        return render(req, 'command/index.html')
-    elif req.POST:
-        pass
-        return render(req, 'command/index.html')
+def index(req):
+    return render(req, "control/index.html")

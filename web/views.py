@@ -10,6 +10,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 
 
+@login_required
 def index(req):
     return render(req, "base.html")
 
@@ -17,6 +18,7 @@ def index(req):
 def logout_user(req):
     logout(req)
     return redirect(reverse('login'))
+
 
 def login_user(request):
     if request.method == 'GET':
@@ -51,4 +53,4 @@ def login_user(request):
 
 @login_required
 def base(req):
-    return render(req, 'base.html')
+    return render(req, 'web/index.html')

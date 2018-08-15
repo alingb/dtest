@@ -23,4 +23,6 @@ urlpatterns = [
     url(r'^$', views.index, name="index"),
     url(r'web/', include('web.urls')),
     url(r'command/', include('command.urls')),
+    url(r'detail/', include('detail.urls')),
+    url(r'control/', include('control.urls')),
 ]
