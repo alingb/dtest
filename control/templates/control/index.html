@@ -2,5 +2,27 @@
 
 
 {% block contentHeader %}
-control
+    <div align="center" style="width: 500px">
+        <form action="" name=form method="post" enctype="multipart/form-data">
+            <table style="text-align: center">
+                <tr>
+                    <th>
+                        执行IP:
+                    </th>
+                    <td>
+                        <input type="text" name="ip" placeholder="ip"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        执行指令:
+                    </th>
+                    <td>
+                        <input type="text" name="cmd"/>
+                    </td>
+                </tr>
+            </table>
+    </div>
+
+</form>
 {% endblock %}

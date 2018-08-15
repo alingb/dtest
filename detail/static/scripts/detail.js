@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function () {
     window.data = null;
     get_data();
     setdata();
@@ -17,6 +17,7 @@ function get_data() {
         }
     });
 }
+
 function setdata() {
     $('#table').bootstrapTable({
         contentType: "application/json",//请求内容格式 默认是 application/json 自己根据格式自行服务端处理
@@ -24,7 +25,7 @@ function setdata() {
         method: "GET",
         toolbar: '#toolbar',                //工具按钮用哪个容器
         striped: true,                      //是否显示行间隔色
-        cache: true,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+        cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
         pagination: true,                   //是否显示分页（*）
         sortOrder: "asc",                   //排序方式
         sidePagination: "client",           //分页方式：client客户端分页，server服务端分页（*）
@@ -40,23 +41,26 @@ function setdata() {
         uniqueId: "tnum",
         buttonsAlign: "right",
         toolbarAlign: "right",
+        undefinedText: '-',
+        buttonsClass: 'btn',
+        showToggle: true,
         columns: [{
             checkbox: true
         }, {
             field: 'sn',
-            title: '姓名'
+            title: 'SN'
         }, {
             field: 'sn_1',
-            title: '年龄'
+            title: 'SN_1'
         }, {
             field: 'bios',
-            title: '性别'
+            title: 'BIOS'
         }, {
             field: 'bmc',
-            title: '课程'
+            title: 'BMC'
         }, {
             field: 'name',
-            title: '电话'
+            title: 'NAME'
         }],
         data: window.data,
     });
