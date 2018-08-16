@@ -2,27 +2,30 @@
 
 
 {% block contentHeader %}
-    <div align="center" style="width: 500px">
-        <form action="" name=form method="post" enctype="multipart/form-data">
+    <form action="" name=form method="post" enctype="multipart/form-data">
+        <div align="center" style="width: 500px">
             <table style="text-align: center">
                 <tr>
                     <th>
                         执行IP:
                     </th>
                     <td>
-                        <input type="text" name="ip" placeholder="ip"/>
+                        <label>
+                            <input type="text" name="ip"  placeholder="输入ip"/>
+                        </label>
                     </td>
                 </tr>
                 <tr>
-                    <th>
-                        执行指令:
-                    </th>
-                    <td>
-                        <input type="text" name="cmd"/>
-                    </td>
+                        <th>
+                            执行指令:
+                        </th>
+                        <td>
+                            <label>
+                                <input type="text" name="cmd" placeholder="shell指令"/>
+                            </label>
+                        </td>
                 </tr>
             </table>
-    </div>
-
-</form>
+        </div>
+    </form>
 {% endblock %}
