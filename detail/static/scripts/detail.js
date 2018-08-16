@@ -31,17 +31,16 @@ var TableInit = function () {
         $('#table').bootstrapTable({
             url: '/detail/detail/',         //请求后台的URL（*）
             method: 'get',    //请求方式（*）
-            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
             toolbar: '#toolbar',                //工具按钮用哪个容器
             striped: true,                      //是否显示行间隔色
-            cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+            cache: true,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
             pagination: true,                   //是否显示分页（*）
             sortable: true,                     //是否启用排序
             sortOrder: "asc",                   //排序方式
             queryParams: oTableInit.queryParams,//传递参数（*）
             sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
             pageNumber: 1,                       //初始化加载第一页，默认第一页
-            pageSize: 15,                       //每页的记录行数（*）
+            pageSize: 10,                       //每页的记录行数（*）
             pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
             search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
             strictSearch: true,
@@ -74,7 +73,6 @@ var TableInit = function () {
             }],
         });
     };
-
     //得到查询的参数
     oTableInit.queryParams = function (params) {
         var temp = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
@@ -96,18 +94,18 @@ function get_check_data() {
         } else {
             var b = JSON.stringify(a);
             console.log(b);
-            var url = "${pageContext.request.contextPath}/login/datalist";
+            var url = "/detail/change/";
             $.ajax({
                 dataType: "json",
                 traditional: true,//这使json格式的字符不会被转码
-                data: {"datalist": b},
+                data: {"data": b},
                 type: "post",
                 url: url,
-                success: function (data) {
-                    toastr.success("成功！");
+                success: function (data, status) {
+                    toastr.success(status);
                 },
-                error: function (data) {
-                    toastr.error(data.responseText);
+                error: function (data, status) {
+                    toastr.error(status);
                 }
             });
         }
@@ -125,7 +123,6 @@ var ButtonInit = function () {
            $("#myModalLabel").text("新增");
            $("#myModal").find(".form-control").val("");
            $('#myModal').modal()
-
            postdata.DEPARTMENT_ID = "";
         });
 
@@ -133,12 +130,10 @@ var ButtonInit = function () {
            var arrselections = $("#table").bootstrapTable('getSelections');
            if (arrselections.length > 1) {
                toastr.warning('只能选择一行进行编辑');
-
                return;
            }
            if (arrselections.length <= 0) {
                toastr.warning('请选择有效数据');
-
                return;
            }
            $("#myModalLabel").text("编辑");
@@ -146,6 +141,7 @@ var ButtonInit = function () {
            $("#txt_parentdepartment").val(arrselections[0].PARENT_ID);
            $("#txt_departmentlevel").val(arrselections[0].DEPARTMENT_LEVEL);
            $("#txt_statu").val(arrselections[0].STATUS);
+           $("#txt_name").val(arrselections[0].NAME);
 
            postdata.DEPARTMENT_ID = arrselections[0].DEPARTMENT_ID;
            $('#myModal').modal();
@@ -188,6 +184,7 @@ var ButtonInit = function () {
            postdata.PARENT_ID = $("#txt_parentdepartment").val();
            postdata.DEPARTMENT_LEVEL = $("#txt_departmentlevel").val();
            postdata.STATUS = $("#txt_statu").val();
+           postdata.NAME = $("#txt_name").val();
            $.ajax({
                type: "post",
                url: "/Home/GetEdit",

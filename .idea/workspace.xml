@@ -1,51 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9724376c-3348-4d42-a2d7-7bd6a24b3eb0" name="Default" comment="update">
-      <change afterPath="$PROJECT_DIR$/../dtest/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dtest/detail/static/scripts/ewin_min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dtest/web/static/scripts/1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/PycharmProjects.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/PycharmProjects.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../doc/check.py" beforeDir="false" afterPath="$PROJECT_DIR$/../doc/check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../doc/delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/../doc/delete.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../doc/messege-usb.py" beforeDir="false" afterPath="$PROJECT_DIR$/../doc/messege-usb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../doc/serve-message.py" beforeDir="false" afterPath="$PROJECT_DIR$/../doc/serve-message.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../doc/sqlbackup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../doc/sqlbackup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../doc/ssh.py" beforeDir="false" afterPath="$PROJECT_DIR$/../doc/ssh.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dtest/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dtest/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dtest/.idea/untitled2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../dtest/.idea/dtest.iml" afterDir="false" />
+    <list default="true" id="9724376c-3348-4d42-a2d7-7bd6a24b3eb0" name="Default" comment="update 2018-08-16">
+      <change afterPath="$PROJECT_DIR$/../dtest/control/static/control/scripts/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dtest/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dtest/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dtest/control/templates/control/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../dtest/control/templates/control/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dtest/detail/static/scripts/detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dtest/detail/static/scripts/detail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dtest/detail/templates/detail/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../dtest/detail/templates/detail/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dtest/detail/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../dtest/detail/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dtest/detail/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../dtest/detail/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dtest/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/../dtest/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dtest/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/../dtest/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dtest/untitled2/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dtest/untitled2/settings.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dtest/untitled2/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dtest/untitled2/wsgi.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../serve-message.py" beforeDir="false" afterPath="$PROJECT_DIR$/../serve-message.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../untitled/untitled/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../untitled/untitled/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../untitled/web/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/../untitled/web/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../untitled/web/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../untitled/web/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../untitled1/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/../untitled1/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../untitled1/chat.py" beforeDir="false" afterPath="$PROJECT_DIR$/../untitled1/chat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../untitled1/chat_for_stree.py" beforeDir="false" afterPath="$PROJECT_DIR$/../untitled1/chat_for_stree.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../untitled1/dingding.py" beforeDir="false" afterPath="$PROJECT_DIR$/../untitled1/dingding.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../untitled1/dingtalkchatbot/sqlbackup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../untitled1/dingtalkchatbot/sqlbackup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../untitled1/messege-usb.py" beforeDir="false" afterPath="$PROJECT_DIR$/../untitled1/messege-usb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../untitled1/sqlbackup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../untitled1/sqlbackup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../untitled1/test1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../untitled1/test1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../untitled3/untitled3/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../untitled3/untitled3/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../untitled3/web/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../untitled3/web/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../untitled3/web/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/../untitled3/web/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../untitled4/untitled4/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../untitled4/untitled4/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../untitled4/web/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../untitled4/web/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../untitled4/web/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../untitled4/web/views.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,36 +33,38 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="1" />
-          <entry key="html" value="21" />
-          <entry key="js" value="10" />
+          <entry key="html" value="23" />
+          <entry key="js" value="13" />
           <entry key="less" value="1" />
-          <entry key="py" value="26" />
+          <entry key="py" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="1" />
-          <entry key="HTML" value="21" />
-          <entry key="JavaScript" value="10" />
+          <entry key="HTML" value="23" />
+          <entry key="JavaScript" value="13" />
           <entry key="Less" value="1" />
-          <entry key="Python" value="26" />
+          <entry key="Python" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Django Console" value="13" />
-          <entry key="html" value="858" />
-          <entry key="js" value="389" />
-          <entry key="py" value="826" />
+          <entry key="html" value="1011" />
+          <entry key="js" value="802" />
+          <entry key="py" value="1204" />
           <entry key="py@untitled2" value="37" />
+          <entry key="txt" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CommandLine" value="37" />
-          <entry key="HTML" value="858" />
-          <entry key="JavaScript" value="389" />
-          <entry key="Python" value="839" />
+          <entry key="HTML" value="1011" />
+          <entry key="JavaScript" value="802" />
+          <entry key="PLAIN_TEXT" value="11" />
+          <entry key="Python" value="1217" />
         </counts>
       </usages-collector>
     </session>
@@ -118,13 +83,35 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../dtest/detail/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+            <state relative-caret-position="242">
+              <caret line="62" column="35" lean-forward="true" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
               <folding>
                 <element signature="e#24#63#0" expanded="true" />
-                <marker date="1534402906291" expanded="true" signature="401:406" ph="..." />
-                <marker date="1534402906291" expanded="true" signature="1023:1028" ph="..." />
+                <marker date="1534412701950" expanded="true" signature="357:362" ph="..." />
+                <marker date="1534412701950" expanded="true" signature="1055:1060" ph="..." />
+                <marker date="1534412701950" expanded="true" signature="1569:1574" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../dtest/detail/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../dtest/detail/templates/detail/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -132,8 +119,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../dtest/control/templates/control/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="13" column="57" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
+            <state relative-caret-position="162">
+              <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
               <folding>
                 <element signature="e#198#224#0#HTML" expanded="true" />
               </folding>
@@ -142,10 +129,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../dtest/web/templates/web/index.html">
+        <entry file="file://$PROJECT_DIR$/../dtest/detail/static/scripts/detail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+            <state relative-caret-position="135">
+              <caret line="100" column="28" lean-forward="true" selection-start-line="100" selection-start-column="28" selection-end-line="100" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../dtest/web/static/scripts/1.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-24">
+              <caret line="104" column="8" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -163,22 +159,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../dtest/detail/templates/detail/index.html">
+        <entry file="file://$PROJECT_DIR$/../dtest/web/templates/web/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="17" column="44" lean-forward="true" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
-              <folding>
-                <element signature="e#2273#2280#1#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../dtest/detail/static/scripts/detail.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-634">
-              <caret line="55" column="29" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
+            <state relative-caret-position="27">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -225,6 +209,11 @@
         <option value="$PROJECT_DIR$/../dtest/templates/base.html" />
         <option value="$PROJECT_DIR$/../dtest/detail/static/scripts/ewin_min.js" />
         <option value="$PROJECT_DIR$/../dtest/detail/templates/detail/index.html" />
+        <option value="$PROJECT_DIR$/../dtest/control/static/scripts/index.js" />
+        <option value="$PROJECT_DIR$/../dtest/web/templates/web/index.html" />
+        <option value="$PROJECT_DIR$/../dtest/control/static/control/scripts/index.js" />
+        <option value="$PROJECT_DIR$/../dtest/control/templates/control/index.html" />
+        <option value="$PROJECT_DIR$/../dtest/detail/urls.py" />
         <option value="$PROJECT_DIR$/../dtest/detail/static/scripts/detail.js" />
         <option value="$PROJECT_DIR$/../dtest/detail/views.py" />
       </list>
@@ -261,6 +250,30 @@
             <path>
               <item name="dtest" type="b2602c69:ProjectViewProjectNode" />
               <item name="dtest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dtest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dtest" type="462c0819:PsiDirectoryNode" />
+              <item name="control" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dtest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dtest" type="462c0819:PsiDirectoryNode" />
+              <item name="control" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dtest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dtest" type="462c0819:PsiDirectoryNode" />
+              <item name="control" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dtest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dtest" type="462c0819:PsiDirectoryNode" />
+              <item name="control" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="control" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dtest" type="b2602c69:ProjectViewProjectNode" />
@@ -325,6 +338,9 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\12\PycharmProjects\dtest\control\static\control" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\12\PycharmProjects\dtest\web\static\scripts" />
       <recent name="C:\Users\12\PycharmProjects\untitled2\control" />
@@ -604,7 +620,14 @@
       <option name="project" value="LOCAL" />
       <updated>1534326934912</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="update 2018-08-16">
+      <created>1534402990402</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1534402990402</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -616,7 +639,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.11658456" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.2545156" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -674,7 +697,8 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="update 2018-08-16" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 2018-08-16" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/web/templates/base.html" />
@@ -730,16 +754,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/command/templates/command/test.html" />
-    <entry file="file://$PROJECT_DIR$/../dtest/detail/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="63" lean-forward="true" selection-start-line="6" selection-start-column="63" selection-end-line="6" selection-end-column="63" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../dtest/command/templates/command/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
@@ -893,47 +907,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../dtest/control/templates/control/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="13" column="57" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
-          <folding>
-            <element signature="e#198#224#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dtest/web/templates/web/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dtest/web/static/scripts/1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="47" column="29" lean-forward="true" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dtest/detail/static/scripts/detail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-634">
-          <caret line="55" column="29" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dtest/detail/templates/detail/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="17" column="44" lean-forward="true" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
-          <folding>
-            <element signature="e#2273#2280#1#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../dtest/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
@@ -944,14 +917,77 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../dtest/web/static/scripts/1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-24">
+          <caret line="104" column="8" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/venv/Lib/site-packages/django/db/models/query.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="694" column="8" selection-start-line="694" selection-start-column="8" selection-end-line="694" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dtest/web/templates/web/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dtest/detail/templates/detail/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dtest/control/static/control/scripts/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dtest/control/templates/control/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+          <folding>
+            <element signature="e#198#224#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dtest/detail/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dtest/detail/static/scripts/detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="100" column="28" lean-forward="true" selection-start-line="100" selection-start-column="28" selection-end-line="100" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../dtest/detail/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+        <state relative-caret-position="242">
+          <caret line="62" column="35" lean-forward="true" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
-            <marker date="1534402906291" expanded="true" signature="401:406" ph="..." />
-            <marker date="1534402906291" expanded="true" signature="1023:1028" ph="..." />
+            <marker date="1534412701950" expanded="true" signature="357:362" ph="..." />
+            <marker date="1534412701950" expanded="true" signature="1055:1060" ph="..." />
+            <marker date="1534412701950" expanded="true" signature="1569:1574" ph="..." />
           </folding>
         </state>
       </provider>

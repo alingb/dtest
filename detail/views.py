@@ -4,7 +4,6 @@ from __future__ import unicode_literals
 import json
 
 from django.contrib.auth.decorators import login_required
-from django.core.paginator import Paginator
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render
 from web.models import Host
@@ -20,9 +19,11 @@ def index(req):
 
 @login_required
 def produceDetail(request):
+    import time
+    start_time = time.time()
     limit = request.GET.get("limit")
     offset = request.GET.get("offset")
-    host = Host.objects.all()
+    host = Host.objects.filter(stress_test="running")
     lenth = len(host)
     if not offset or not limit:
         host = host
@@ -32,9 +33,9 @@ def produceDetail(request):
         host = host[offset:offset + limit]
     data = []
     for each in host:
-        data.append(
-            {"sn": each.sn, "sn_1": each.sn_1, "bios": each.bios, "bmc": each.bmc, "name": each.name,
-             })
+        data.append(model_to_dict(each, fields=["sn", "sn_1", "bios", "bmc", "name"]))
+    end_time = time.time()
+    print end_time - start_time
     return HttpResponse(json.dumps({"rows": data, "total": lenth}))
     # host = Host.objects.all()[1:500]
     # data = list()
@@ -52,3 +53,11 @@ def produceDetail(request):
     # resultBean["msg"] = 'success'
     # resultBean["data"] = data
     # return JsonResponse(data)
+
+
+def change(req):
+    if req.POST:
+        info = req.POST.get("data")
+        return HttpResponse(json.dumps({"status": 200, "data": "sucess"}), content_type="application/json")
+    else:
+        return HttpResponse("fail")
