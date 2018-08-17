@@ -12,7 +12,7 @@ from django.urls import reverse
 
 @login_required
 def index(req):
-    return render(req, "base.html")
+    return render(req, "html/index.html")
 
 
 def logout_user(req):
@@ -24,13 +24,10 @@ def login_user(request):
     if request.method == 'GET':
         return render(request, 'web/login.html')
     else:
-        print(request.POST, '-' * 10)
+
         username = request.POST.get('username', None)
         password = request.POST.get('password', None)
         remember = request.POST.get('remember', None)
-        print(username)
-        print(password)
-        print(remember)
 
         # 1. 先用authenticate进行验证
         user = authenticate(username=username, password=password)

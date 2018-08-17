@@ -1,12 +1,41 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+import json
+import time
 
+from django.contrib.auth.decorators import login_required
+from django.http.response import HttpResponse
+from django.shortcuts import render
+from detail.salt import SaltApi
 # Create your views here.
 
 
 @login_required
 def index(req):
-    return render(req, "control/index.html")
+    if req.POST:
+        info = eval(req.POST.get("data"))
+        # print info
+        name = info["ip"]
+        cmd = info["cmd"]
+        salt_api = "https://192.168.1.57:8000/"
+        salt = SaltApi(salt_api)
+        # print salt.token
+        salt_client = name[0]
+        salt_test = 'test.ping'
+        salt_method = 'cmd.run'
+        salt_params = cmd
+        result1 = salt.salt_command(salt_client, salt_test)
+        print result1
+        # for i in result1.keys():
+        #     print i, ': ', result1[i]
+        result2 = salt.salt_command(salt_client, salt_method, salt_params)
+        print result2
+        # for i in result2.keys():
+        #     print i
+        #     print result2[i]
+        #     print
+        return HttpResponse(json.dumps({"status": 200, "data": "sucess"}), content_type="application/json")
+    else:
+        name = {"master": "master", "slave2": "slave2"}
+        return render(req, "control/index.html", {'name': name})

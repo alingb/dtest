@@ -20,7 +20,6 @@ def index(req):
 @login_required
 def produceDetail(request):
     import time
-    start_time = time.time()
     limit = request.GET.get("limit")
     offset = request.GET.get("offset")
     host = Host.objects.filter(stress_test="running")
@@ -34,8 +33,6 @@ def produceDetail(request):
     data = []
     for each in host:
         data.append(model_to_dict(each, fields=["sn", "sn_1", "bios", "bmc", "name"]))
-    end_time = time.time()
-    print end_time - start_time
     return HttpResponse(json.dumps({"rows": data, "total": lenth}))
     # host = Host.objects.all()[1:500]
     # data = list()

@@ -1,40 +1,41 @@
 {% extends "base.html" %}
 {% load static %}
 {% block header %}
-<script src="{% static '/control/scripts/index.js'  %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet"/>
+    <script src="{% static '/control/scripts/index.js' %}"></script>
+
 {% endblock %}
 
 {% block contentHeader %}
-        <div align="center" style="width: 500px">
-            <table style="text-align: center">
-                <tr>
-                    <th>
-                        执行IP:
-                    </th>
-                    <td>
-                        <label>
-                            <input type="text" name="ip"  id="ip" placeholder="输入ip"/>
-                        </label>
-                    </td>
-                </tr>
-                <tr>
-                        <th>
-                            执行指令:
-                        </th>
-                        <td>
-                            <label>
-                                <input type="text" name="cmd" id="cmd" placeholder="shell指令"/>
-                            </label>
-                        </td>
-                </tr>
-                <tr>
-                    <th></th>
-                    <td>
-                    <label>
-                        <input type="submit" name="submit_post" id="submit_post" class="submit_post">
-                    </label>
-                    </td>
-                </tr>
-            </table>
-        </div>
+    <div class="center-block" style="width: 500px">
+        <span>
+            <label>
+                执行指令:
+                <br />
+                    <input type="text" name="cmd" id="cmd"  class="form-control" placeholder="shell指令"/>
+            </label>
+        </span>
+        <br />
+        <span>
+            <label>
+            执行设备:
+                <br />
+            <select class="selectpicker" multiple data-live-search="true" data-live-search-placeholder="搜索"
+                    data-actions-box="true" id="ip" name="ip">
+                <option value="0">----</option>
+                {% for key, value in name.items %}
+                    <option value={{ key }}>{{ value }}</option>
+                {% endfor %}
+            </select>
+            </label>
+        </span>
+        <br/>
+        <span>
+            <button type="submit" id="submit_post" data-loading-text="Loading..." class="btn btn-primary"
+                    autocomplete="off">
+                        执行
+            </button>
+        </span>
+    </div>
 {% endblock %}
