@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block header %}
+<script src="{% static '/control/scripts/index.js'  %}"></script>
+{% endblock %}
+
+{% block contentHeader %}
+        <div align="center" style="width: 500px">
+            <table style="text-align: center">
+                <tr>
+                    <th>
+                        执行IP:
+                    </th>
+                    <td>
+                        <label>
+                            <input type="text" name="ip"  id="ip" placeholder="输入ip"/>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                        <th>
+                            执行指令:
+                        </th>
+                        <td>
+                            <label>
+                                <input type="text" name="cmd" id="cmd" placeholder="shell指令"/>
+                            </label>
+                        </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>
+                    <label>
+                        <input type="submit" name="submit_post" id="submit_post" class="submit_post">
+                    </label>
+                    </td>
+                </tr>
+            </table>
+        </div>
+{% endblock %}
