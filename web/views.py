@@ -61,13 +61,5 @@ def get_info(req):
     cpu_stat = CpuStat.objects.all()
     data = []
     for each in cpu_stat:
-        data.append([int(each.now_time), float(each.cpu_stat) + 1, float(each.cpu_stat) + 2, float(each.cpu_stat) + 3])
-    data = tuple(data)
-    a = ([
-        [1317888000000, 372.5101],
-        [1318888060000, 372.46],
-        [1318888120000, 372.1662],
-        [1318888180000, 371.62175],
-        [1318888240000, 371.75],
-        [1318888300000, 372]])
+        data.append([int(each.now_time), float(each.cpu_stat)])
     return HttpResponse(json.dumps(data), content_type="application/json")
