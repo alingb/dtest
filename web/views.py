@@ -61,5 +61,6 @@ def get_info(req):
     cpu_stat = CpuStat.objects.all()
     data = []
     for each in cpu_stat:
-        data.append([int(each.now_time), float(each.cpu_stat)])
-    return HttpResponse(json.dumps(data), content_type="application/json")
+        data.append([int(each.now_time), float(each.cpu_stat),
+                    float(each.cpu_stat) + 1, float(each.cpu_stat) + 2])
+    return HttpResponse(json.dumps(data))

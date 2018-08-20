@@ -26,6 +26,7 @@
     <orderEntry type="library" name="exporting" level="application" />
     <orderEntry type="library" name="highcharts-zh_CN" level="application" />
     <orderEntry type="library" name="dark-unica" level="application" />
+    <orderEntry type="library" name="skies" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />

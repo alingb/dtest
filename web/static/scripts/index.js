@@ -1,6 +1,6 @@
 $(document).ready(function () {
     main();
-    test();
+    // test();
 });
 
 function main(){
@@ -12,7 +12,7 @@ function main(){
 			text: 'CPU STATUS'
 		},
 		subtitle: {
-			text: 'Using explicit breaks for nights and weekends'
+			text: ''
 		},
 		// xAxis: {
 		// 	breaks: [{ // Nights
