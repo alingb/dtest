@@ -11,7 +11,7 @@
 <script type="text/javascript" src="{% static 'AdminLTE-2.4.1/bower_components/jquery/dist/jquery.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'AdminLTE-2.4.1/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'AdminLTE-2.4.1/dist/js/adminlte.min.js' %}"></script>
-{#<script type="text/javascript" src="{% static 'js/bootstrap-select.min.js' %}"></script>#}
+<script type="text/javascript" src="{% static 'AdminLTE-2.4.1/bootstrap-select.min.js' %}"></script>
 {% block header %}
 {% endblock header %}
 
@@ -20,7 +20,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'AdminLTE-2.4.1/bower_components/font-awesome/css/font-awesome.min.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'AdminLTE-2.4.1/bower_components/Ionicons/css/ionicons.min.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'AdminLTE-2.4.1/dist/css/skins/skin-blue.min.css' %}">
-{#<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-select.min.css' %}">#}
+<link rel="stylesheet" type="text/css" href="{% static 'AdminLTE-2.4.1/bootstrap-select.min.css' %}">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -33,7 +33,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>OPS</b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>管理系统</b></span>
+      <span class="logo-lg"><b>ADMIN</b></span>
     </a>
 
     <!-- Header Navbar -->
@@ -221,7 +221,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="/detail/"><i class="glyphicon glyphicon-folder-open"></i> <span>详细信息</span></a></li>
-        <li><a href="/web"><i class="glyphicon glyphicon-pencil"></i> <span>客制化信息</span></a></li>
+        <li><a href="/web"><i class="glyphicon glyphicon-pencil"></i> <span>服务器信息</span></a></li>
         <li><a href="/control"><i class="glyphicon glyphicon-folder-open"></i> <span>远程控制</span></a></li>
         <li class="treeview">
           <a href="#"><i class="glyphicon glyphicon-folder-open"></i> <span>系统更新</span>

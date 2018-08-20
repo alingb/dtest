@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import json
+
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 
 
@@ -12,7 +15,7 @@ from django.urls import reverse
 
 @login_required
 def index(req):
-    return render(req, "base.html")
+    return render(req, "html/index.html")
 
 
 def logout_user(req):
@@ -24,13 +27,10 @@ def login_user(request):
     if request.method == 'GET':
         return render(request, 'web/login.html')
     else:
-        print(request.POST, '-' * 10)
+
         username = request.POST.get('username', None)
         password = request.POST.get('password', None)
         remember = request.POST.get('remember', None)
-        print(username)
-        print(password)
-        print(remember)
 
         # 1. 先用authenticate进行验证
         user = authenticate(username=username, password=password)
@@ -54,3 +54,13 @@ def login_user(request):
 @login_required
 def base(req):
     return render(req, 'web/index.html')
+
+
+def get_info(req):
+    from detail.models import CpuStat
+    cpu_stat = CpuStat.objects.all()
+    data = []
+    for each in cpu_stat:
+        data.append([int(each.now_time), float(each.cpu_stat),
+                    float(each.cpu_stat) + 1, float(each.cpu_stat) + 2])
+    return HttpResponse(json.dumps(data))
