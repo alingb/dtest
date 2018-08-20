@@ -4,7 +4,8 @@ $(document).ready(function () {
 });
 
 function main(){
-    $.getJSON('https://data.jianshukeji.com/jsonp?filename=json/new-intraday.json&callback=?', function (data) {
+   // $.getJSON('https://data.jianshukeji.com/jsonp?filename=json/new-intraday.json&callback=?', function (data) {
+    $.getJSON('web/get_info/', function (data) {
 	// create the chart
 	Highcharts.stockChart('container', {
 		title: {
@@ -13,18 +14,18 @@ function main(){
 		subtitle: {
 			text: 'Using explicit breaks for nights and weekends'
 		},
-		xAxis: {
-			breaks: [{ // Nights
-				from: Date.UTC(2012, 9, 6, 16),
-				to: Date.UTC(2012, 9, 7, 8),
-				repeat: 24 * 36e5
-			}, { // Weekends
-				from: Date.UTC(2012, 9, 7, 16),
-				to: Date.UTC(2012, 9, 10, 8),
-				repeat: 7 * 24 * 36e5
-			},{
-			}]
-		},
+		// xAxis: {
+		// 	breaks: [{ // Nights
+		// 		from: Date.UTC(2012, 9, 6, 16),
+		// 		to: Date.UTC(2012, 9, 7, 8),
+		// 		repeat: 24 * 36e5
+		// 	}, { // Weekends
+		// 		from: Date.UTC(2012, 9, 7, 16),
+		// 		to: Date.UTC(2012, 9, 10, 8),
+		// 		repeat: 7 * 24 * 36e5
+		// 	},{
+		// 	}]
+		// },
 		rangeSelector : {
 			buttons : [{
 				type : 'hour',

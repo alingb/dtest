@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import json
+
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 
 
@@ -51,3 +54,20 @@ def login_user(request):
 @login_required
 def base(req):
     return render(req, 'web/index.html')
+
+
+def get_info(req):
+    from detail.models import CpuStat
+    cpu_stat = CpuStat.objects.all()
+    data = []
+    for each in cpu_stat:
+        data.append([int(each.now_time), float(each.cpu_stat) + 1, float(each.cpu_stat) + 2, float(each.cpu_stat) + 3])
+    data = tuple(data)
+    a = ([
+        [1317888000000, 372.5101],
+        [1318888060000, 372.46],
+        [1318888120000, 372.1662],
+        [1318888180000, 371.62175],
+        [1318888240000, 371.75],
+        [1318888300000, 372]])
+    return HttpResponse(json.dumps(data), content_type="application/json")
