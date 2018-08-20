@@ -21,6 +21,10 @@
     <orderEntry type="library" name="bootstrap-table" level="application" />
     <orderEntry type="library" name="bootstrap-table-zh-CN" level="application" />
     <orderEntry type="library" name="jquery-2.1.1" level="application" />
+    <orderEntry type="library" name="jquery-1.8.3" level="application" />
+    <orderEntry type="library" name="highstock" level="application" />
+    <orderEntry type="library" name="exporting" level="application" />
+    <orderEntry type="library" name="highcharts-zh_CN" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />

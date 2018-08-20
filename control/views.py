@@ -35,7 +35,22 @@ def index(req):
         #     print i
         #     print result2[i]
         #     print
-        return HttpResponse(json.dumps({"status": 200, "data": "sucess"}), content_type="application/json")
+        lenth = 2
+        data = [{"server": "master", "data": "sucess"}, {"server": "slaver03", "data": "sucess"}]
+        return HttpResponse(json.dumps({"rows": data, "total": lenth}), content_type="application/json")
+    elif req.GET:
+        lenth = 2
+        data = [{"server": "master", "data": "sucess"}, {"server": "slaver03", "data": "sucess"}]
+        return HttpResponse(json.dumps({"rows": data, "total": lenth}))
     else:
         name = {"master": "master", "slave2": "slave2"}
         return render(req, "control/index.html", {'name': name})
+
+
+def ret_show(request):
+    limit = request.GET.get("limit")
+    offset = request.GET.get("offset")
+    lenth = 2
+    data = [{"server": "master", "data": "sucess"}, {"server": "slaver03", "data": "fail"}]
+    return HttpResponse(json.dumps({"rows": data, "total": lenth}))
+
