@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'command',
     'detail',
     'control',
+    'disk',
 ]
 
 MIDDLEWARE = [
@@ -86,7 +87,7 @@ WSGI_APPLICATION = 'dtest.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cmdb',
+        'NAME': 'blog',
         'USER': 'trusme',
         'PASSWORD': '6286280300',
         'HOST': '192.168.1.57',

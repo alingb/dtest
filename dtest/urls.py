@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'command/', include('command.urls')),
     url(r'detail/', include('detail.urls')),
     url(r'control/', include('control.urls')),
+    url(r'disk/', include('disk.urls')),
 ]

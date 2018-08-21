@@ -70,6 +70,16 @@ var TableInit = function () {
             }, {
                 field: 'name',
                 title: 'NAME',
+            }, {
+                field: 'family',
+                title: 'FAMILY',
+            }, {
+                field: 'ip',
+                title: 'IP',
+                visible: false
+            }, {
+                field: 'fru',
+                title: 'FRU',
                 visible: false
             }],
         });

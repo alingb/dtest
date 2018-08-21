@@ -32,7 +32,7 @@ def produceDetail(request):
         host = host[offset:offset + limit]
     data = []
     for each in host:
-        data.append(model_to_dict(each, fields=["sn", "sn_1", "bios", "bmc", "name"]))
+        data.append(model_to_dict(each, fields=["fru", "family", "ip", "sn", "sn_1", "bios", "bmc", "name"]))
     return HttpResponse(json.dumps({"rows": data, "total": lenth}))
     # host = Host.objects.all()[1:500]
     # data = list()
@@ -55,6 +55,7 @@ def produceDetail(request):
 def change(req):
     if req.POST:
         info = req.POST.get("data")
+        print info
         return HttpResponse(json.dumps({"status": 200, "data": "sucess"}), content_type="application/json")
     else:
         return HttpResponse("fail")
