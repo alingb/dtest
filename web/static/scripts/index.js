@@ -8,6 +8,9 @@ function main(){
     $.getJSON('web/get_info/', function (data) {
 	// create the chart
 	Highcharts.stockChart('container', {
+		credits:{
+			enabled:false,
+		},
 		title: {
 			text: 'CPU STATUS'
 		},
@@ -28,6 +31,14 @@ function main(){
 		// },
 		rangeSelector : {
 			buttons : [{
+				type : 'second',
+				count : 30,
+				text : '30s'
+			},{
+				type : 'minute',
+				count : 1,
+				text : '1m'
+			}, {
 				type : 'hour',
 				count : 1,
 				text : '1h'
