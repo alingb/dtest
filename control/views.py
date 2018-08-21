@@ -37,7 +37,8 @@ def index(req):
         #     print
         lenth = 2
         data = [{"server": "master", "data": "sucess"}, {"server": "slaver03", "data": "sucess"}]
-        return HttpResponse(json.dumps({"rows": data, "total": lenth}), content_type="application/json")
+        # return render(req, "control/index.html", {"data": result2, "server": "master"})
+        return HttpResponse(json.dumps([{"data": result2, "server": "master"}]))
     elif req.GET:
         lenth = 2
         data = [{"server": "master", "data": "sucess"}, {"server": "slaver03", "data": "sucess"}]

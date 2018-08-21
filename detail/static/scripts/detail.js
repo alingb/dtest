@@ -69,7 +69,8 @@ var TableInit = function () {
                 title: 'BMC'
             }, {
                 field: 'name',
-                title: 'NAME'
+                title: 'NAME',
+                visible: false
             }],
         });
     };

@@ -1,6 +1,6 @@
 $(document).ready(function () {
     main();
-    let oTable = new TableInit();
+    var oTable = new TableInit();
     oTable.Init();
 });
 
@@ -13,9 +13,12 @@ function main() {
         $.ajax({
             type: "post",
             url: "#",
+            async: false,
             data: {"data": JSON.stringify(arrselections)},
             success: function (data, status) {
+                console.log(data);
                 toastr.success('提交数据成功');
+                $btn.button('reset');
                 // window.location.href = "/web";
             },
             error: function () {
@@ -31,7 +34,7 @@ function main() {
 
 
 var TableInit = function () {
-    var oTableInit = {};
+    var oTableInit = new Object();
     //初始化Table
     oTableInit.Init = function () {
         $('#ret_show').bootstrapTable({
@@ -60,8 +63,8 @@ var TableInit = function () {
             cardView: false,                    //是否显示详细视图
             detailView: false,                   //是否显示父子表
             columns: [{
-            //     checkbox: true
-            // }, {
+                checkbox: true
+            }, {
                 field: 'server',
                 title: '主机'
             }, {
@@ -72,10 +75,11 @@ var TableInit = function () {
     };
     //得到查询的参数
     oTableInit.queryParams = function (params) {
-        return {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+        var temp = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
             limit: params.limit,   //页面大小
             offset: params.offset,  //页码
         };
+        return temp;
     };
     return oTableInit;
 };
