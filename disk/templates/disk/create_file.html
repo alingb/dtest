@@ -1,0 +1,214 @@
+{% extends "base.html" %}
+{% load static %}
+{% block header %}
+    <!-- Latest compiled and minified CSS -->
+    {#    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">#}
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <!-- Latest compiled and minified JavaScript -->
+    {#    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>#}
+    <!-- Latest compiled and minified Locales -->
+    {#    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.min.js"></script>#}
+    {#    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>#}
+    {#    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet" />#}
+{#    <link rel="stylesheet" media="screen" href="{% static "scripts/jquery.min.js" %}"/>#}
+{#    <link rel="stylesheet" media="screen" href="{% static "scripts/jquery-ui.min.js" %}"/>#}
+{#    <link rel="stylesheet" media="screen" href="{% static "scripts/jquery.inputfocus-0.9.min.js" %}"/>#}
+{#    <link rel="stylesheet" media="screen" href="{% static "scripts/jquery.main.js" %}"/>#}
+{% endblock %}
+{% block lastHeader %}
+    <script src="{% static "scripts/create_file.js" %}"></script>
+    <script src="{% static "scripts/jquery.min.js" %}"></script>
+    <script src="{% static "scripts/jquery-ui.min.js" %}"></script>
+    <script src="{% static "scripts/jquery.inputfocus-0.9.min.js" %}"></script>
+    <script src="{% static "scripts/jquery.main.js" %}"></script>
+{% endblock %}
+
+{% block contentHeader %}
+    <!-- 按钮触发模态框 -->
+    <div id="container">
+        <form action="#" method="post" class="mobile-device" style="margin: 100px">
+
+            <!-- #first_step -->
+            <div id="first_step" class="center-block">
+                <h3>请填写信息</h3>
+                <br/>
+                <br/>
+                <div class="form-group">
+                    <select class="selectpicker" id="disk_type" data-style="btn-info">
+                        <option class="text-left" value="1">本地盘</option>
+                        <option class="text-left" value="2">网络盘</option>
+                    </select>
+                </div>
+                <div class="from-group">
+                    <label for="route">路径</label>
+                    <input type="text" class="form-control" id="route" placeholder="/data" style="width: 20%">
+                </div>
+                <div class="from-group">
+                    <label for="share_name">路径</label>
+                    <input type="text" class="form-control" id="share_name" placeholder="name" style="width: 20%">
+                </div>
+                <div class="form-group"></div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success" name="submit_first" id="submit_first">下一步</button>
+                </div>
+            </div>      <!-- clearfix -->
+
+
+
+            <!-- #second_step -->
+            <div id="second_step">
+                <h3 style="text-align: center">请选择硬盘</h3>
+
+                <table class="table table-hover" id="disk_choose">
+                    <tr id="/1" onclick="setLineNum(this);">
+                        <td>Username</td>
+                        <td>1</td>
+                        <td>Username</td>
+                        <td></td>
+                    </tr>
+                    <tr id="/2" onclick="setLineNum(this);">
+                        <td>Password</td>
+                        <td>2</td>
+                        <td>Password</td>
+                        <td></td>
+                    </tr>
+                    <tr id="/3" onclick="setLineNum(this);">
+                        <td>Email</td>
+                        <td>3</td>
+                        <td>Email</td>
+                        <td></td>
+                    </tr>
+                    <tr id="/4" onclick="setLineNum(this);">
+                        <td>Name</td>
+                        <td>4</td>
+                        <td>Name</td>
+                        <td></td>
+                    </tr>
+                    <tr id="/5" onclick="setLineNum(this);">
+                        <td>Age</td>
+                        <td>5</td>
+                        <td>Age</td>
+                        <td></td>
+                    </tr>
+                    <tr id="/6" onclick="setLineNum(this);">
+                        <td>Gender</td>
+                        <td>6</td>
+                        <td>Gender</td>
+                        <td></td>
+                    </tr>
+                    <tr id="/7" onclick="setLineNum(this);">
+                        <td>Country</td>
+                        <td>7</td>
+                        <td>Country</td>
+                        <td></td>
+                    </tr>
+                </table>
+                <input type="hidden" id="disk_name" name="disk_nam"/>
+                <button type="submit"  style="float: left" class="btn btn-primary" name="submit_second_pre" id="submit_second_pre">前一步</button>
+                <button type="submit" style="float: right" class="btn btn-success" name="submit_second" id="submit_second">下一步</button>
+            </div>
+
+
+            <!-- #third_step -->
+            <div id="third_step">
+                <h3 style="text-align: center">请选择存储策略</h3>
+
+                <table class="table table-hover">
+                    <tr>
+                        <td>磁盘属性</td>
+                        <td id="disk_type_change">本地盘</td>
+                    </tr>
+                    <tr>
+                        <td>路径</td>
+                        <td id="share_name_change">/data</td>
+                    </tr>
+                    <tr>
+                        <td>共享名称</td>
+                        <td>Email</td>
+                    </tr>
+                    <tr>
+                        <td>文件描述</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>冻结时间</td>
+                        <td>
+                            <select class="selectpicker" data-style="btn-info" id="cold_time">
+                                <option class="text-left" value="100">100</option>
+                                <option class="text-left" value="200">200</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>EnablePackSmallFilesr</td>
+                        <td>
+                            <select class="selectpicker" data-style="btn-info">
+                                <option class="text-left" value="100">0</option>
+                                <option class="text-left" value="200">1</option>
+                            </select>
+                            启用(1)/禁用(0)打包SFOSmallFileMaxSize以下的小文件功能。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>EnablePackSpecialFiles</td>
+                        <td>
+                            <select class="selectpicker" data-style="btn-info">
+                                <option class="text-left" value="100">0</option>
+                                <option class="text-left" value="200">1</option>
+                            </select>
+                            启用(1)/禁用(0)打包长命名文件或不UTF8文件和符号链接功能。。
+                        </td>
+                    </tr>
+                </table>
+                <button type="submit"  style="float: left" class="btn btn-primary" name="submit_third_pre" id="submit_third_pre">前一步</button>
+                <button type="submit" style="float: right" class="btn btn-success" name="submit_third" id="submit_third">下一步</button>
+            </div>      <!-- clearfix -->
+
+
+
+            <!-- #fourth_step -->
+            <div id="fourth_step">
+                <h1>SIGN UP FOR A FREE <span>WEBEXP18</span> ACCOUNT</h1>
+
+                <div class="form">
+                    <h2>Summary</h2>
+
+                    <table>
+                        <tr>
+                            <td>Username</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Name</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Age</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Gender</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Country</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>      <!-- clearfix -->
+                <div class="clear"></div><!-- /clearfix -->
+                <button type="submit"  style="float: left" class="btn btn-primary" name="submit_fourth_pre" id="submit_fourth_pre">前一步</button>
+                <button type="submit" style="float: right" class="btn btn-success" name="submit_fourth" id="submit_fourth">提交</button>
+            </div>
+
+        </form>
+    </div>
+{% endblock contentHeader %}

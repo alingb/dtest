@@ -1,6 +1,5 @@
 $(document).ready(function () {
     window.data = null;
-    get_data();
     var oTable = new TableInit();
     oTable.Init();
     get_check_data();
@@ -11,25 +10,12 @@ $(document).ready(function () {
 });
 
 
-function get_data() {
-    $.ajax({
-        type: "get",
-        url: "/detail/detail/",
-        async: false,
-        success: function (callback) {
-            if (callback.msg === 'success') {
-                window.data = callback.data;
-            }
-        }
-    });
-}
-
 var TableInit = function () {
     var oTableInit = new Object();
     //初始化Table
     oTableInit.Init = function () {
         $('#table').bootstrapTable({
-            url: '/detail/detail/',         //请求后台的URL（*）
+            url: '/disk/disk_info/',         //请求后台的URL（*）
             method: 'get',    //请求方式（*）
             toolbar: '#toolbar',                //工具按钮用哪个容器
             striped: true,                      //是否显示行间隔色
@@ -56,32 +42,28 @@ var TableInit = function () {
             columns: [{
                 checkbox: true
             }, {
-                field: 'sn',
-                title: 'SN'
+                field: 'disk_id',
+                title: 'ID'
             }, {
-                field: 'sn_1',
-                title: 'SN_1'
+                field: 'disk_name',
+                title: '硬盘名称'
             }, {
-                field: 'bios',
-                title: 'BIOS'
+                field: 'disk_type',
+                title: '硬盘类型'
             }, {
-                field: 'bmc',
-                title: 'BMC'
+                field: 'disk_size',
+                title: '总大小'
             }, {
-                field: 'name',
-                title: 'NAME',
+                field: 'disk_used',
+                title: '已使用',
             }, {
-                field: 'family',
-                title: 'FAMILY',
+                field: 'disk_avail',
+                title: '可以使用',
             }, {
-                field: 'ip',
-                title: 'IP',
+                field: 'disk_mount',
+                title: '挂载',
                 visible: false
-            }, {
-                field: 'fru',
-                title: 'FRU',
-                visible: false
-            }],
+            },],
         });
     };
     //得到查询的参数
@@ -89,8 +71,6 @@ var TableInit = function () {
         var temp = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
             limit: params.limit,   //页面大小
             offset: params.offset,  //页码
-            departmentname: $("#txt_search_departmentname").val(),
-            statu: $("#txt_search_statu").val()
         };
         return temp;
     };
