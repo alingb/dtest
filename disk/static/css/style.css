@@ -1,0 +1,11 @@
+
+#container #first_step, #second_step, #third_step, #fourth_step {
+    display: none;
+}
+
+#container #first_step {
+    display: block;
+}
+tr.focus {
+        background-color:#eee;
+    }
