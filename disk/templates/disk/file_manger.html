@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% block header %}
+   <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
+    <!-- Latest compiled and minified Locales -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet" />
+    <script src="{% static 'scripts/ewin_min.js' %}"></script>
+    <script src="{% static "scripts/disk_index.js" %}"></script>
+{% endblock %}
+
+{% block contentHeader %}
+    <h1 style="text-align: center">硬盘管理</h1>
+    <div id="toolbar" class="btn-group">
+        <button id="btn_print" type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>创建配置文件
+        </button>
+        <button id="btn_print" type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>激活
+        </button>
+        <button id="btn_print" type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>停止
+        </button>
+        <button id="btn_print" type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>删除
+        </button>
+        <button id="btn_print" type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>开启共享
+        </button>
+        <button id="btn_print" type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>开启samba服务
+        </button>
+    </div>
+    <table id="table"></table>
+{% endblock contentHeader %}

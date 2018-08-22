@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+{% block header %}
+   <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
+    <!-- Latest compiled and minified Locales -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet" />
+    <link rel="stylesheet" media="screen" href="{% static "scripts/zzsc.js" %}" />
+
+{% endblock %}
+
+{% block contentHeader %}
+<!-- 按钮触发模态框 -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    弹出模态框
+</button>
+
+<!-- 模态框（Modal） -->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="modalTitle">
+                    模态框标题
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div><input></div>
+                <div><input></div>
+            </div>
+            <div class="modal-footer">
+                <button type='button' class='btn btn-primary previous-page hidden'>
+                    上一页
+                </button>
+                <button type="button" class="btn btn-primary next-page">
+                    下一页
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    取消
+                </button>
+                <label class="page-index" hidden>0</label>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+{% endblock contentHeader %}
