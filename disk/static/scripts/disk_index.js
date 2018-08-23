@@ -1,12 +1,12 @@
 $(document).ready(function () {
     window.data = null;
-    var oTable = new TableInit();
-    oTable.Init();
+    // var oTable = new TableInit();
+    // oTable.Init();
     get_check_data();
-    //2.初始化Button的点击事件
     var oButtonInit = new ButtonInit();
     oButtonInit.Init();
     toastr.options.positionClass = 'toast-top-center';
+    button_link();
 });
 
 
@@ -204,3 +204,9 @@ var ButtonInit = function () {
     return oInit;
 };
 
+function button_link() {
+    $("#file_create").click( function (){
+        window.location.href = "/disk/createfile/"
+    });
+
+}
