@@ -151,6 +151,7 @@ $(document).ready(function () {
             data:{"data":JSON.stringify({"group":group_name})},
             success: function (data, status) {
                 toastr.success('群组创建成功');
+                $("#group_show").bootstrapTable('refresh');
                 $("#group_close").click();
             },
             error: function (data, status) {

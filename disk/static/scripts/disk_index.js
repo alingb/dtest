@@ -7,6 +7,7 @@ $(document).ready(function () {
     oButtonInit.Init();
     toastr.options.positionClass = 'toast-top-center';
     button_link();
+    tableFocus();
 });
 
 
@@ -209,4 +210,11 @@ function button_link() {
         window.location.href = "/disk/createfile/"
     });
 
+}
+
+function tableFocus() {
+    $("#table1>tbody>tr").on("click", function () {
+        // $(this).parent().find("tr.focus").toggleClass("focus");//取消原先选中行
+        $(this).toggleClass("focus");//设定当前行为选中行
+    });
 }
