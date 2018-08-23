@@ -14,19 +14,12 @@
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="jdk" jdkName="Python 2.7 (untitled2)" jdkType="Python SDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Django Lib" level="project" />
     <orderEntry type="library" name="bootstrap" level="application" />
     <orderEntry type="library" name="bootstrap-table" level="application" />
     <orderEntry type="library" name="bootstrap-table-zh-CN" level="application" />
-    <orderEntry type="library" name="jquery-2.1.1" level="application" />
-    <orderEntry type="library" name="jquery-1.8.3" level="application" />
-    <orderEntry type="library" name="highstock" level="application" />
-    <orderEntry type="library" name="exporting" level="application" />
-    <orderEntry type="library" name="highcharts-zh_CN" level="application" />
-    <orderEntry type="library" name="dark-unica" level="application" />
-    <orderEntry type="library" name="skies" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />

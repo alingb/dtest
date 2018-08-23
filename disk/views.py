@@ -14,8 +14,7 @@ from models import *
 # Create your views here.
 
 
-
-def disk(request):
+def diskInfo(request):
     disk_info = DiskInfo.objects.all()
     limit = request.GET.get("limit")
     offset = request.GET.get("offset")
@@ -32,7 +31,27 @@ def disk(request):
                                                 "disk_name", "disk_type",
                                                 "disk_size", "disk_used",
                                                 "disk_avail", "disk_mount",]))
-    print(data)
+    return HttpResponse(json.dumps({"rows": data, "total": lenth}))
+
+
+def fileInfo(request):
+    username = request.user
+    file_info = FileManger.objects.filter(file_user=username)
+    limit = request.GET.get("limit")
+    offset = request.GET.get("offset")
+    lenth = len(file_info)
+    if not offset or not limit:
+        host = file_info
+    else:
+        offset = int(offset)
+        limit = int(limit)
+        host = file_info[offset:offset + limit]
+    data = []
+    for each in host:
+        data.append(model_to_dict(each, fields=["id", 'file_user', 'file_cold_time', 'file_add_time',
+                                                'file_group', 'file_disk_type', 'file_active_stat',
+                                                'file_route', 'file_share_name', 'file_share_stat',
+                                                'file_disk_name', 'file_time']))
     return HttpResponse(json.dumps({"rows": data, "total": lenth}))
 
 
@@ -42,9 +61,7 @@ def base(request):
 
 def fileManger(request):
     username = request.user
-    print(username)
     file = FileManger.objects.filter(file_user=username)
-    print(file)
     return render(request, "disk/file_manger.html", {"file": file})
 
 
@@ -119,3 +136,34 @@ def gropupChange(request):
         return HttpResponse("ok")
     else:
         return HttpResponse("error")
+
+
+def chechRoute(request):
+    if request.POST:
+        msg = request.POST.get("data")
+        route = eval(msg)["route"]
+        username = request.user
+        try:
+            FileManger.objects.get(file_user=username, file_route=route)
+            print("yes")
+        except:
+            print("no")
+            return HttpResponse("ok")
+        return HttpResponseBadRequest()
+
+
+def changeFileInfo(request):
+    if request.POST:
+        post_msg = request.POST.get("data")
+        msg = eval(post_msg)["msg"]
+        id = eval(post_msg["id"])
+        file = FileManger.objects.get(id=id)
+        if msg == "active_change":
+            pass
+        if msg == "change_share":
+            pass
+        if msg == "change_smb":
+            pass
+
+
+        return HttpResponse("")

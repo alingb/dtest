@@ -1,7 +1,9 @@
 $(document).ready(function () {
     window.data = null;
-    // var oTable = new TableInit();
-    // oTable.Init();
+    var oTable = new TableInit();
+    oTable.Init();
+    var oFileTable = new FileTableInit();
+    oFileTable.Init();
     get_check_data();
     var oButtonInit = new ButtonInit();
     oButtonInit.Init();
@@ -76,6 +78,87 @@ var TableInit = function () {
         return temp;
     };
     return oTableInit;
+};
+
+var FileTableInit = function () {
+    var oFileTableInit = new Object();
+    //初始化Table
+    oFileTableInit.Init = function () {
+        $('#file_table').bootstrapTable({
+            url: '/disk/file_info/',         //请求后台的URL（*）
+            method: 'get',    //请求方式（*）
+            toolbar: '#toolbar',                //工具按钮用哪个容器
+            striped: true,                      //是否显示行间隔色
+            cache: true,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+            pagination: true,                   //是否显示分页（*）
+            sortable: true,                     //是否启用排序
+            sortOrder: "asc",                   //排序方式
+            queryParams: oFileTableInit.queryParams,//传递参数（*）
+            sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+            pageNumber: 1,                       //初始化加载第一页，默认第一页
+            pageSize: 10,                       //每页的记录行数（*）
+            pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+            search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+            strictSearch: true,
+            showColumns: true,                  //是否显示所有的列
+            showRefresh: true,                  //是否显示刷新按钮
+            minimumCountColumns: 2,             //最少允许的列数
+            clickToSelect: true,                //是否启用点击选中行
+            // height: 500,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+            // uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+            showToggle: true,                    //是否显示详细视图和列表视图的切换按钮
+            cardView: false,                    //是否显示详细视图
+            detailView: false,                   //是否显示父子表
+            columns: [{
+                checkbox: true
+            }, {
+                field: 'id',
+                title: 'ID'
+            }, {
+                field: 'file_user',
+                title: '用户'
+            }, {
+                field: 'file_group',
+                title: '群组'
+            }, {
+                field: 'file_disk_type',
+                title: '硬盘类型'
+            }, {
+                field: 'file_route',
+                title: '文件路径',
+            }, {
+                field: 'file_share_name',
+                title: '共享名称',
+            }, {
+                field: 'file_disk_name',
+                title: '硬盘名称',
+            },{
+                field: 'file_cold_time',
+                title: '冻结时间',
+            },{
+                field: 'file_add_time',
+                title: '提交时间',
+            },{
+                field: 'file_time',
+                title: '更新时间',
+            },{
+                field: 'file_active_stat',
+                title: '激活状态',
+            },{
+                field: 'file_share_stat',
+                title: '共享状态',
+            },],
+        });
+    };
+    //得到查询的参数
+    oFileTableInit.queryParams = function (params) {
+        var temp = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+            limit: params.limit,   //页面大小
+            offset: params.offset,  //页码
+        };
+        return temp;
+    };
+    return oFileTableInit;
 };
 
 function get_check_data() {
@@ -191,9 +274,7 @@ var ButtonInit = function () {
                    toastr.error('Error');
                },
                complete: function () {
-
                }
-
            });
         });
 
@@ -205,9 +286,73 @@ var ButtonInit = function () {
     return oInit;
 };
 
+
+
+
+
 function button_link() {
-    $("#file_create").click( function (){
+    var arrselections = $("#file_table").bootstrapTable('getSelections');
+    $("#file_create").click(function () {
         window.location.href = "/disk/createfile/"
+    });
+    $("#file_active").click(function () {
+        if (arrselections.length > 0) {
+            var id = $.parseJSON(JSON.stringify(arrselections))[0]["id"]
+            $.ajax({
+                type: "post",
+                url: "disk/change/",
+                data: {"data": JSON.stringify({"msg": "active_change", "id": id})},
+                success: function () {
+                    toastr.success('激活状态更改成功');
+                    $("#file_table").bootstrapTable('refresh');
+                },
+                error: function () {
+                    toastr.error("更改失败")
+                }
+            })
+        } else {
+            toastr.warning('请选择有效数据');
+        }
+    });
+    $("#start_share").click(function () {
+        if (arrselections.length > 0) {
+            var id = $.parseJSON(JSON.stringify(arrselections))[0]["id"]
+            $.ajax({
+                type: "post",
+                url: "disk/change/",
+                data: {"data": JSON.stringify({"msg": "change_share", "id": id})},
+                success: function () {
+                    toastr.success('开启共享成功');
+                    $("#file_table").bootstrapTable('refresh');
+                },
+                error: function () {
+                    toastr.error("开启失败")
+                }
+            })
+        } else {
+            toastr.warning('请选择有效数据');
+        }
+    });
+    $("#start_smb").click(function () {
+        $("#start_share").click(function () {
+            if (arrselections.length > 0) {
+                var id = $.parseJSON(JSON.stringify(arrselections))[0]["id"]
+                $.ajax({
+                    type: "post",
+                    url: "disk/change/",
+                    data: {"data": JSON.stringify({"msg": "change_smb", "id": id})},
+                    success: function () {
+                        toastr.success('开启共享成功');
+                        $("#file_table").bootstrapTable('refresh');
+                    },
+                    error: function () {
+                        toastr.error("开启失败")
+                    }
+                })
+            } else {
+                toastr.warning('请选择有效数据');
+            }
+        });
     });
 
 }

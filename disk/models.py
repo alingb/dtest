@@ -28,6 +28,8 @@ class FileManger(models.Model):
     file_time = models.CharField('更新时间', max_length=255)
     file_user = models.CharField('用户', max_length=255, default='--')
     file_group = models.CharField('群组', max_length=255, default='--')
+    file_active_stat = models.CharField('激活状态', max_length=255, default=u"未激活")
+    file_share_stat = models.CharField("共享状态", max_length=255, default=u"未共享")
 
 
 class FileGroup(models.Model):
