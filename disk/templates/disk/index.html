@@ -16,23 +16,21 @@
 {% block contentHeader %}
     <h1 style="text-align: center">硬盘管理</h1>
     <div id="toolbar" class="btn-group">
-        <button id="disk_drop" type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>格式化
+        <button id="disk_add" type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>添加硬盘
+
+            <button id="disk_del" type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>删除硬盘
+            </button>
         </button>
         <button id="disk_active" type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>激活硬盘
-        </button>
-        <button id="disk_del" type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>删除硬盘
-        </button>
-        <button id="disk_add" type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>添加硬盘
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>激活硬盘
         </button>
         <button id="disk_start_back" type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>开启备盘
+            <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>开启备盘
         </button>
         <button id="disk_stop_back" type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>关闭备盘
+            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>关闭备盘
         </button>
     </div>
     <table id="table"></table>

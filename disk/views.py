@@ -15,7 +15,8 @@ from models import *
 
 
 def diskInfo(request):
-    disk_info = DiskInfo.objects.all()
+    disk_stat = 1
+    disk_info = DiskInfo.objects.filter(disk_use_stat=disk_stat)
     limit = request.GET.get("limit")
     offset = request.GET.get("offset")
     lenth = len(disk_info)
@@ -34,6 +35,27 @@ def diskInfo(request):
     return HttpResponse(json.dumps({"rows": data, "total": lenth}))
 
 
+def diskAdd(request):
+    add_stat = 0
+    disk_info = DiskInfo.objects.filter(disk_use_stat=add_stat)
+    limit = request.GET.get("limit")
+    offset = request.GET.get("offset")
+    lenth = len(disk_info)
+    if not offset or not limit:
+        host = disk_info
+    else:
+        offset = int(offset)
+        limit = int(limit)
+        host = disk_info[offset:offset + limit]
+    data = []
+    for each in host:
+        data.append(model_to_dict(each, fields=["disk_id",
+                                                "disk_name", "disk_type",
+                                                "disk_size", "disk_used",
+                                                "disk_avail", "disk_mount", ]))
+    return HttpResponse(json.dumps({"rows": data, "total": lenth}))
+
+
 def fileInfo(request):
     username = request.user
     file_info = FileManger.objects.filter(file_user=username)
@@ -48,15 +70,39 @@ def fileInfo(request):
         host = file_info[offset:offset + limit]
     data = []
     for each in host:
-        data.append(model_to_dict(each, fields=["id", 'file_user', 'file_cold_time', 'file_add_time',
-                                                'file_group', 'file_disk_type', 'file_active_stat',
-                                                'file_route', 'file_share_name', 'file_share_stat',
-                                                'file_disk_name', 'file_time']))
+        dict = model_to_dict(each)
+        dict.update({"file_add_time": each.file_add_time.strftime("%Y-%m-%d %H:%M:%S")})
+        data.append(dict)
+    return HttpResponse(json.dumps({"rows": data, "total": lenth}))
+
+
+def diskBack(request):
+    add_stat = 0
+    back_stat = 0
+    disk_info = DiskInfo.objects.filter(disk_use_stat=add_stat)
+    limit = request.GET.get("limit")
+    offset = request.GET.get("offset")
+    lenth = len(disk_info)
+    if not offset or not limit:
+        host = disk_info
+    else:
+        offset = int(offset)
+        limit = int(limit)
+        host = disk_info[offset:offset + limit]
+    data = []
+    for each in host:
+        data.append(model_to_dict(each, fields=["disk_id",
+                                                "disk_name", "disk_type",
+                                                "disk_size", "disk_used",
+                                                "disk_avail", "disk_mount", ]))
     return HttpResponse(json.dumps({"rows": data, "total": lenth}))
 
 
 def base(request):
     return render(request, "disk/index.html")
+
+def diskAddInfo(request):
+    return render(request, "disk/diskadd.html")
 
 
 def fileManger(request):
@@ -109,7 +155,7 @@ def changeFile(request):
         file.file_route = msg["file_route"]
         file.file_share_name = msg["file_share_name"]
         file.file_cold_time = msg["file_cold_time"]
-        file.file_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+        file.file_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         file.file_user = username
         file.save()
         return HttpResponse("name")
@@ -156,14 +202,33 @@ def changeFileInfo(request):
     if request.POST:
         post_msg = request.POST.get("data")
         msg = eval(post_msg)["msg"]
-        id = eval(post_msg["id"])
-        file = FileManger.objects.get(id=id)
-        if msg == "active_change":
-            pass
-        if msg == "change_share":
-            pass
-        if msg == "change_smb":
-            pass
-
-
+        msg_id = eval(post_msg)["id"]
+        if "disk" in msg:
+            for id in msg_id:
+                disk = DiskInfo.objects.get(disk_id=id)
+                if msg == "disk_add":
+                    disk.disk_use_stat = 1
+                    disk.save()
+                if msg == "disk_del":
+                    disk.disk_use_stat = 0
+                    disk.save()
+        else:
+            for id in msg_id:
+                file = FileManger.objects.get(id=id)
+                if msg == "active_change":
+                    if file.file_active_stat == "未激活":
+                        file.file_active_stat = u"激活"
+                    else:
+                        file.file_active_stat = u"未激活"
+                    file.save()
+                if msg == "change_share":
+                    if file.file_share_stat == "未共享":
+                        file.file_share_stat = u"开启"
+                    else:
+                        file.file_share_stat = u"未共享"
+                    file.save()
+                if msg == "change_smb":
+                    pass
+                if msg == "file_del":
+                    file.delete()
         return HttpResponse("")

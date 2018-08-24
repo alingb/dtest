@@ -44,6 +44,10 @@ $(document).ready(function () {
 
         if (!error) {
             var route = $("#route").val();
+            if (route.indexOf("/") == -1) {
+                toastr.error('路径非法，路径需要包含"/"');
+                return;
+            }
             $.ajax({
                 type: "post",
                 url: "/disk/checkroute/",

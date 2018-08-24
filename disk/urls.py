@@ -4,6 +4,8 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.base, name="disk_index"),
+    url(r'adddisk/', views.diskAddInfo, name="disk_index"),
+    url(r'disk_add/', views.diskAdd, name="disk_index"),
     url(r'disk_info/', views.diskInfo, name="disk_info"),
     url(r'file_info/', views.fileInfo, name="file_info"),
     url(r'filemanger/', views.fileManger, name="file_manger"),

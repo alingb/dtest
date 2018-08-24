@@ -46,7 +46,8 @@ var TableInit = function () {
                 checkbox: true
             }, {
                 field: 'disk_id',
-                title: 'ID'
+                title: 'ID',
+                visible: false
             }, {
                 field: 'disk_name',
                 title: '硬盘名称'
@@ -64,7 +65,7 @@ var TableInit = function () {
                 title: '可以使用',
             }, {
                 field: 'disk_mount',
-                title: '挂载',
+                title: '挂载目录',
                 visible: false
             },],
         });
@@ -99,21 +100,38 @@ var FileTableInit = function () {
             pageSize: 10,                       //每页的记录行数（*）
             pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
             search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+            showExport: true,
+            exportDataType: "basic",
             strictSearch: true,
-            showColumns: true,                  //是否显示所有的列
+            // showColumns: true,                  //是否显示所有的列
             showRefresh: true,                  //是否显示刷新按钮
             minimumCountColumns: 2,             //最少允许的列数
             clickToSelect: true,                //是否启用点击选中行
             // height: 500,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
             // uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
-            showToggle: true,                    //是否显示详细视图和列表视图的切换按钮
-            cardView: false,                    //是否显示详细视图
-            detailView: false,                   //是否显示父子表
+            // showToggle: true,                    //是否显示详细视图和列表视图的切换按钮
+            // cardView: false,                    //是否显示详细视图
+            // detailView: false,                   //是否显示父子表
+            rowStyle: function (row, index) {
+                //这里有5个取值代表5中颜色['active', 'success', 'info', 'warning', 'danger'];
+                var strclass = "";
+                if (row.file_active_stat == "激活") {
+                    strclass = 'success';//还有一个active
+                }
+                else if (row.file_active_stat == "未激活") {
+                    strclass = 'danger';
+                }
+                else {
+                    return {};
+                }
+                return { classes: strclass }
+            },
             columns: [{
                 checkbox: true
             }, {
                 field: 'id',
-                title: 'ID'
+                title: 'ID',
+                visible: false
             }, {
                 field: 'file_user',
                 title: '用户'
@@ -132,6 +150,7 @@ var FileTableInit = function () {
             }, {
                 field: 'file_disk_name',
                 title: '硬盘名称',
+                visible: false
             },{
                 field: 'file_cold_time',
                 title: '冻结时间',
@@ -291,16 +310,42 @@ var ButtonInit = function () {
 
 
 function button_link() {
-    var arrselections = $("#file_table").bootstrapTable('getSelections');
+    $("#disk_add").click(function () {
+        window.location.href = "/disk/adddisk/"
+    });
+    $("#disk_del").click(function () {
+        var arrselections = $("#table").bootstrapTable('getSelections');
+        if (arrselections.length > 0) {
+            var id = $.map(arrselections, function (row){return row.disk_id});
+
+            $.ajax({
+                type: "post",
+                url: "/disk/change/",
+                data: {"data": JSON.stringify({"msg": "disk_del", "id": id})},
+                success: function () {
+                    toastr.success("添加成功");
+                    $("#table").bootstrapTable('refresh');
+                },
+                error: function () {
+                    toastr.error("添加失败")
+                },
+            });
+        }
+        else {
+            toastr.error("请选择数据")
+        }
+    });
+
     $("#file_create").click(function () {
         window.location.href = "/disk/createfile/"
     });
     $("#file_active").click(function () {
+        var arrselections = $("#file_table").bootstrapTable('getSelections');
         if (arrselections.length > 0) {
-            var id = $.parseJSON(JSON.stringify(arrselections))[0]["id"]
+            var id = $.map(arrselections, function (row){return row.id});
             $.ajax({
                 type: "post",
-                url: "disk/change/",
+                url: "/disk/change/",
                 data: {"data": JSON.stringify({"msg": "active_change", "id": id})},
                 success: function () {
                     toastr.success('激活状态更改成功');
@@ -315,11 +360,12 @@ function button_link() {
         }
     });
     $("#start_share").click(function () {
+         var arrselections = $("#file_table").bootstrapTable('getSelections');
         if (arrselections.length > 0) {
-            var id = $.parseJSON(JSON.stringify(arrselections))[0]["id"]
+            var id = $.map(arrselections, function (row){return row.id});
             $.ajax({
                 type: "post",
-                url: "disk/change/",
+                url: "/disk/change/",
                 data: {"data": JSON.stringify({"msg": "change_share", "id": id})},
                 success: function () {
                     toastr.success('开启共享成功');
@@ -334,12 +380,13 @@ function button_link() {
         }
     });
     $("#start_smb").click(function () {
+         var arrselections = $("#file_table").bootstrapTable('getSelections');
         $("#start_share").click(function () {
             if (arrselections.length > 0) {
-                var id = $.parseJSON(JSON.stringify(arrselections))[0]["id"]
+                var id = $.map(arrselections, function (row){return row.id});
                 $.ajax({
                     type: "post",
-                    url: "disk/change/",
+                    url: "/disk/change/",
                     data: {"data": JSON.stringify({"msg": "change_smb", "id": id})},
                     success: function () {
                         toastr.success('开启共享成功');
@@ -354,6 +401,37 @@ function button_link() {
             }
         });
     });
+     $("#file_del").click(function () {
+           var arrselections = $("#file_table").bootstrapTable('getSelections');
+           if (arrselections.length <= 0) {
+               toastr.warning('请选择有效数据');
+               return;
+           }
+
+           Ewin.confirm({ message: "确认要删除选择的数据吗？" }).on(function (e) {
+               if (!e) {
+                   return;
+               }
+               var id = $.map(arrselections, function (row){return row.id});
+               $.ajax({
+                   type: "post",
+                   url: "/disk/change/",
+                   data: { "data": JSON.stringify({"msg": "file_del", "id": id}) },
+                   success: function (data, status) {
+                       if (status === "success") {
+                           toastr.success('删除配置成功');
+                           $("#file_table").bootstrapTable('refresh');
+                       }
+                   },
+                   error: function () {
+                       toastr.error('Error');
+                   },
+                   complete: function () {
+
+                   }
+               });
+           });
+        });
 
 }
 

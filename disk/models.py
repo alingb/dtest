@@ -13,9 +13,11 @@ class DiskInfo(models.Model):
     disk_size = models.CharField('总大小', max_length=255)
     disk_used = models.CharField('使用', max_length=255)
     disk_avail = models.CharField('可用', max_length=255)
-    disk_mount = models.CharField('挂载', max_length=255)
+    disk_mount = models.CharField('挂载目录', max_length=255)
     disk_add_time = models.DateTimeField('提交时间', auto_now_add=True)
     disk_disk_time = models.CharField('更新时间', max_length=250, blank=True)
+    disk_back_stat = models.IntegerField('备用盘状态', default=0)
+    disk_use_stat = models.IntegerField('使用状态', default=0)
 
 
 class FileManger(models.Model):
@@ -35,3 +37,11 @@ class FileManger(models.Model):
 class FileGroup(models.Model):
     group_name = models.CharField('群组名称', max_length=255)
     user_name = models.CharField('用户', max_length=255)
+
+
+class DiskStat(models.Model):
+    disk_stat_name = models.CharField("盘符", max_length=255)
+    disk_stat = models.CharField("状态", max_length=255)
+    disk_slot = models.IntegerField("编号")
+    disk_off_stat = models.IntegerField("关闭状态", default=0)
+    disk_uuid = models.CharField("UUID", max_length=255, blank=True)
