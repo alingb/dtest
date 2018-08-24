@@ -9,8 +9,4 @@ from django.shortcuts import render
 
 @login_required
 def base(req):
-    if req.GET:
-        return render(req, 'command/index.html')
-    elif req.POST:
-        pass
-        return render(req, 'command/index.html')
+    return render(req, 'command/index.html')
