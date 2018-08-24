@@ -141,15 +141,14 @@ DISK_TYPE = {
     '2': u'网络盘',
 }
 
+
 def changeFile(request):
     if request.POST:
         msg = eval(request.POST.get("data"))
         username = request.user
         try:
             route = msg["route"]
-            print(route)
             file = FileManger.objects.get(route=route)
-            print("error")
             return HttpResponseBadRequest()
         except:
             file = FileManger()
@@ -166,7 +165,7 @@ def changeFile(request):
         else:
             file.file_full_route = "/{}/{}/{}".format(msg["file_group_name"], username, msg["file_route"])
         file.save()
-        return HttpResponse("name")
+        return HttpResponse()
     else:
         username = request.user
         file = FileManger.objects.filter(file_user=username)

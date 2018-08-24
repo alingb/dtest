@@ -19,7 +19,6 @@ def index(req):
 
 @login_required
 def produceDetail(request):
-    import time
     limit = request.GET.get("limit")
     offset = request.GET.get("offset")
     host = Host.objects.filter(stress_test="running")
@@ -34,22 +33,6 @@ def produceDetail(request):
     for each in host:
         data.append(model_to_dict(each, fields=["fru", "family", "ip", "sn", "sn_1", "bios", "bmc", "name"]))
     return HttpResponse(json.dumps({"rows": data, "total": lenth}))
-    # host = Host.objects.all()[1:500]
-    # data = list()
-    # for each in host:
-    #     eachdata = dict()
-    #     eachdata["sn"] = each.sn
-    #     eachdata["sn_1"] = each.sn_1
-    #     eachdata["bios"] = each.bios
-    #     eachdata["bmc"] = each.bmc
-    #     eachdata["name"] = each.name
-    #     data.append(eachdata)
-    #
-    # resultBean = dict()
-    # resultBean["code"] = 200
-    # resultBean["msg"] = 'success'
-    # resultBean["data"] = data
-    # return JsonResponse(data)
 
 
 def change(req):
