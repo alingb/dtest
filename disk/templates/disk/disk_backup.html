@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block header %}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet" />
+    <script src="{% static 'scripts/ewin_min.js' %}"></script>
+    <script src="{% static "scripts/adddisk.js" %}"></script>
+{% endblock %}
+
+{% block contentHeader %}
+    <h1 style="text-align: center">添加硬盘</h1>
+    <div id="toolbar" class="btn-group">
+        <button id="disk_start_back" type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>开启备盘
+        </button>
+        <button id="disk_stop_back" type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>关闭备盘
+        </button>
+    </div>
+    <table id="diskback"></table>
+{% endblock contentHeader %}

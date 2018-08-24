@@ -115,6 +115,10 @@ def createFile(request):
     return render(request, "disk/create_file.html")
 
 
+def diskBack(request):
+    return render(request, "disk/disk_backup.html")
+
+
 def groupInfo(request):
     limit = request.GET.get("limit")
     offset = request.GET.get("offset")
@@ -157,6 +161,10 @@ def changeFile(request):
         file.file_cold_time = msg["file_cold_time"]
         file.file_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         file.file_user = username
+        if "/" in msg["file_route"]:
+            file.file_full_route = "/{}/{}{}".format(msg["file_group_name"], username, msg["file_route"])
+        else:
+            file.file_full_route = "/{}/{}/{}".format(msg["file_group_name"], username, msg["file_route"])
         file.save()
         return HttpResponse("name")
     else:

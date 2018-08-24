@@ -14,5 +14,6 @@ urlpatterns = [
     url(r'changegroup/', views.gropupChange, name="group_change"),
     url(r'groupinfo/', views.groupInfo, name="group_info"),
     url(r'checkroute/', views.chechRoute, name="check_route"),
+    url(r'diskback/', views.diskBack, name="disk_back"),
     url(r'change/', views.changeFileInfo, name="check_route"),
 ]

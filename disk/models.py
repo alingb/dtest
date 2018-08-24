@@ -32,6 +32,7 @@ class FileManger(models.Model):
     file_group = models.CharField('群组', max_length=255, default='--')
     file_active_stat = models.CharField('激活状态', max_length=255, default=u"未激活")
     file_share_stat = models.CharField("共享状态", max_length=255, default=u"未共享")
+    file_full_route = models.CharField("存储路径", max_length=255, default="")
 
 
 class FileGroup(models.Model):

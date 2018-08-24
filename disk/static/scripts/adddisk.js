@@ -78,7 +78,6 @@ function buttonclick() {
         var arrselections = $("#addtable").bootstrapTable('getSelections');
         if (arrselections.length > 0) {
             var id = $.map(arrselections, function (row){return row.disk_id});
-
             $.ajax({
                 type: "post",
                 url: "/disk/change/",
@@ -96,6 +95,5 @@ function buttonclick() {
             toastr.error("请选择数据")
         }
     });
-
 
 }
