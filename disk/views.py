@@ -198,9 +198,7 @@ def chechRoute(request):
         username = request.user
         try:
             FileManger.objects.get(file_user=username, file_route=route)
-            print("yes")
         except:
-            print("no")
             return HttpResponse("ok")
         return HttpResponseBadRequest()
 
