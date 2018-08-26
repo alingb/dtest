@@ -166,10 +166,16 @@ var FileTableInit = function () {
             },{
                 field: 'file_share_stat',
                 title: '共享状态',
+            },{
+                field: 'operate',
+                title: '操作',
+                align: 'center',
+                events: operateEvents,
+                formatter: operateFormatter
             },],
         });
     };
-    //得到查询的参数
+        //得到查询的参数
     oFileTableInit.queryParams = function (params) {
         var temp = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
             limit: params.limit,   //页面大小
@@ -179,6 +185,19 @@ var FileTableInit = function () {
     };
     return oFileTableInit;
 };
+function operateFormatter(value, row, index) {
+            return [
+                '<button type="button" class="RoleOfD btn btn-default  btn-sm" style="margin-right:15px;">查看</button>',
+                '<button type="button" class="RoleOfEdit btn btn-default  btn-sm" style="margin-right:15px;">下载</button>'
+            ].join('');
+}
+window.operateEvents = {
+          'click .RoleOfD': function (e, value, row, index) {
+                alert(row.id);
+         },
+            'click .RoleOfEdit': function (e, value, row, index) {
+              alert("index" + index + "下载" + "id:" + row.id)
+                }};
 
 function get_check_data() {
     $("#btn_print").click(function () {
