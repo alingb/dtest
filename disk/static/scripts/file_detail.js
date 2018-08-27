@@ -2,6 +2,7 @@ $(function () {
     //0.初始化fileinput
     var oFileInput = new FileInput();
     oFileInput.Init("txt_file", "/disk/file");
+    toastr.options.positionClass = 'toast-top-center';
 });
 
 //初始化fileinput
