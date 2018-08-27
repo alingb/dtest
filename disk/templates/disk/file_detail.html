@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block header %}
+    <link rel="stylesheet" href="{% static "scripts/fileinput.min.css" %}">
+    <script src="{% static "scripts/ewin_min.js" %}"></script>
+    <script src="{% static "scripts/fileinput.min.js" %}"></script>
+    <script src="{% static "scripts/file_detail.js" %}"></script>
+{% endblock %}
+
+
+{% block contentHeader %}
+    <form action="/disk/file/{{ file.id }}/" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="{{ file.id }}"/>
+        <div class="form-group">
+            {{ file.file.errors }}
+            文件上传:<input type="file" name="file" required id="id_file" />
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-info" />
+        </div>
+    </form>
+    <table id="table1" class="table table-hover" align="center" style=" word-break:break-all;">
+        <tr>
+            <th>用户</th>
+            <th>群组</th>
+            <th>文件名称</th>
+            <th>冻结时间</th>
+            <th>路径</th>
+            <th>上传时间</th>
+            <th>操作</th>
+        </tr>
+        {% for msg in file_msg %}
+            <tr>
+                <td>{{ msg.username }}</td>
+                <td>{{ msg.groupname }}</td>
+                <td>{{ msg.filename }}</td>
+                <td>{{ msg.cold_time }}</td>
+                <td>{{ msg.route }}</td>
+                <td>{{ msg.file_add_time}}</td>
+                <td>
+                    <div id="toolbar" class="btn-group">
+                        <button id="download_{{ msg.id }}" type="button" class="btn btn-default" onclick="download(this)">
+                            <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>下载
+                        </button>
+                    </div>
+                    <div id="toolbar" class="btn-group">
+                        <button id="del_{{ msg.id}}" type="button" class="btn btn-default" onclick="delbutton(this)">
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>删除
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -7,9 +7,10 @@ import json
 import time
 
 from django.forms.models import model_to_dict
-from django.http.response import HttpResponse, HttpResponseBadRequest
+from django.http.response import HttpResponse, HttpResponseBadRequest, HttpResponseRedirect
 from django.shortcuts import render
 from models import *
+from forms import FileUploadDown
 
 # Create your views here.
 
@@ -101,6 +102,7 @@ def diskBack(request):
 def base(request):
     return render(request, "disk/index.html")
 
+
 def diskAddInfo(request):
     return render(request, "disk/diskadd.html")
 
@@ -117,6 +119,47 @@ def createFile(request):
 
 def diskBack(request):
     return render(request, "disk/disk_backup.html")
+
+
+def fileDetail(request, id):
+    if request.method == "POST":
+        try:
+            file = FileUploadDown(request.POST, request.FILES)
+            file_manger = FileManger.objects.get(id=id)
+            myFile = request.FILES.get("file", None)
+            if file.is_valid():
+                upfile = FileUpload()
+                upfile.file = file.cleaned_data["file"]
+                upfile.username = file_manger.file_user
+                upfile.groupname = file_manger.file_group
+                upfile.filename = myFile.name
+                upfile.route = file_manger.file_route
+                upfile.file_full_route = file_manger.file_full_route
+                upfile.cold_time = file_manger.file_cold_time
+                upfile.save()
+                return HttpResponseRedirect('/disk/file/{}/'.format(id))
+            else:
+                print("err")
+                print(file.errors)
+                return render(request, "disk/file_detail.html", {"file": file})
+        except Exception as e:
+            print("try")
+            return HttpResponse(e)
+    else:
+        file_manger = FileManger.objects.get(id=id)
+        username = file_manger.file_user
+        groupname = file_manger.file_group
+        route = file_manger.file_route
+        file_list = []
+        try:
+            file_ipload_stat = FileUpload.objects.filter(username=username, groupname=groupname, route=route)
+            for file_each in file_ipload_stat:
+                file_dict = model_to_dict(file_each)
+                file_dict.update({"file_add_time": file_each.file_add_time.strftime("%Y-%m-%d %H:%M:%S")})
+                file_list.append(file_dict)
+        except Exception as e:
+            print(e)
+        return render(request, "disk/file_detail.html", {"file": file_manger, "file_msg": file_list})
 
 
 def groupInfo(request):

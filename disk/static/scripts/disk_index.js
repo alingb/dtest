@@ -188,16 +188,12 @@ var FileTableInit = function () {
 function operateFormatter(value, row, index) {
             return [
                 '<button type="button" class="RoleOfD btn btn-default  btn-sm" style="margin-right:15px;">查看</button>',
-                '<button type="button" class="RoleOfEdit btn btn-default  btn-sm" style="margin-right:15px;">下载</button>'
             ].join('');
 }
 window.operateEvents = {
           'click .RoleOfD': function (e, value, row, index) {
-                alert(row.id);
-         },
-            'click .RoleOfEdit': function (e, value, row, index) {
-              alert("index" + index + "下载" + "id:" + row.id)
-                }};
+                window.location.href = "/disk/file/" + row.id + "/"
+         },};
 
 function get_check_data() {
     $("#btn_print").click(function () {

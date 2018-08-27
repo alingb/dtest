@@ -46,3 +46,19 @@ class DiskStat(models.Model):
     disk_slot = models.IntegerField("编号")
     disk_off_stat = models.IntegerField("关闭状态", default=0)
     disk_uuid = models.CharField("UUID", max_length=255, blank=True)
+
+
+class FileUpload(models.Model):
+    username = models.CharField("用户", max_length=255, blank=True)
+    groupname = models.CharField("群组", max_length=255, blank=True)
+    filename = models.CharField("文件名称", max_length=255, blank=True)
+    route = models.CharField("路径", max_length=255, blank=True)
+    cold_time = models.CharField("冻结时间", max_length=255, blank=True)
+    stat = models.IntegerField("状态", default=0)
+    file = models.FileField("附件上传", default='')
+    file_full_route = models.CharField("传输路径", max_length=255, default='')
+    file_add_time = models.DateTimeField("上传时间", auto_now_add=True)
+
+
+class UploadDownFile(models.Model):
+    file = models.FileField("附件上传", default='')
