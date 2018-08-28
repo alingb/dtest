@@ -53,29 +53,22 @@ var FileInput = function () {
 };
 
 function download(line) {
- alert(line.id)
-    $.ajax({
-        type: "post",
-        url: "",
-        data: {"data": JSON.stringify({"msg": "download", "id": line.id})},
-        error: function () {
-            toastr.error("下载失败");
-        }
-    })
+    var id = line.id;
+    window.location.href = "/disk/changedata/?url=" + id
 }
 
 function delbutton(line) {
-    alert(line.id);
     Ewin.confirm({message: "确认要删除选择的数据吗？"}).on(function (e) {
         if (!e) {
             return;
         }
         $.ajax({
             type: "post",
-            url: "",
-            data: {"data": JSON.stringify({"msg": "download", "id": line.id})},
+            url: "/disk/changedata/",
+            data: {"data": JSON.stringify({"msg": "delete", "id": line.id})},
             success: function () {
                 toastr.success("删除成功");
+                top.location.reload();
             },
             error: function () {
                 toastr.error("删除失败");

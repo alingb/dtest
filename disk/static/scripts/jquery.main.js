@@ -75,17 +75,14 @@ $(document).ready(function () {
     });
     $('#submit_second').click(function () {
         var disk_type = $("#disk_type option:selected").val();
-        var route = $("#route").val();
         var share_name = $("#share_name").val();
-        var disk_name = $("#disk_name").val();
-        console.log(disk_name);
         $("#disk_type_change").text(disk_type);
         $("#share_name_change").text(share_name);
         //remove classes
         $('#second_step input').removeClass('error').removeClass('valid');
 
-        var fields = disk_name;
-        var error = 0
+        var fields = $("#disk_name").val();
+        var error = 0;
         if (fields === "null") {
             error++;
         } else {

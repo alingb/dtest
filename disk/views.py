@@ -7,7 +7,7 @@ import json
 import time
 
 from django.forms.models import model_to_dict
-from django.http.response import HttpResponse, HttpResponseBadRequest, HttpResponseRedirect
+from django.http.response import HttpResponse, HttpResponseBadRequest, HttpResponseRedirect, FileResponse
 from django.shortcuts import render
 from models import *
 from forms import FileUploadDown
@@ -114,7 +114,9 @@ def fileManger(request):
 
 
 def createFile(request):
-    return render(request, "disk/create_file.html")
+    disk_stat = 1
+    disk_info = DiskInfo.objects.filter(disk_use_stat=disk_stat)
+    return render(request, "disk/create_file.html", {"info": disk_info})
 
 
 def diskBack(request):
@@ -139,11 +141,8 @@ def fileDetail(request, id):
                 upfile.save()
                 return HttpResponseRedirect('/disk/file/{}/'.format(id))
             else:
-                print("err")
-                print(file.errors)
                 return render(request, "disk/file_detail.html", {"file": file})
         except Exception as e:
-            print("try")
             return HttpResponse(e)
     else:
         file_manger = FileManger.objects.get(id=id)
@@ -158,7 +157,7 @@ def fileDetail(request, id):
                 file_dict.update({"file_add_time": file_each.file_add_time.strftime("%Y-%m-%d %H:%M:%S")})
                 file_list.append(file_dict)
         except Exception as e:
-            print(e)
+            raise e
         return render(request, "disk/file_detail.html", {"file": file_manger, "file_msg": file_list})
 
 
@@ -212,7 +211,6 @@ def changeFile(request):
     else:
         username = request.user
         file = FileManger.objects.filter(file_user=username)
-        print(file)
         return render(request, "disk/file_manger.html", {"file": file})
 
 
@@ -280,3 +278,35 @@ def changeFileInfo(request):
                 if msg == "file_del":
                     file.delete()
         return HttpResponse("")
+
+
+def file_iterator(file_name, chunk_size=512):
+    with open(file_name, 'rb') as f:
+        while True:
+            c = f.read(chunk_size)
+            if c:
+                yield c
+            else:
+                break
+
+
+def changeData(request):
+    if request.POST:
+        post_msg = request.POST.get("data")
+        msg = eval(post_msg)["msg"]
+        msg_id = eval(post_msg)["id"].split("_")[1]
+        file = FileUpload.objects.get(id=msg_id)
+        if msg == "delete":
+            file.file.delete()
+            file.delete()
+            return HttpResponse()
+    elif request.GET:
+        id = request.GET['url'].split("_")[1]
+        file = FileUpload.objects.get(id=id)
+        filename = file.file.path
+        response = FileResponse(file_iterator(filename))
+        response['Content-Type'] = 'application/octet-stream'
+        response['Content-Disposition'] = 'attachment;filename="{}"'.format(file.file.name)
+        return response
+
+
