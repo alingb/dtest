@@ -2,6 +2,7 @@ $(document).ready(function () {
     var oTable = new TableInit();
     oTable.Init();
     buttonclick();
+    toastr.options.positionClass = 'toast-top-center';
 });
 
 

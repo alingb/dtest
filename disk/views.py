@@ -310,3 +310,5 @@ def changeData(request):
         return response
 
 
+def diskControl(request):
+    return render(request, "disk/disk_control.html")
