@@ -2,13 +2,14 @@
 from __future__ import unicode_literals
 
 import json
+import re
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
-
-
+from django.contrib.auth.hashers import make_password
+from django.contrib.auth.models import User
 # Create your views here.
 from django.urls import reverse
 
@@ -21,6 +22,37 @@ def index(req):
 def logout_user(req):
     logout(req)
     return redirect(reverse('login'))
+
+
+def check_password(passwd):
+    if re.match(r'^(?=.*[A-Za-z])(?=.*[0-9])\w{6,}$',passwd):
+        return True
+    else:
+        return False
+
+
+def signup(request):
+    if request.method == "GET":
+        return render(request, 'web/signup.html')
+    elif request.method == "POST":
+        username = request.POST.get('username', None)
+        password = request.POST.get('password', None)
+        rpassword = request.POST.get('checkpassword', None)
+        try:
+            User.objects.get(username=username)
+            return render(request, 'web/signup.html', {"error": u'用户已注册!'})
+        except:
+            pass
+        if rpassword != password:
+            return render(request, 'web/signup.html', {"error": u"两次密码输入不一样"})
+        if not check_password(password):
+            return render(request, 'web/signup.html', {"error": u"password  is invalid"})
+        passwd = make_password(password)
+        User.objects.create(username=username,
+                            password=passwd,
+                            is_active=True,
+                            is_staff=True)
+        return redirect(reverse('login'))
 
 
 def login_user(request):
@@ -40,6 +72,7 @@ def login_user(request):
             return redirect(reverse('index'))
         else:
             return render(request, 'web/login.html', {'error': u'用户名或密码错误!'})
+
 
 @login_required
 def base(req):

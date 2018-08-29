@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign UP</title>
+
+      <link rel="stylesheet" href="{% static 'web/css/signin.css' %}">
+      <link rel="stylesheet" type="text/css"
+            href="{% static 'AdminLTE-2.4.1/bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
+      <script type="text/javascript"
+              src="{% static 'AdminLTE-2.4.1/bower_components/jquery/dist/jquery.min.js' %}"></script>
+      <script src="{% static "web/scripts/html5shiv.min.js" %}"></script>
+      <script src="{% static "web/scripts/respond.min.js" %}"></script>
+      <script src="{% static "web/scripts/log.js" %}"></script>
+  </head>
+
+  <body>
+
+    <div class="container">
+
+        <form class="form-signin" action="/signup/" method="post">
+            <div class="form-signin-inner">
+
+                <h2 class="form-signin-heading">Please sign up</h2>
+                <span style="color: red">{{ error }}</span>
+                <div class="form-group">
+                    <label for="inputEmail" class="sr-only"></label>Username
+                    <input type="username" id="inputEmail" class="form-control" placeholder="username" required
+                           name="username">
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword" class="sr-only"></label>Password
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Password"
+                           name="password"
+                           required>
+                </div>
+                <div class="form-group">
+                    <label for="checkPassword" class="sr-only"></label>Confirm Password
+                    <input type="password" id="checkPassword" class="form-control" placeholder="Confirm Password"
+                           name="checkpassword"
+                           required>
+                </div>
+                <div class="form-actions clearfix">
+                    <button class="btn btn-lg btn-primary" type="submit">Sign up</button>
+                    <button class="btn btn-lg btn-primary" type="button" id='login'>Log in</button>
+                </div>
+            </div>
+        </form>
+
+    </div> <!-- /container -->
+
+
+  </body>
+</html>
