@@ -222,16 +222,16 @@ def gropupChange(request):
         groupname = msg["group"]
         username = request.user
         try:
-            FileGroup.objects.get(group_name=groupname)
+            FileUser.objects.get(group_name=groupname)
             return HttpResponseBadRequest()
         except:
-            group = FileGroup()
+            group = FileUser()
         group.group_name = groupname
         group.user_name = username
         group.save()
         return HttpResponse("ok")
     else:
-        return HttpResponse("error")
+        return HttpResponseBadRequest()
 
 
 def chechRoute(request):
