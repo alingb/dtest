@@ -7,20 +7,29 @@
 <title>管理系统</title>
 <meta name="description" content="">
 <meta name="keywords" content="">
-<link href="" rel="stylesheet">
-<script type="text/javascript" src="{% static 'AdminLTE-2.4.1/bower_components/jquery/dist/jquery.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'AdminLTE-2.4.1/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'AdminLTE-2.4.1/dist/js/adminlte.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'AdminLTE-2.4.1/bootstrap-select.min.js' %}"></script>
-{% block header %}
-{% endblock header %}
-
-<link rel="stylesheet" type="text/css" href="{% static 'AdminLTE-2.4.1/dist/css/AdminLTE.min.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'AdminLTE-2.4.1/bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'AdminLTE-2.4.1/bower_components/font-awesome/css/font-awesome.min.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'AdminLTE-2.4.1/bower_components/Ionicons/css/ionicons.min.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'AdminLTE-2.4.1/dist/css/skins/skin-blue.min.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'AdminLTE-2.4.1/bootstrap-select.min.css' %}">
+    <link href="" rel="stylesheet">
+    <script type="text/javascript"
+            src="{% static 'AdminLTE-2.4.1/bower_components/jquery/dist/jquery.min.js' %}"></script>
+    <script type="text/javascript"
+            src="{% static 'AdminLTE-2.4.1/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'AdminLTE-2.4.1/dist/js/adminlte.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'AdminLTE-2.4.1/bootstrap-select.min.js' %}"></script>
+    {% block header %}
+    {% endblock header %}
+    <link rel="stylesheet" href="{% static "css/bootstrap-table.min.css" %}">
+    <script src="{% static "scripts/bootstrap-table.min.js" %}"></script>
+    <script src="{% static "scripts/bootstrap-table-zh-CN.min.js" %}"></script>
+    <script src="{% static "scripts/toastr.min.js" %}"></script>
+    <link href="{% static "css/toastr.css" %}" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'AdminLTE-2.4.1/dist/css/AdminLTE.min.css' %}">
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'AdminLTE-2.4.1/bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'AdminLTE-2.4.1/bower_components/font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'AdminLTE-2.4.1/bower_components/Ionicons/css/ionicons.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'AdminLTE-2.4.1/dist/css/skins/skin-blue.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'AdminLTE-2.4.1/bootstrap-select.min.css' %}">
 {% block lastHeader %}
 {% endblock %}
 </head>

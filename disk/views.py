@@ -3,7 +3,9 @@ from __future__ import print_function
 from __future__ import unicode_literals
 
 import datetime
+import hashlib
 import json
+
 import time
 
 from django.forms.models import model_to_dict
@@ -311,4 +313,50 @@ def changeData(request):
 
 
 def diskControl(request):
-    return render(request, "disk/disk_control.html")
+    if request.method == "POST":
+        post_msg = eval(request.POST.get("data"))
+        msg = post_msg["msg"]
+        id = post_msg["id"]
+        if msg == "start":
+            for i in id:
+                disk = DiskStat.objects.get(id=i)
+                if disk.disk_off_stat == 0:
+                    continue
+                else:
+                    disk.disk_off_stat = 0
+                disk.disk_stat = "OK"
+                disk.save()
+            return HttpResponse()
+        if msg == "stop":
+            for i in id:
+                disk = DiskStat.objects.get(id=i)
+                if disk.disk_off_stat == 1:
+                    continue
+                else:
+                    disk.disk_off_stat = 1
+                disk.disk_stat = "OFF"
+                disk.save()
+            return HttpResponse()
+    else:
+        return render(request, "disk/disk_control.html")
+
+
+def diskMangerInfo(request):
+    if request.GET:
+        file_info = DiskStat.objects.filter()
+        limit = request.GET.get("limit")
+        offset = request.GET.get("offset")
+        lenth = len(file_info)
+        if not offset or not limit:
+            host = file_info
+        else:
+            offset = int(offset)
+            limit = int(limit)
+            host = file_info[offset:offset + limit]
+        data = []
+        for each in host:
+            dict = model_to_dict(each)
+            data.append(dict)
+        return HttpResponse(json.dumps({"rows": data, "total": lenth}))
+
+from django.contrib.auth.hashers import make_password, check_password

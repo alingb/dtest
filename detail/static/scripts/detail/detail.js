@@ -4,7 +4,6 @@ $(document).ready(function () {
     var oTable = new TableInit();
     oTable.Init();
     get_check_data();
-    //2.初始化Button的点击事件
     var oButtonInit = new ButtonInit();
     oButtonInit.Init();
     toastr.options.positionClass = 'toast-top-center';

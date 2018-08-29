@@ -5,19 +5,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Signin for Server</title>
 
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Signin Template for Bootstrap</title>
-
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="{% static 'css/signin.css' %}">
-
-      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+      <link rel="stylesheet" href="{% static 'web/css/signin.css' %}">
+      <link rel="stylesheet" type="text/css"
+            href="{% static 'AdminLTE-2.4.1/bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
+      <script src="{% static "web/scripts/html5shiv.min.js" %}"></script>
+      <script src="{% static "web/scripts/respond.min.js" %}"></script>
   </head>
 
   <body>
@@ -38,7 +32,7 @@
             <input type="checkbox" name="remember" value="remember-me"> Remember me
           </label>
             <label>
-                <a href="/signup/" style="margin-left: 100px;">Sign up</a>
+{#                <a href="/signup/" style="margin-left: 100px;">Sign up</a>#}
             </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>

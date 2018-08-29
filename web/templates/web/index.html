@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
 {% block header %}
-    <script src="https://img.hcharts.cn/highstock/highstock.js"></script>
-    <script src="https://img.hcharts.cn/highcharts/modules/exporting.js"></script>
-    <script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
-{#    <script src="https://img.hcharts.cn/highcharts/themes/skies.js"></script>#}
-    <script src="https://img.hcharts.cn/highcharts/themes/dark-unica.js"></script>
-    <script src="{% static "/scripts/index.js" %}"></script>
+    <script src="{% static "web/scripts/highstock.js"%}"></script>
+    <script src="{% static "web/scripts/exporting.js" %}"></script>
+    <script src="{% static "web/scripts/highcharts-zh_CN.js" %}"></script>
+    <script src="{% static "web/scripts/skies.js" %}"></script>
+{#    <script src="{% static "web/scripts/dark-unica.js" %}"></script>#}
+    <script src="{% static "web/scripts/index.js" %}"></script>
 {% endblock %}
 
 {% block contentHeader %}

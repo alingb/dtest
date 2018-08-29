@@ -19,4 +19,5 @@ urlpatterns = [
     url(r'change/', views.changeFileInfo, name="change"),
     url(r'changedata/', views.changeData, name="change_data"),
     url(r'disk_manger/', views.diskControl, name="disk_control"),
+    url(r'diskMangerInfo/', views.diskMangerInfo, name="disk_manger_info"),
     ]

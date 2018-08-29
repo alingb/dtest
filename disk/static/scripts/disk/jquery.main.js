@@ -1,22 +1,6 @@
 $(document).ready(function () {
     //original field values
     toastr.options.positionClass = 'toast-top-center';
-    // var field_values = {
-    //     //id        :  value
-    //     'username': 'username',
-    //     'password': 'password',
-    //     'cpassword': 'password',
-    //     'firstname': 'first name',
-    //     'lastname': 'last name',
-    //     'email': 'email address'
-    // };
-    //inputfocus
-    // $('input#username').inputfocus({ value: field_values['username'] });
-    // $('input#password').inputfocus({ value: field_values['password'] });
-    // $('input#cpassword').inputfocus({ value: field_values['cpassword'] });
-    // $('input#lastname').inputfocus({ value: field_values['lastname'] });
-    // $('input#firstname').inputfocus({ value: field_values['firstname'] });
-    // $('input#email').inputfocus({ value: field_values['email'] });
 
 
     //first_step
@@ -110,19 +94,6 @@ $(document).ready(function () {
         //slide steps
         $('#third_step').slideUp();
         $('#fourth_step').slideDown();
-        //prepare the fourth step
-        // var fields = [$('#username').val(),
-        //     $('#password').val(),
-        //     $('#email').val(),
-        //     $('#firstname').val() + ' ' + $('#lastname').val(),
-        //     $('#age').val(),
-        //     $('#gender').val(),
-        //     $('#country').val()];
-        // var tr = $('#fourth_step tr');
-        // tr.each(function () {
-        //     //alert( fields[$(this).index()] )
-        //     $(this).children('td:nth-child(2)').html(fields[$(this).index()]);
-        // });
 
     });
 

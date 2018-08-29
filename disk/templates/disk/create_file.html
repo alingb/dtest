@@ -1,20 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 {% block header %}
-    <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="{% static "css/bootstrap-table.min.css" %}">
     <link rel="stylesheet" href="{% static "css/style.css" %}">
-    <!-- Latest compiled and minified JavaScript -->
-        <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
-    <!-- Latest compiled and minified Locales -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet"/>
-    <script src="{% static "scripts/create_file.js" %}"></script>
-{#    <script src="{% static "scripts/jquery.min.js" %}"></script>#}
-    <script src="{% static "scripts/jquery-ui.min.js" %}"></script>
-    <script src="{% static "scripts/jquery.inputfocus-0.9.min.js" %}"></script>
-    <script src="{% static "scripts/jquery.main.js" %}"></script>
+    <script src="{% static "scripts/disk/create_file.js" %}"></script>
+    <script src="{% static "scripts/disk/jquery-ui.min.js" %}"></script>
+    <script src="{% static "scripts/disk/jquery.inputfocus-0.9.min.js" %}"></script>
+    <script src="{% static "scripts/disk/jquery.main.js" %}"></script>
 
 {% endblock %}
 {% block lastHeader %}

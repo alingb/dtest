@@ -1,17 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block header %}
-{#    bootstrap tabble  cdn  #}
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
-    <!-- Latest compiled and minified Locales -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.min.js"></script>
-    <script type="text/javascript" src="{% static 'scripts/detail.js' %}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet" />
-    <script src="{% static 'scripts/ewin_min.js' %}"></script>
+    <script src="{% static 'scripts/detail/ewin_min.js' %}"></script>
     <script src="{% static '/control/scripts/index.js' %}"></script>
 {% endblock %}
 

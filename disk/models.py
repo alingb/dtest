@@ -41,6 +41,7 @@ class FileGroup(models.Model):
 
 
 class DiskStat(models.Model):
+    disk_name = models.CharField("名称", max_length=255, default="-")
     disk_stat_name = models.CharField("盘符", max_length=255)
     disk_stat = models.CharField("状态", max_length=255)
     disk_slot = models.IntegerField("编号")

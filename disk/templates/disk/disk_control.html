@@ -1,10 +1,19 @@
 {% extends "base.html" %}
-
+{% load static  %}
 
 {% block header %}
-
+<script src="{% static "scripts/disk/table_manger_control.js" %}"></script>
 {% endblock %}
 
 {% block contentHeader %}
-<h3 style="text-align: center"><b>硬盘管理</b></h3>
+    <h3 style="text-align: center"><b>硬盘操作管理</b></h3>
+    <div id="toolbar" class="btn-group">
+        <button id="disk_start" type="button" data-loading-text="Running..." class="btn btn-primary">
+            <span class="glyphicon glyphicon-floppy-open" aria-hidden="true"></span>开启硬盘
+            <button id="disk_stop" type="button"  data-loading-text="Closing..." class="btn btn-danger">
+                <span class="glyphicon glyphicon-floppy-remove" aria-hidden="true"></span>关闭硬盘
+            </button>
+        </button>
+    </div>
+    <table id="disk_manger_table"></table>
 {% endblock %}
