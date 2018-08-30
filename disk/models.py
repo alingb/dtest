@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.db import models
 
 # Create your models here.
+from django.utils import timezone
 
 
 class DiskInfo(models.Model):
@@ -27,7 +28,7 @@ class FileManger(models.Model):
     file_disk_name = models.CharField("硬盘名称", max_length=255)
     file_cold_time = models.CharField("冻结时间", max_length=255)
     file_add_time = models.DateTimeField('提交时间', auto_now_add=True)
-    file_time = models.CharField('更新时间', max_length=255)
+    file_time = models.CharField('更新时间', max_length=255, default=timezone.now)
     file_user = models.CharField('用户', max_length=255, default='--')
     file_group = models.CharField('群组', max_length=255, default='--')
     file_active_stat = models.CharField('激活状态', max_length=255, default=u"未激活")

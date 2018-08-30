@@ -34,7 +34,7 @@ def diskInfo(request):
         data.append(model_to_dict(each, fields=["disk_id",
                                                 "disk_name", "disk_type",
                                                 "disk_size", "disk_used",
-                                                "disk_avail", "disk_mount",]))
+                                                "disk_avail", "disk_mount"]))
     return HttpResponse(json.dumps({"rows": data, "total": lenth}))
 
 
