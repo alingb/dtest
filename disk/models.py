@@ -35,13 +35,16 @@ class FileManger(models.Model):
     file_full_route = models.CharField("存储路径", max_length=255, default="")
 
 
-class FileUser(models.Model):
-    group_name = models.CharField('群组名称', max_length=255)
-    user_name = models.CharField('用户', max_length=255)
+class Group(models.Model):
+    name = models.CharField('群组名称', max_length=255)
+
+    def __str__(self):
+        return self.name
 
 
 class FileGroup(models.Model):
-    group_name = models.ForeignKey(FileUser, related_name="group_user", on_delete=models.CASCADE, default="")
+    user_name = models.CharField('用户', max_length=255)
+    group_name = models.ForeignKey(Group, related_name="group_user", on_delete=models.CASCADE, default="")
 
 
 class DiskStat(models.Model):

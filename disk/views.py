@@ -166,7 +166,7 @@ def fileDetail(request, id):
 def groupInfo(request):
     limit = request.GET.get("limit")
     offset = request.GET.get("offset")
-    host = FileGroup.objects.all()
+    host = Group.objects.all()
     lenth = len(host)
     if not offset or not limit:
         host = host
@@ -176,7 +176,7 @@ def groupInfo(request):
         host = host[offset:offset + limit]
     data = []
     for each in host:
-        data.append(model_to_dict(each, fields=["user_name", "group_name"]))
+        data.append(model_to_dict(each, fields=["id", "name"]))
     return HttpResponse(json.dumps({"rows": data, "total": lenth}))
 
 
@@ -190,13 +190,23 @@ def changeFile(request):
     if request.POST:
         msg = eval(request.POST.get("data"))
         username = request.user
+        groupname = msg["file_group_name"]
+        group = Group.objects.get(name=groupname)
+        group_id = group.id
+        try:
+            FileGroup.objects.get(user_name=username, group_name_id=group_id)
+        except:
+            file_group = FileGroup()
+            file_group.user_name = username
+            file_group.group_name_id = group_id
+            file_group.save()
         try:
             route = msg["route"]
-            file = FileManger.objects.get(route=route)
+            FileManger.objects.get(route=route)
             return HttpResponseBadRequest()
         except:
             file = FileManger()
-        file.file_group = msg["file_group_name"]
+        file.file_group = groupname
         file.file_disk_type = DISK_TYPE[msg["file_disk_type"]]
         file.file_disk_name = msg["file_disk_name"]
         file.file_route = msg["file_route"]
@@ -222,12 +232,11 @@ def gropupChange(request):
         groupname = msg["group"]
         username = request.user
         try:
-            FileUser.objects.get(group_name=groupname)
+            Group.objects.get(name=groupname)
             return HttpResponseBadRequest()
         except:
-            group = FileUser()
-        group.group_name = groupname
-        group.user_name = username
+            group = Group()
+        group.name = groupname
         group.save()
         return HttpResponse("ok")
     else:

@@ -107,6 +107,7 @@ $(document).ready(function () {
         $("#myModal").find("#txt_name").val("");
         $('#myModal').modal()
     });
+    //创建群组
     $("#group_submit").click(function () {
         var group_name = $("#txt_name").val();
         $.ajax({
@@ -125,6 +126,7 @@ $(document).ready(function () {
 
         })
     });
+    //第四步提交
     $('#submit_fourth').click(function () {
         var filedata = {};
         var disk_type = $("#disk_type option:selected").val();
@@ -139,7 +141,7 @@ $(document).ready(function () {
             toastr.error('请选择群组');
         }
         else {
-            var b = $.parseJSON(JSON.stringify(a))[0]["group_name"];
+            var b = $.parseJSON(JSON.stringify(a))[0]["name"];
             filedata.file_disk_type = disk_type;
             filedata.file_route = route;
             filedata.file_share_name = share_name;
@@ -185,11 +187,11 @@ $(document).ready(function () {
                 columns: [{
                     checkbox: true
                 }, {
-                    field: 'group_name',
-                    title: '群组名称',
+                    field: 'id',
+                    title: 'ID',
                 }, {
-                    field: 'user_name',
-                    title: '创建用户',
+                    field: 'name',
+                    title: '群组名称',
                 },],
             });
         };

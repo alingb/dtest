@@ -10,8 +10,8 @@ var TableInit = function () {
     var oTableInit = new Object();
     //初始化Table
     oTableInit.Init = function () {
-        $('#diskback').bootstrapTable({
-            url: '/disk/diskback/',         //请求后台的URL（*）
+        $('#addtable').bootstrapTable({
+            url: '/disk/disk_add/',         //请求后台的URL（*）
             method: 'get',    //请求方式（*）
             toolbar: '#toolbar',                //工具按钮用哪个容器
             striped: true,                      //是否显示行间隔色
@@ -75,14 +75,14 @@ var TableInit = function () {
 };
 
 function buttonclick() {
-    $("#disk_start_back").click(function () {
-        var arrselections = $("#diskbacke").bootstrapTable('getSelections');
+    $("#disk_add").click(function () {
+        var arrselections = $("#addtable").bootstrapTable('getSelections');
         if (arrselections.length > 0) {
-            var id = $.map(arrselections, function (row){return row.id});
+            var id = $.map(arrselections, function (row){return row.disk_id});
             $.ajax({
                 type: "post",
                 url: "/disk/change/",
-                data: {"data": JSON.stringify({"msg": "disk_start_back", "id": id})},
+                data: {"data": JSON.stringify({"msg": "disk_add", "id": id})},
                 success: function () {
                     toastr.success("开启成功");
                     window.location.href = "/disk/"

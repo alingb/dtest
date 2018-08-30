@@ -338,11 +338,11 @@ function button_link() {
                 url: "/disk/change/",
                 data: {"data": JSON.stringify({"msg": "disk_del", "id": id})},
                 success: function () {
-                    toastr.success("添加成功");
+                    toastr.success("删除成功");
                     $("#table").bootstrapTable('refresh');
                 },
                 error: function () {
-                    toastr.error("添加失败")
+                    toastr.error("删除失败")
                 },
             });
         }
