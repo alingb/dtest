@@ -1,8 +1,14 @@
 $(document).ready(function () {
-    main('web/get_info/cpu/', 'cpustat', 'CPUSTAT', 'cpu(%)');
-    main('web/get_info/mem/', 'memstat', "MEMSTAT", 'mem(%)');
-    // test();
+    testId()('web/get_info/cpu/', 'cpustat', 'CPUSTAT', 'cpu(%)');
+    testId('web/get_info/mem/', 'memstat', "MEMSTAT", 'mem(%)');
+    test();
 });
+
+function testId(url, name, tilte, msg) {
+	if(document.getElementById(name)){
+		main(url, name, tilte, msg)
+	}
+}
 
 function main(url, name, tilte, msg){
    // $.getJSON('https://data.jianshukeji.com/jsonp?filename=json/new-intraday.json&callback=?', function (data) {
@@ -92,6 +98,60 @@ function test() {
      * Create the chart when all data is loaded
      * @returns {undefined}
      */
+function testChart() {
+	Highcharts.stockChart('container1', {
+		credits:{
+			enabled:false,
+		},
+		title: {
+			text: 'netstat'
+		},
+		subtitle: {
+			text: ''
+		},
+		// xAxis: {
+		// 	breaks: [{ // Nights
+		// 		from: Date.UTC(2012, 9, 6, 16),
+		// 		to: Date.UTC(2012, 9, 7, 8),
+		// 		repeat: 24 * 36e5
+		// 	}, { // Weekends
+		// 		from: Date.UTC(2012, 9, 7, 16),
+		// 		to: Date.UTC(2012, 9, 10, 8),
+		// 		repeat: 7 * 24 * 36e5
+		// 	},{
+		// 	}]
+		// },
+		rangeSelector : {
+			buttons : [{
+				type : 'second',
+				count : 30,
+				text : '30s'
+			},{
+				type : 'minute',
+				count : 1,
+				text : '1m'
+			}, {
+				type : 'hour',
+				count : 1,
+				text : '1h'
+			}, {
+				type : 'day',
+				count : 1,
+				text : '1D'
+			}, {
+				type : 'all',
+				count : 1,
+				text : 'All'
+			}],
+			selected : 1,
+			inputEnabled : true
+		},
+		tooltip: {
+			split: true
+		},
+		series: seriesOptions
+	});
+}
 function createChart() {
 	Highcharts.stockChart('container1', {
 	    		title: {
@@ -142,7 +202,8 @@ $.each(names, function (i, name) {
 		// we keep a counter and create the chart when all the data is loaded.
 		seriesCounter += 1;
 		if (seriesCounter === names.length) {
-			createChart();
+			// createChart();
+			testChart();
 		}
 	});
 });
