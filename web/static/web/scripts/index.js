@@ -1,18 +1,19 @@
 $(document).ready(function () {
-    main();
+    main('web/get_info/cpu/', 'cpustat', 'CPUSTAT', 'cpu(%)');
+    main('web/get_info/mem/', 'memstat', "MEMSTAT", 'mem(%)');
     // test();
 });
 
-function main(){
+function main(url, name, tilte, msg){
    // $.getJSON('https://data.jianshukeji.com/jsonp?filename=json/new-intraday.json&callback=?', function (data) {
-    $.getJSON('web/get_info/', function (data) {
+    $.getJSON(url, function (data) {
 	// create the chart
-	Highcharts.stockChart('container', {
+	Highcharts.stockChart(name, {
 		credits:{
 			enabled:false,
 		},
 		title: {
-			text: 'CPU STATUS'
+			text: tilte
 		},
 		subtitle: {
 			text: ''
@@ -58,7 +59,7 @@ function main(){
 			split: true
 		},
 		series : [{
-			name : 'cpu',
+			name : msg,
 			type: 'area',
 			data : data,
 			gapSize: 5,

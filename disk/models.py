@@ -16,7 +16,7 @@ class DiskInfo(models.Model):
     disk_avail = models.CharField('可用', max_length=255)
     disk_mount = models.CharField('挂载目录', max_length=255)
     disk_add_time = models.DateTimeField('提交时间', auto_now_add=True)
-    disk_disk_time = models.CharField('更新时间', max_length=250, blank=True)
+    disk_disk_time = models.CharField('更新时间', max_length=250, blank=True, default=timezone.now)
     disk_back_stat = models.IntegerField('备用盘状态', default=0)
     disk_use_stat = models.IntegerField('使用状态', default=0)
 

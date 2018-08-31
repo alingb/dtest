@@ -12,6 +12,7 @@ from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
 # Create your views here.
 from django.urls import reverse
+from detail.models import *
 
 
 @login_required
@@ -79,11 +80,44 @@ def base(req):
     return render(req, 'web/index.html')
 
 
-def get_info(req):
-    from detail.models import CpuStat
-    cpu_stat = CpuStat.objects.all()
-    data = []
-    for each in cpu_stat:
-        data.append([int(each.now_time), float(each.cpu_stat),
-                    float(each.cpu_stat) + 1, float(each.cpu_stat) + 2])
-    return HttpResponse(json.dumps(data))
+@login_required
+def cpuStat(req):
+    return render(req, 'web/cpustat.html')
+
+
+@login_required
+def memStat(req):
+    return render(req, 'web/memstat.html')
+
+
+@login_required
+def diskStat(req):
+    return render(req, 'web/diskstat.html')
+
+
+
+@login_required
+def netStat(req):
+    return render(req, 'web/netstat.html')
+
+
+def get_info(req, getname):
+    if getname == 'cpu':
+        cpu_stat = CpuStat.objects.all()
+        data = []
+        for each in cpu_stat:
+            data.append([int(each.add_time), float(each.stat)])
+        return HttpResponse(json.dumps(data))
+    elif getname == 'mem':
+        mem_stat = MemStat.objects.all()
+        data = []
+        for each in mem_stat:
+            data.append([int(each.add_time), float(each.stat)])
+        return HttpResponse(json.dumps(data))
+    elif getname == 'mem':
+        mem_stat = MemStat.objects.all()
+        data = []
+        for each in mem_stat:
+            data.append([int(each.add_time), float(each.stat)])
+        return HttpResponse(json.dumps(data))
+

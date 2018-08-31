@@ -352,7 +352,7 @@ def diskControl(request):
 
 def diskMangerInfo(request):
     if request.GET:
-        file_info = DiskStat.objects.filter()
+        file_info = DiskStat.objects.all()
         limit = request.GET.get("limit")
         offset = request.GET.get("offset")
         lenth = len(file_info)

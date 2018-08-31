@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block header %}
+    <script src="{% static "web/scripts/highstock.js"%}"></script>
+    <script src="{% static "web/scripts/exporting.js" %}"></script>
+    <script src="{% static "web/scripts/highcharts-zh_CN.js" %}"></script>
+    <script src="{% static "web/scripts/skies.js" %}"></script>
+{#    <script src="{% static "web/scripts/dark-unica.js" %}"></script>#}
+    <script src="{% static "web/scripts/index.js" %}"></script>
+{% endblock %}
+
+{% block contentHeader %}
+    <div id="diskstat" style="min-width:400px;height:500px"></div>
+{#    <div id="container1" style="height: 400px; min-width: 600px"></div>#}
+{% endblock %}
