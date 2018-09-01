@@ -1,12 +1,19 @@
 $(document).ready(function () {
-    testId()('web/get_info/cpu/', 'cpustat', 'CPUSTAT', 'cpu(%)');
+    testId('web/get_info/cpu/', 'cpustat', 'CPUSTAT', 'cpu(%)');
     testId('web/get_info/mem/', 'memstat', "MEMSTAT", 'mem(%)');
-    test();
+    netID('netstat', "NETSTAT");
+    // test();
 });
 
 function testId(url, name, tilte, msg) {
 	if(document.getElementById(name)){
 		main(url, name, tilte, msg)
+	}
+}
+
+function netID(name, tilte) {
+	if(document.getElementById(name)){
+		test(name, tilte)
 	}
 }
 
@@ -90,7 +97,7 @@ function main(url, name, tilte, msg){
 });
 }
 
-function test() {
+function test(name, tilte) {
     var seriesOptions = [],
 	seriesCounter = 0,
 	names = ['MSFT', 'AAPL', 'GOOG'];
@@ -99,12 +106,12 @@ function test() {
      * @returns {undefined}
      */
 function testChart() {
-	Highcharts.stockChart('container1', {
+	Highcharts.stockChart(name, {
 		credits:{
 			enabled:false,
 		},
 		title: {
-			text: 'netstat'
+			text: tilte
 		},
 		subtitle: {
 			text: ''
