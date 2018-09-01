@@ -161,7 +161,7 @@ $(document).ready(function () {
                 },
             });
         }
-    })
+    });
     var TableInit = function () {
         var oTableInit = new Object();
         //初始化Table
@@ -205,7 +205,7 @@ $(document).ready(function () {
         };
         return oTableInit;
     };
-})
+});
 
 
 
