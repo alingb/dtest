@@ -5,8 +5,6 @@ $(document).ready(function () {
     var oFileTable = new FileTableInit();
     oFileTable.Init();
     get_check_data();
-    // var oButtonInit = new ButtonInit();
-    // oButtonInit.Init();
     toastr.options.positionClass = 'toast-top-center';
     button_link();
     tableFocus();
@@ -222,106 +220,6 @@ function get_check_data() {
     });
 
 }
-
-// var ButtonInit = function () {
-//     var oInit = new Object();
-//     var postdata = {};
-//
-//     oInit.Init = function () {
-//         $("#btn_add").click(function () {
-//            $("#myModalLabel").text("新增");
-//            $("#myModal").find(".form-control").val("");
-//            $('#myModal').modal()
-//            postdata.DEPARTMENT_ID = "";
-//         });
-//
-//         $("#btn_edit").click(function () {
-//            var arrselections = $("#table").bootstrapTable('getSelections');
-//            if (arrselections.length > 1) {
-//                toastr.warning('只能选择一行进行编辑');
-//                return;
-//            }
-//            if (arrselections.length <= 0) {
-//                toastr.warning('请选择有效数据');
-//                return;
-//            }
-//            $("#myModalLabel").text("编辑");
-//            $("#txt_departmentname").val(arrselections[0].DEPARTMENT_NAME);
-//            $("#txt_parentdepartment").val(arrselections[0].PARENT_ID);
-//            $("#txt_departmentlevel").val(arrselections[0].DEPARTMENT_LEVEL);
-//            $("#txt_statu").val(arrselections[0].STATUS);
-//            $("#txt_name").val(arrselections[0].NAME);
-//
-//            postdata.DEPARTMENT_ID = arrselections[0].DEPARTMENT_ID;
-//            $('#myModal').modal();
-//         });
-//
-//         $("#btn_delete").click(function () {
-//            var arrselections = $("#table").bootstrapTable('getSelections');
-//            if (arrselections.length <= 0) {
-//                toastr.warning('请选择有效数据');
-//                return;
-//            }
-//
-//            Ewin.confirm({ message: "确认要删除选择的数据吗？" }).on(function (e) {
-//                if (!e) {
-//                    return;
-//                }
-//                $.ajax({
-//                    type: "post",
-//                    url: "/Home/Delete",
-//                    data: { "": JSON.stringify(arrselections) },
-//                    success: function (data, status) {
-//                        if (status === "success") {
-//                            toastr.success('提交数据成功');
-//                            $("#table").bootstrapTable('refresh');
-//                        }
-//                    },
-//                    error: function () {
-//                        toastr.error('Error');
-//                    },
-//                    complete: function () {
-//
-//                    }
-//
-//                });
-//            });
-//         });
-//
-//         $("#btn_submit").click(function () {
-//            postdata.DEPARTMENT_NAME = $("#txt_departmentname").val();
-//            postdata.PARENT_ID = $("#txt_parentdepartment").val();
-//            postdata.DEPARTMENT_LEVEL = $("#txt_departmentlevel").val();
-//            postdata.STATUS = $("#txt_statu").val();
-//            postdata.NAME = $("#txt_name").val();
-//            $.ajax({
-//                type: "post",
-//                url: "/Home/GetEdit",
-//                data: { "": JSON.stringify(postdata) },
-//                success: function (data, status) {
-//                    if (status === "success") {
-//                        toastr.success('提交数据成功');
-//                        $("#tb_departments").bootstrapTable('refresh');
-//                    }
-//                },
-//                error: function () {
-//                    toastr.error('Error');
-//                },
-//                complete: function () {
-//                }
-//            });
-//         });
-//
-//         $("#btn_query").click(function () {
-//            $("#table").bootstrapTable('refresh');
-//         });
-//     };
-//
-//     return oInit;
-// };
-
-
-
 
 
 function button_link() {
