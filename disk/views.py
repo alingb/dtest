@@ -238,7 +238,7 @@ def gropupChange(request):
             group = Group()
         group.name = groupname
         group.save()
-        return HttpResponse("ok")
+        return HttpResponse()
     else:
         return HttpResponseBadRequest()
 
@@ -314,10 +314,13 @@ def changeData(request):
     elif request.GET:
         id = request.GET['url'].split("_")[1]
         file = FileUpload.objects.get(id=id)
-        filename = file.file.path
-        response = FileResponse(file_iterator(filename))
+        try:
+            file_route = file.file.path
+        except:
+            file_route = file.file_full_route
+        response = FileResponse(file_iterator(file_route))
         response['Content-Type'] = 'application/octet-stream'
-        response['Content-Disposition'] = 'attachment;filename="{}"'.format(file.file.name)
+        response['Content-Disposition'] = 'attachment;filename="{}"'.format(file.filename)
         return response
 
 
@@ -367,5 +370,23 @@ def diskMangerInfo(request):
             dict = model_to_dict(each)
             data.append(dict)
         return HttpResponse(json.dumps({"rows": data, "total": lenth}))
+    elif request.method == "POST":
+
+        msg = json.loads(request.body)
+        for key, value in msg.items():
+            try:
+                file_info = DiskStat.objects.get(disk_stat_name=key)
+            except:
+                file_info = DiskStat()
+            file_info.disk_stat_name = key
+            file_info.disk_stat = value['status']
+            file_info.disk_slot = int(value['slot'])
+            file_info.disk_slot = value['slot']
+            file_info.disk_off_stat = value['off']
+            file_info.disk_uuid = value['UUID']
+            file_info.save()
+        return HttpResponse()
+    else:
+        return HttpResponse()
 
 from django.contrib.auth.hashers import make_password, check_password

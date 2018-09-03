@@ -97,8 +97,15 @@ def diskStat(req):
 
 
 @login_required
-def netStat(req):
-    return render(req, 'web/netstat.html')
+def netStat(req, netname):
+    netstat = NetworkStat.objects.values('name')
+    name_list = []
+    for name in netstat:
+        name_list.append(name['name'])
+    name = list(set(name_list))
+    if not netname:
+        netname = name[0]
+    return render(req, 'web/netstat.html', {"name": name, "netname": netname})
 
 
 def get_info(req, getname):
@@ -114,10 +121,21 @@ def get_info(req, getname):
         for each in mem_stat:
             data.append([int(each.add_time), float(each.stat)])
         return HttpResponse(json.dumps(data))
-    elif getname == 'mem':
-        mem_stat = MemStat.objects.all()
+    elif "on" in getname:
+        netname = getname.split("_")[0]
+        net_stat = NetworkStat.objects.filter(name=netname)
         data = []
-        for each in mem_stat:
-            data.append([int(each.add_time), float(each.stat)])
+        for each in net_stat:
+            data.append([int(each.add_time), float(each.on_stat)])
+        sorted(data)
+        return HttpResponse(json.dumps(data))
+    elif "down" in getname:
+        netname = getname.split("_")[0]
+        net_stat = NetworkStat.objects.filter(name=netname)
+        print(net_stat)
+        data = []
+        for each in net_stat:
+            data.append([int(each.add_time), float(each.down_stat)])
+        sorted(data)
         return HttpResponse(json.dumps(data))
 

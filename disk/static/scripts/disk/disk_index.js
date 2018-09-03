@@ -5,8 +5,8 @@ $(document).ready(function () {
     var oFileTable = new FileTableInit();
     oFileTable.Init();
     get_check_data();
-    var oButtonInit = new ButtonInit();
-    oButtonInit.Init();
+    // var oButtonInit = new ButtonInit();
+    // oButtonInit.Init();
     toastr.options.positionClass = 'toast-top-center';
     button_link();
     tableFocus();

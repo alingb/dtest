@@ -2,18 +2,22 @@ $(document).ready(function () {
     testId('web/get_info/cpu/', 'cpustat', 'CPUSTAT', 'cpu(%)');
     testId('web/get_info/mem/', 'memstat', "MEMSTAT", 'mem(%)');
     netID('netstat', "NETSTAT");
+    setTimeout(function () {
+		document.getElementById("server_id").click();
+    },10)
+
     // test();
 });
 
 function testId(url, name, tilte, msg) {
 	if(document.getElementById(name)){
-		main(url, name, tilte, msg)
+		main(url, name, tilte, msg);
 	}
 }
 
 function netID(name, tilte) {
 	if(document.getElementById(name)){
-		test(name, tilte)
+		test(name, tilte);
 	}
 }
 
@@ -98,9 +102,16 @@ function main(url, name, tilte, msg){
 }
 
 function test(name, tilte) {
-    var seriesOptions = [],
-	seriesCounter = 0,
-	names = ['MSFT', 'AAPL', 'GOOG'];
+    var seriesOptions = [];
+	seriesCounter = 0;
+    const names = [];
+    $("input").each(function () {
+    	if (this.id){
+    		names.push(this.id)
+		}
+    });
+    // names = ['MSFT', 'AAPL', 'GOOG'];
+
 /**
      * Create the chart when all data is loaded
      * @returns {undefined}
@@ -150,7 +161,7 @@ function testChart() {
 				count : 1,
 				text : 'All'
 			}],
-			selected : 1,
+			selected : 4,
 			inputEnabled : true
 		},
 		tooltip: {
@@ -199,12 +210,11 @@ function createChart() {
 	});
 }
 $.each(names, function (i, name) {
-	$.getJSON('https://data.jianshukeji.com/jsonp?filename=json/' + name.toLowerCase() + '-c.json&callback=?',    function (data) {
+	$.getJSON('/web/get_info/' + name.toLowerCase(),    function (data) {
 		seriesOptions[i] = {
 			name: name,
 			data: data
 		};
-		console.log('https://data.jianshukeji.com/jsonp?filename=json/' + name.toLowerCase() + '-c.json&callback=?');
 		// As we're loading the data asynchronously, we don't know what order it will arrive. So
 		// we keep a counter and create the chart when all the data is loaded.
 		seriesCounter += 1;

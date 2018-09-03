@@ -5,6 +5,7 @@
 # @FILE:sql_disk_update.py
 # @Author:ytym00
 """
+import datetime
 import time
 from subprocess import PIPE, Popen
 
@@ -42,16 +43,26 @@ def sqlSelectMsg(id):
     return info
 
 
-def sqlUpdateOrInsertMsg(msg, name,  type, size, used, avial, mount, id):
+def sqlUpdateOrInsertMsg(msg, name,  type, size, used, avial, mount, id, ntime):
     global info
     if msg == "update":
-        info = 'update disk_diskinfo set diskname=\'{}\',disk_type=\'{}\',' \
+        info = 'update disk_diskinfo set disk_name=\'{}\',disk_type=\'{}\',' \
                'disk_size=\'{}\', disk_used=\'{}\',disk_avail=\'{}\',' \
-               'disk_mount=\'{}\' where disk_id=\'{}\''.format(name, type, size, used, avial, mount, id)
+               'disk_back_stat=0, disk_use_stat=0,' \
+               'disk_mount=\'{}\', disk_add_time=\'{}\', disk_disk_time=\'{}\'  where disk_id=\'{}\''.format(name, type,
+                                                                                                             size, used,
+                                                                                                             avial,
+                                                                                                             mount,
+                                                                                                             ntime,
+                                                                                                             ntime, id)
     elif msg == "insert":
-        info = 'insert into disk_diskinfo set diskname=\'{}\',disk_type=\'{}\',' \
+        info = 'insert into disk_diskinfo set disk_name=\'{}\',disk_type=\'{}\',' \
                'disk_size=\'{}\', disk_used=\'{}\',disk_avail=\'{}\',' \
-               'disk_mount=\'{}\', disk_id=\'{}\''.format(name, type, size, used, avial, mount, id)
+               'disk_back_stat=0, disk_use_stat=0,' \
+               'disk_mount=\'{}\', disk_add_time=\'{}\', disk_disk_time=\'{}\', disk_id=\'{}\''.format(name, type, size,
+                                                                                                       used, avial,
+                                                                                                       mount, ntime,
+                                                                                                       ntime, id)
     return info
 
 
@@ -70,17 +81,18 @@ def sqlSelectAndExec(cur, cmd, cmd1, cmd2):
 if __name__ == '__main__':
     con = connMysql()
     msg = getDiskInfo()
+    ntime = datetime.datetime.now()
     table_id = 1
     if con:
         while 1:
             cur = con.cursor()
             for data in msg:
-                filesystem, type, size, used, avail, use, mount = msg
+                filesystem, type, size, used, avail, use, mount = data.split()
                 cmd = sqlSelectMsg(table_id)
-                cmd1 = sqlUpdateOrInsertMsg("update", filesystem, type, size, used, avail, mount, table_id)
-                cmd2 = sqlUpdateOrInsertMsg("insert", filesystem, type, size, used, avail, mount, table_id)
+                cmd1 = sqlUpdateOrInsertMsg("update", filesystem, type, size, used, avail, mount, table_id, ntime)
+                cmd2 = sqlUpdateOrInsertMsg("insert", filesystem, type, size, used, avail, mount, table_id, ntime)
                 sqlSelectAndExec(cur, cmd, cmd1, cmd2)
-            cur.execute(cmd)
+                table_id += 1
             con.commit()
             time.sleep(300)
 
