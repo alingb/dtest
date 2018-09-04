@@ -329,6 +329,10 @@ def diskControl(request):
         post_msg = eval(request.POST.get("data"))
         msg = post_msg["msg"]
         id = post_msg["id"]
+        name = post_msg["name"]
+        for i in name:
+            data = i.split(':')
+            print(data)
         if msg == "start":
             for i in id:
                 disk = DiskStat.objects.get(id=i)
