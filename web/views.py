@@ -112,7 +112,7 @@ def netStat(req, netname):
     if not netname and name:
         netname = name[0]
     else:
-        netname = ''
+        netname = netname
     return render(req, 'web/netstat.html', {"name": name, "netname": netname})
 
 
@@ -147,11 +147,14 @@ def get_info(req, getname):
         sorted(data)
         return HttpResponse(json.dumps(data))
     elif getname == 'loginfo':
-        log_list, log_dict, lenth = [], {}, 0
+        log_list, lenth = [], 0
+        limit = req.GET.get("limit")
+        offset = req.GET.get("offset")
         try:
             popen = Popen(r'ipmitool sel list', stdout=PIPE, stderr=PIPE, shell=True)
             info = popen.stdout.readlines()
             for msg in info:
+                log_dict = {}
                 data = msg.split('|')
                 log_dict['id'] = data[0]
                 log_dict['time'] = data[1] + data[2]
@@ -161,14 +164,23 @@ def get_info(req, getname):
                     log_dict['type'] = log_msg[1]
                 else:
                     log_msg = data[3].split('#')
-                    log_dict['name'] = log_msg[1]
-                    log_dict['type'] = log_msg[0]
+                    if len(log_msg) == 2:
+                        log_dict['name'] = log_msg[1]
+                        log_dict['type'] = log_msg[0]
+                    else:
+                        log_dict['name'] =  log_dict['type'] = data[3]
                 log_dict['desc'] = data[4] + '-' + data[5]
                 log_list.append(log_dict)
             lenth = len(log_list)
+            if not offset or not limit:
+                log_list = log_list
+            else:
+                offset = int(offset)
+                limit = int(limit)
+                log_list = log_list[offset:offset + limit]
             if not log_list:
                 raise Exception('error')
-        except:
+        except Exception as e:
             log_list = [{'id': 1, "time": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"), 'type': 'error',
                          'desc': 'no data', 'name': 'ipmi error'}]
             lenth = 1

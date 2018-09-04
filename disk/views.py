@@ -371,7 +371,6 @@ def diskMangerInfo(request):
             data.append(dict)
         return HttpResponse(json.dumps({"rows": data, "total": lenth}))
     elif request.method == "POST":
-
         msg = json.loads(request.body)
         for key, value in msg.items():
             try:

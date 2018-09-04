@@ -95,12 +95,14 @@ function buttonclick() {
             return;
         }
         var id = $.map(select, function (row){return row.id});
+        var name = $.map(select, function (row){return row.id + ':' + row.disk_stat_name });
+        alert(name);
         var $btn = $(this).button('loading');
         $("#disk_stop").attr("disabled",true);
         $.ajax({
             type: "post",
             url: "",
-            data: {"data": JSON.stringify({"msg": "start", "id": id})},
+            data: {"data": JSON.stringify({"msg": "start", "id": id, "name": name})},
             success: function () {
                 setTimeout(function () {
                     $btn.button('reset');
@@ -118,11 +120,12 @@ function buttonclick() {
         }
         $("#disk_start").attr("disabled",true);
         var id = $.map(select, function (row){return row.id});
+        var name = $.map(select, function (row){return row.id + ':' + row.disk_stat_name });
         var $btn = $(this).button('loading');
         $.ajax({
             type: "post",
             url: "",
-            data: {"data": JSON.stringify({"msg": "stop", "id": id})},
+            data: {"data": JSON.stringify({"msg": "stop", "id": id, "name": name})},
             success: function () {
                 setTimeout(function () {
                     $("#disk_start").removeAttr("disabled");
