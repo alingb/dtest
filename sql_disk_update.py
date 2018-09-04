@@ -31,7 +31,7 @@ def getDiskInfo():
 
 def connMysql():
     try:
-        con = MySQLdb.connect('127.0.0.1', 'trusme', '6286280300', 'blog')
+        con = MySQLdb.connect('127.0.0.1', 'trusme', 'Trusme6286280300!', 'blog')
     except Exception as e:
         logger.warning(e)
         return ''

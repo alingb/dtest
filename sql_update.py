@@ -85,7 +85,7 @@ def cpuUser():
 
 def connMysql():
     try:
-        con = MySQLdb.connect('127.0.0.1', 'root', 'Snynitfqm$janson10254415', 'janson_disk')
+        con = MySQLdb.connect('127.0.0.1', 'trusme', 'Trusem6286280300!', 'blog')
     except Exception as e:
         logger.warning(e)
         return ''
