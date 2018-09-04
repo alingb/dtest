@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import datetime
 import json
 import re
+from subprocess import Popen, PIPE
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -26,7 +28,7 @@ def logout_user(req):
 
 
 def check_password(passwd):
-    if re.match(r'^(?=.*[A-Za-z])(?=.*[0-9])\w{6,}$',passwd):
+    if re.match(r'^(?=.*[A-Za-z])(?=.*[0-9])\w{6,}$', passwd):
         return True
     else:
         return False
@@ -95,6 +97,10 @@ def diskStat(req):
     return render(req, 'web/diskstat.html')
 
 
+@login_required
+def logStat(req):
+    return render(req, 'web/logstat.html', )
+
 
 @login_required
 def netStat(req, netname):
@@ -103,8 +109,10 @@ def netStat(req, netname):
     for name in netstat:
         name_list.append(name['name'])
     name = list(set(name_list))
-    if not netname:
+    if not netname and name:
         netname = name[0]
+    else:
+        netname = ''
     return render(req, 'web/netstat.html', {"name": name, "netname": netname})
 
 
@@ -138,4 +146,32 @@ def get_info(req, getname):
             data.append([int(each.add_time), float(each.down_stat)])
         sorted(data)
         return HttpResponse(json.dumps(data))
+    elif getname == 'loginfo':
+        log_list, log_dict, lenth = [], {}, 0
+        try:
+            popen = Popen(r'ipmitool sel list', stdout=PIPE, stderr=PIPE, shell=True)
+            info = popen.stdout.readlines()
+            for msg in info:
+                data = msg.split('|')
+                log_dict['id'] = data[0]
+                log_dict['time'] = data[1] + data[2]
+                if '/' in data[3]:
+                    log_msg = data[3].split('/')
+                    log_dict['name'] = log_msg[0]
+                    log_dict['type'] = log_msg[1]
+                else:
+                    log_msg = data[3].split('#')
+                    log_dict['name'] = log_msg[1]
+                    log_dict['type'] = log_msg[0]
+                log_dict['desc'] = data[4] + '-' + data[5]
+                log_list.append(log_dict)
+            lenth = len(log_list)
+            if not log_list:
+                raise Exception('error')
+        except:
+            log_list = [{'id': 1, "time": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"), 'type': 'error',
+                         'desc': 'no data', 'name': 'ipmi error'}]
+            lenth = 1
+            return HttpResponse(json.dumps({"rows": log_list, "total": lenth}))
+        return HttpResponse(json.dumps({"rows": log_list, "total": lenth}))
 

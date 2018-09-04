@@ -7,7 +7,7 @@ $(document).ready(function () {
 
 
 var TableInit = function () {
-    var oTableInit = new Object();
+    var oTableInit = {};
     //初始化Table
     oTableInit.Init = function () {
         $('#addtable').bootstrapTable({
