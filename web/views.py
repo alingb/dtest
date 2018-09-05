@@ -142,7 +142,6 @@ def get_info(req, getname):
     elif "down" in getname:
         netname = getname.split("_")[0]
         net_stat = NetworkStat.objects.filter(name=netname).order_by('add_time')
-        print(net_stat)
         data = []
         for each in net_stat:
             data.append([int(each.add_time), float(each.down_stat)])

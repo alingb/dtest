@@ -113,7 +113,6 @@ function test(name, tilte) {
     		names.push(this.id)
 		}
     });
-    console.log(names);
     // names = ['MSFT', 'AAPL', 'GOOG'];
 
 /**

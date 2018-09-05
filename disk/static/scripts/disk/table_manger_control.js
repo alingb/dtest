@@ -89,15 +89,29 @@ var TableInit = function () {
 
 function buttonclick() {
     $("#disk_start").click(function () {
-        var  select = $("#disk_manger_table").bootstrapTable('getSelections');
-        if (select.length<1){
+        var select = $("#disk_manger_table").bootstrapTable('getSelections');
+        if (select.length < 1) {
             toastr.error("请选择数据");
             return;
         }
-        var id = $.map(select, function (row){return row.id});
-        var name = $.map(select, function (row){return row.disk_slot + ':' + row.disk_stat_name });
+        let disk_info = '';
+        $.map(select, function (row) {
+            if (row.disk_off_stat === 0) {
+                disk_info += row.disk_slot + ";";
+            }
+        });
+        if (disk_info.length > 0) {
+            toastr.error("slot:" + disk_info + "已开启");
+            return;
+        }
+        var id = $.map(select, function (row) {
+            return row.id
+        });
+        var name = $.map(select, function (row) {
+            return row.disk_slot + ':' + row.disk_stat_name
+        });
         var $btn = $(this).button('loading');
-        $("#disk_stop").attr("disabled",true);
+        $("#disk_stop").attr("disabled", true);
         $.ajax({
             type: "post",
             url: "",
@@ -117,9 +131,23 @@ function buttonclick() {
             toastr.error("请选择数据");
             return;
         }
-        $("#disk_start").attr("disabled",true);
-        var id = $.map(select, function (row){return row.id});
-        var name = $.map(select, function (row){return row.disk_slot + ':' + row.disk_stat_name });
+        $("#disk_start").attr("disabled", true);
+        let disk_info = '';
+        $.map(select, function (row) {
+            if (row.disk_off_stat === 1) {
+                disk_info += row.disk_slot + ";";
+            }
+        });
+        if (disk_info.length > 0) {
+            toastr.error("slot:" + disk_info + "已开启");
+            return;
+        }
+        var id = $.map(select, function (row) {
+            return row.id
+        });
+        var name = $.map(select, function (row) {
+            return row.disk_slot + ':' + row.disk_stat_name
+        });
         var $btn = $(this).button('loading');
         $.ajax({
             type: "post",
