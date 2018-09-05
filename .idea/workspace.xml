@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9724376c-3348-4d42-a2d7-7bd6a24b3eb0" name="Default" comment="update 2018-09-05">
-      <change beforePath="$PROJECT_DIR$/disk/static/scripts/disk/table_manger_control.js" beforeDir="false" afterPath="$PROJECT_DIR$/disk/static/scripts/disk/table_manger_control.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/static/web/scripts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/static/web/scripts/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/web/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/html/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -90,9 +88,9 @@
         <counts>
           <entry key="css" value="22" />
           <entry key="ent" value="1" />
-          <entry key="html" value="146" />
-          <entry key="js" value="138" />
-          <entry key="py" value="170" />
+          <entry key="html" value="162" />
+          <entry key="js" value="146" />
+          <entry key="py" value="171" />
           <entry key="rnc" value="3" />
           <entry key="ts" value="3" />
         </counts>
@@ -101,9 +99,9 @@
         <counts>
           <entry key="CSS" value="22" />
           <entry key="DTD" value="1" />
-          <entry key="HTML" value="146" />
-          <entry key="JavaScript" value="138" />
-          <entry key="Python" value="170" />
+          <entry key="HTML" value="162" />
+          <entry key="JavaScript" value="146" />
+          <entry key="Python" value="171" />
           <entry key="RNG Compact" value="3" />
           <entry key="TypeScript" value="3" />
         </counts>
@@ -112,8 +110,8 @@
         <counts>
           <entry key="Django Console" value="360" />
           <entry key="css" value="21" />
-          <entry key="html" value="4133" />
-          <entry key="js" value="5365" />
+          <entry key="html" value="4154" />
+          <entry key="js" value="5371" />
           <entry key="py" value="9812" />
           <entry key="py@dtest" value="389" />
           <entry key="txt" value="27" />
@@ -123,8 +121,8 @@
         <counts>
           <entry key="CSS" value="21" />
           <entry key="CommandLine" value="193" />
-          <entry key="HTML" value="4133" />
-          <entry key="JavaScript" value="5365" />
+          <entry key="HTML" value="4154" />
+          <entry key="JavaScript" value="5371" />
           <entry key="PLAIN_TEXT" value="223" />
           <entry key="Python" value="10171" />
           <entry key="SQL" value="1" />
@@ -135,54 +133,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/templates/web/netstat.html">
+        <entry file="file://$PROJECT_DIR$/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/disk/templates/disk/disk_control.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
+            <state relative-caret-position="375">
+              <caret line="251" column="32" lean-forward="true" selection-start-line="251" selection-start-column="32" selection-end-line="251" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/disk/static/scripts/disk/table_manger_control.js">
+        <entry file="file://$PROJECT_DIR$/templates/html/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="99" column="47" selection-start-line="99" selection-start-column="47" selection-end-line="99" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/static/web/scripts/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="111" column="21" lean-forward="true" selection-start-line="111" selection-start-column="21" selection-end-line="111" selection-end-column="21" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="178" column="36" lean-forward="true" selection-start-line="178" selection-start-column="36" selection-end-line="178" selection-end-column="36" />
-              <folding>
-                <element signature="e#24#63#0" expanded="true" />
-                <marker date="1536130886095" expanded="true" signature="853:1817" ph="..." />
-                <marker date="1536130886095" expanded="true" signature="2596:3262" ph="..." />
-              </folding>
+            <state relative-caret-position="81">
+              <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -219,8 +182,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/scripts/bootstrap-table.min.js" />
-        <option value="$PROJECT_DIR$/templates/scripts/bootstrap-table-zh-CN.min.js" />
         <option value="$PROJECT_DIR$/templates/scripts/toastr.min.js" />
         <option value="$PROJECT_DIR$/templates/css/toast.css" />
         <option value="$PROJECT_DIR$/disk/templates/disk/diskadd.html" />
@@ -248,13 +209,10 @@
         <option value="$PROJECT_DIR$/web/templates/web/login.html" />
         <option value="$PROJECT_DIR$/disk/migrations/0003_auto_20180829_1752.py" />
         <option value="$PROJECT_DIR$/disk/templates/disk/create_file.html" />
-        <option value="$PROJECT_DIR$/disk/static/scripts/disk/jquery.main.js" />
         <option value="$PROJECT_DIR$/disk/models.py" />
-        <option value="$PROJECT_DIR$/disk/static/scripts/disk/disk_back.js" />
         <option value="$PROJECT_DIR$/disk/templates/disk/file_manger.html" />
         <option value="$PROJECT_DIR$/disk/templates/disk/disk_backup.html" />
         <option value="$PROJECT_DIR$/web/static/AdminLTE-2.4.1/dist/css/AdminLTE.min.css" />
-        <option value="$PROJECT_DIR$/disk/static/scripts/disk/adddisk.js" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/web/urls.py" />
@@ -263,13 +221,18 @@
         <option value="$PROJECT_DIR$/dtest/settings.py" />
         <option value="$PROJECT_DIR$/sql_update.py" />
         <option value="$PROJECT_DIR$/sql_disk_update.py" />
-        <option value="$PROJECT_DIR$/disk/views.py" />
         <option value="$PROJECT_DIR$/disk/templates/disk/index.html" />
-        <option value="$PROJECT_DIR$/disk/static/scripts/disk/disk_index.js" />
         <option value="$PROJECT_DIR$/web/templates/web/netstat.html" />
         <option value="$PROJECT_DIR$/web/views.py" />
         <option value="$PROJECT_DIR$/web/static/web/scripts/index.js" />
+        <option value="$PROJECT_DIR$/disk/views.py" />
+        <option value="$PROJECT_DIR$/disk/static/scripts/disk/jquery.main.js" />
+        <option value="$PROJECT_DIR$/disk/static/scripts/disk/disk_back.js" />
         <option value="$PROJECT_DIR$/disk/static/scripts/disk/table_manger_control.js" />
+        <option value="$PROJECT_DIR$/disk/static/scripts/disk/adddisk.js" />
+        <option value="$PROJECT_DIR$/disk/static/scripts/disk/file_detail.js" />
+        <option value="$PROJECT_DIR$/disk/static/scripts/disk/disk_index.js" />
+        <option value="$PROJECT_DIR$/templates/html/index.html" />
       </list>
     </option>
   </component>
@@ -329,6 +292,49 @@
               <item name="dtest" type="b2602c69:ProjectViewProjectNode" />
               <item name="dtest" type="462c0819:PsiDirectoryNode" />
               <item name="dtest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dtest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dtest" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dtest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dtest" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dtest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dtest" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dtest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dtest" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dtest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dtest" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dtest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dtest" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dtest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dtest" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -746,7 +752,28 @@
       <option name="project" value="LOCAL" />
       <updated>1536130851563</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="update 2018-09-05">
+      <created>1536132791949</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1536132791949</updated>
+    </task>
+    <task id="LOCAL-00039" summary="update 2018-09-05">
+      <created>1536132923754</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1536132923754</updated>
+    </task>
+    <task id="LOCAL-00040" summary="update 2018-09-05">
+      <created>1536133266318</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1536133266318</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -762,12 +789,12 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18869936" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18869936" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4978678" visible="true" weight="0.34201956" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4978678" visible="true" weight="0.19435397" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -844,7 +871,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="update 2018-09-05" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/venv/Lib/site-packages/django/contrib/auth/hashers.py" />
     <entry file="file://$PROJECT_DIR$/disk/migrations/0003_auto_20180829_1752.py" />
     <entry file="file://$PROJECT_DIR$/disk/migrations/0001_initial.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -862,21 +888,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/disk/static/scripts/disk/jquery.main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3456">
-          <caret line="128" column="9" selection-start-line="128" selection-start-column="9" selection-end-line="128" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/disk/migrations/0005_auto_20180829_2028.py" />
-    <entry file="file://$PROJECT_DIR$/disk/static/scripts/disk/disk_back.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1242">
-          <caret line="76" column="24" lean-forward="true" selection-start-line="76" selection-start-column="24" selection-end-line="76" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/templates/web/memstat.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
@@ -969,41 +981,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/disk/templates/disk/disk_backup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="25" selection-start-column="25" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/disk/templates/disk/file_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="49" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/disk/templates/disk/create_file.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/disk/static/scripts/disk/file_detail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/disk/templates/disk/diskadd.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="25" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -1035,20 +1012,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="247" column="21" lean-forward="true" selection-start-line="247" selection-start-column="21" selection-end-line="247" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/disk/static/scripts/disk/adddisk.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="1" column="15" selection-start-line="1" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dtest/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
@@ -1070,13 +1033,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/disk/templates/disk/file_manger.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" column="49" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sql_disk_update.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="502">
@@ -1084,34 +1040,6 @@
           <folding>
             <marker date="1536053799867" expanded="true" signature="563:568" ph="..." />
             <marker date="1536053799867" expanded="true" signature="735:740" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/disk/templates/disk/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-54">
-          <caret line="4" column="46" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/disk/static/scripts/disk/disk_index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="361" lean-forward="true" selection-start-line="361" selection-end-line="361" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/disk/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3121">
-          <caret line="409" lean-forward="true" selection-start-line="409" selection-end-line="409" />
-          <folding>
-            <marker date="1536114241644" expanded="true" signature="10200:10205" ph="..." />
-            <marker date="1536114241644" expanded="true" signature="12599:12600" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1142,7 +1070,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
+        <state relative-caret-position="988">
           <caret line="178" column="36" lean-forward="true" selection-start-line="178" selection-start-column="36" selection-end-line="178" selection-end-column="36" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
@@ -1152,27 +1080,132 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/disk/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1010">
+          <caret line="355" lean-forward="true" selection-start-line="355" selection-end-line="355" />
+          <folding>
+            <marker date="1536132912107" expanded="true" signature="10200:10205" ph="..." />
+            <marker date="1536132912107" expanded="true" signature="12520:12521" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/static/web/scripts/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="111" column="21" lean-forward="true" selection-start-line="111" selection-start-column="21" selection-end-line="111" selection-end-column="21" />
+        <state relative-caret-position="189">
+          <caret line="7" selection-start-line="7" selection-end-line="9" selection-end-column="9" />
           <folding>
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/disk/static/scripts/disk/jquery.main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" selection-start-line="3" selection-end-line="5" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/disk/templates/disk/create_file.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="47" lean-forward="true" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/disk/templates/disk/disk_backup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="46" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/disk/templates/disk/disk_control.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
-          <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
+          <caret line="4" column="50" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/disk/static/scripts/disk/table_manger_control.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="99" column="47" selection-start-line="99" selection-start-column="47" selection-end-line="99" selection-end-column="47" />
+        <state relative-caret-position="135">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/disk/templates/disk/diskadd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="45" lean-forward="true" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/disk/static/scripts/disk/adddisk.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/disk/templates/disk/file_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="49" lean-forward="true" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/disk/static/scripts/disk/disk_index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/disk/templates/disk/file_manger.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="49" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/disk/static/scripts/disk/file_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/disk/templates/disk/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="48" lean-forward="true" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/disk/static/scripts/disk/disk_back.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="251" column="32" lean-forward="true" selection-start-line="251" selection-start-column="32" selection-end-line="251" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/html/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
         </state>
       </provider>
     </entry>
