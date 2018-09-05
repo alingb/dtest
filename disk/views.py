@@ -331,9 +331,6 @@ def diskControl(request):
         msg = post_msg["msg"]
         id = post_msg["id"]
         name = post_msg["name"]
-        for i in name:
-            data = i.split(':')
-            print(data)
         if msg == "start":
             for i in name:
                 num, disk_name =  i.split(':')

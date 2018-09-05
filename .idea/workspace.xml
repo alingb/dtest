@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9724376c-3348-4d42-a2d7-7bd6a24b3eb0" name="Default" comment="update 2018-09-05">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/disk/static/scripts/disk/disk_index.js" beforeDir="false" afterPath="$PROJECT_DIR$/disk/static/scripts/disk/disk_index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/disk/static/scripts/disk/table_manger_control.js" beforeDir="false" afterPath="$PROJECT_DIR$/disk/static/scripts/disk/table_manger_control.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/static/web/scripts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/static/web/scripts/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/templates/web/netstat.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/web/netstat.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/web/views.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/venv/" />
@@ -92,9 +90,9 @@
         <counts>
           <entry key="css" value="22" />
           <entry key="ent" value="1" />
-          <entry key="html" value="145" />
-          <entry key="js" value="137" />
-          <entry key="py" value="169" />
+          <entry key="html" value="146" />
+          <entry key="js" value="138" />
+          <entry key="py" value="170" />
           <entry key="rnc" value="3" />
           <entry key="ts" value="3" />
         </counts>
@@ -103,9 +101,9 @@
         <counts>
           <entry key="CSS" value="22" />
           <entry key="DTD" value="1" />
-          <entry key="HTML" value="145" />
-          <entry key="JavaScript" value="137" />
-          <entry key="Python" value="169" />
+          <entry key="HTML" value="146" />
+          <entry key="JavaScript" value="138" />
+          <entry key="Python" value="170" />
           <entry key="RNG Compact" value="3" />
           <entry key="TypeScript" value="3" />
         </counts>
@@ -115,8 +113,8 @@
           <entry key="Django Console" value="360" />
           <entry key="css" value="21" />
           <entry key="html" value="4133" />
-          <entry key="js" value="5075" />
-          <entry key="py" value="9811" />
+          <entry key="js" value="5365" />
+          <entry key="py" value="9812" />
           <entry key="py@dtest" value="389" />
           <entry key="txt" value="27" />
         </counts>
@@ -126,9 +124,9 @@
           <entry key="CSS" value="21" />
           <entry key="CommandLine" value="193" />
           <entry key="HTML" value="4133" />
-          <entry key="JavaScript" value="5075" />
+          <entry key="JavaScript" value="5365" />
           <entry key="PLAIN_TEXT" value="223" />
-          <entry key="Python" value="10170" />
+          <entry key="Python" value="10171" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -145,13 +143,45 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/disk/templates/disk/disk_control.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/disk/static/scripts/disk/table_manger_control.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="158">
+              <caret line="99" column="47" selection-start-line="99" selection-start-column="47" selection-end-line="99" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/static/web/scripts/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="125" column="26" lean-forward="true" selection-start-line="125" selection-start-column="26" selection-end-line="125" selection-end-column="26" />
+            <state relative-caret-position="260">
+              <caret line="111" column="21" lean-forward="true" selection-start-line="111" selection-start-column="21" selection-end-line="111" selection-end-column="21" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="97">
+              <caret line="178" column="36" lean-forward="true" selection-start-line="178" selection-start-column="36" selection-end-line="178" selection-end-column="36" />
+              <folding>
+                <element signature="e#24#63#0" expanded="true" />
+                <marker date="1536130886095" expanded="true" signature="853:1817" ph="..." />
+                <marker date="1536130886095" expanded="true" signature="2596:3262" ph="..." />
               </folding>
             </state>
           </provider>
@@ -176,6 +206,7 @@
       <find>buttons</find>
       <find>group_submit</find>
       <find>print</find>
+      <find>cons</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -234,11 +265,11 @@
         <option value="$PROJECT_DIR$/sql_disk_update.py" />
         <option value="$PROJECT_DIR$/disk/views.py" />
         <option value="$PROJECT_DIR$/disk/templates/disk/index.html" />
-        <option value="$PROJECT_DIR$/disk/static/scripts/disk/table_manger_control.js" />
         <option value="$PROJECT_DIR$/disk/static/scripts/disk/disk_index.js" />
-        <option value="$PROJECT_DIR$/web/views.py" />
         <option value="$PROJECT_DIR$/web/templates/web/netstat.html" />
+        <option value="$PROJECT_DIR$/web/views.py" />
         <option value="$PROJECT_DIR$/web/static/web/scripts/index.js" />
+        <option value="$PROJECT_DIR$/disk/static/scripts/disk/table_manger_control.js" />
       </list>
     </option>
   </component>
@@ -298,24 +329,6 @@
               <item name="dtest" type="b2602c69:ProjectViewProjectNode" />
               <item name="dtest" type="462c0819:PsiDirectoryNode" />
               <item name="dtest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dtest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dtest" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dtest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dtest" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dtest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dtest" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -726,7 +739,14 @@
       <option name="project" value="LOCAL" />
       <updated>1536115957586</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="update 2018-09-05">
+      <created>1536130851563</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1536130851563</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1085,32 +1105,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/disk/templates/disk/disk_control.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="4" column="55" lean-forward="true" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/disk/static/scripts/disk/table_manger_control.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="133" column="13" lean-forward="true" selection-start-line="133" selection-start-column="13" selection-end-line="133" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="188" column="79" lean-forward="true" selection-start-line="188" selection-start-column="79" selection-end-line="188" selection-end-column="79" />
-          <folding>
-            <element signature="e#24#63#0" expanded="true" />
-            <marker date="1536125660696" expanded="true" signature="853:1817" ph="..." />
-            <marker date="1536125660696" expanded="true" signature="2596:3262" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/disk/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3121">
@@ -1146,13 +1140,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="178" column="36" lean-forward="true" selection-start-line="178" selection-start-column="36" selection-end-line="178" selection-end-column="36" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+            <marker date="1536130886095" expanded="true" signature="853:1817" ph="..." />
+            <marker date="1536130886095" expanded="true" signature="2596:3262" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/static/web/scripts/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="125" column="26" lean-forward="true" selection-start-line="125" selection-start-column="26" selection-end-line="125" selection-end-column="26" />
+        <state relative-caret-position="260">
+          <caret line="111" column="21" lean-forward="true" selection-start-line="111" selection-start-column="21" selection-end-line="111" selection-end-column="21" />
           <folding>
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/disk/templates/disk/disk_control.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/disk/static/scripts/disk/table_manger_control.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="99" column="47" selection-start-line="99" selection-start-column="47" selection-end-line="99" selection-end-column="47" />
         </state>
       </provider>
     </entry>
