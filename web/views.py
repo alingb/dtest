@@ -118,14 +118,14 @@ def netStat(req, netname):
 
 def get_info(req, getname):
     if getname == 'cpu':
-        cpu_stat = CpuStat.objects.all()
+        cpu_stat = CpuStat.objects.all().order_by('add_time')
         data = []
         for each in cpu_stat:
             data.append([int(each.add_time), float(each.stat)])
         sorted(data)
         return HttpResponse(json.dumps(data))
     elif getname == 'mem':
-        mem_stat = MemStat.objects.all()
+        mem_stat = MemStat.objects.all().order_by('add_time')
         data = []
         for each in mem_stat:
             data.append([int(each.add_time), float(each.stat)])
@@ -133,7 +133,7 @@ def get_info(req, getname):
         return HttpResponse(json.dumps(data))
     elif "on" in getname:
         netname = getname.split("_")[0]
-        net_stat = NetworkStat.objects.filter(name=netname)
+        net_stat = NetworkStat.objects.filter(name=netname).order_by('add_time')
         data = []
         for each in net_stat:
             data.append([int(each.add_time), float(each.on_stat)])
@@ -141,7 +141,7 @@ def get_info(req, getname):
         return HttpResponse(json.dumps(data))
     elif "down" in getname:
         netname = getname.split("_")[0]
-        net_stat = NetworkStat.objects.filter(name=netname)
+        net_stat = NetworkStat.objects.filter(name=netname).order_by('add_time')
         print(net_stat)
         data = []
         for each in net_stat:

@@ -1,13 +1,13 @@
 $(document).ready(function () {
     testId('web/get_info/cpu/', 'cpustat', 'CPUSTAT', 'cpu(%)');
     testId('web/get_info/mem/', 'memstat', "MEMSTAT", 'mem(%)');
+    buttonClick();
     var LogoTable = new LogTableInit();
     LogoTable.Init();
     netID('netstat', "NETSTAT");
     setTimeout(function () {
 		document.getElementById("server_id").click();
-    },5)
-
+    },5);
 
     // test();
 });
@@ -120,13 +120,13 @@ function test(name, tilte) {
      * Create the chart when all data is loaded
      * @returns {undefined}
      */
-function testChart() {
+function testChart(title) {
 	Highcharts.stockChart(name, {
 		credits:{
 			enabled:false,
 		},
 		title: {
-			text: tilte
+			text: 'NETSTAT: ' + title.split('_')[0].toUpperCase()
 		},
 		subtitle: {
 			text: ''
@@ -224,7 +224,7 @@ $.each(names, function (i, name) {
 		seriesCounter += 1;
 		if (seriesCounter === names.length) {
 			// createChart();
-			testChart();
+			testChart(name);
 		}
 	});
 });
@@ -290,3 +290,13 @@ var LogTableInit = function () {
     };
     return LogoTableInit;
 };
+
+function buttonClick() {
+	$("select#netname").change(function(){
+       //var options=$("select#test option:selected"); //可以获取到选中的option
+        var options=$(this).children("option:selected").val(); //也可以获取到选中的option
+		window.location.href = options;
+})
+}
+
+

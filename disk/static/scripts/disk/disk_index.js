@@ -252,6 +252,7 @@ function button_link() {
     $("#file_create").click(function () {
         window.location.href = "/disk/createfile/"
     });
+
     $("#file_active").click(function () {
         var arrselections = $("#file_table").bootstrapTable('getSelections');
         if (arrselections.length > 0) {
@@ -272,6 +273,7 @@ function button_link() {
             toastr.warning('请选择有效数据');
         }
     });
+
     $("#start_share").click(function () {
          var arrselections = $("#file_table").bootstrapTable('getSelections');
         if (arrselections.length > 0) {
@@ -292,6 +294,7 @@ function button_link() {
             toastr.warning('请选择有效数据');
         }
     });
+
     $("#start_smb").click(function () {
          var arrselections = $("#file_table").bootstrapTable('getSelections');
         $("#start_share").click(function () {
@@ -314,6 +317,7 @@ function button_link() {
             }
         });
     });
+
      $("#file_del").click(function () {
            var arrselections = $("#file_table").bootstrapTable('getSelections');
            if (arrselections.length <= 0) {
@@ -345,6 +349,14 @@ function button_link() {
                });
            });
         });
+
+     $("#disk_start_back").click(function () {
+         toastr.success('开启备盘成功');
+     });
+
+      $("#disk_stop_back").click(function () {
+         toastr.success('关闭备盘成功');
+     });
 
 }
 

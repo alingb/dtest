@@ -12,18 +12,22 @@
 {% block contentHeader %}
 
 {#    <div id="container1" style="height: 400px; min-width: 600px"></div>#}
+
     <div style="margin: 15px">
         <label>
-        <select id="netname" class="selectpicker" data-style="btn-info" onchange="window.location=this.value;">
+        <select id="netname" class="selectpicker" data-style="btn-info">
             <option value="#">请选择查看的网卡</option>
             {% for each in name %}
                 <option value="/web/netstat/{{ each }}" id="{{ each }}">{{ each }}</option>
             {% endfor %}
         </select>
     </label>
-    <input type="hidden" id="{{ netname }}_on">
+    <input type="hidden" id="{{ netname }}_on" name="name" value="{{ netname }}">
     <input type="hidden" id="{{ netname }}_down">
     </div>
 
     <div id="netstat" style="min-width:400px;height:500px"></div>
+    <script>
+
+    </script>
 {% endblock %}
