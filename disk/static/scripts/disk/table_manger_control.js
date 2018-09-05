@@ -3,6 +3,9 @@ $(document).ready(function () {
     oTable.Init();
     buttonclick();
     toastr.options.positionClass = 'toast-top-center';
+    setTimeout(function () {
+		document.getElementById("disk_id").click();
+    },5);
 });
 
 

@@ -8,6 +8,9 @@ $(document).ready(function () {
     toastr.options.positionClass = 'toast-top-center';
     button_link();
     tableFocus();
+    setTimeout(function () {
+		document.getElementById("disk_id").click();
+    },5);
 });
 
 

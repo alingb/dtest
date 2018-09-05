@@ -3,6 +3,9 @@ $(function () {
     var oFileInput = new FileInput();
     oFileInput.Init("txt_file", "/disk/file");
     toastr.options.positionClass = 'toast-top-center';
+    setTimeout(function () {
+		document.getElementById("disk_id").click();
+    },5);
 });
 
 //初始化fileinput

@@ -1,7 +1,9 @@
 $(document).ready(function () {
     //original field values
     toastr.options.positionClass = 'toast-top-center';
-
+    setTimeout(function () {
+		document.getElementById("disk_id").click();
+    },5);
 
     //first_step
     $('form').submit(function () {
