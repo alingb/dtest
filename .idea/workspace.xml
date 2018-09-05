@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9724376c-3348-4d42-a2d7-7bd6a24b3eb0" name="Default" comment="update 2018-09-04">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/disk/static/scripts/disk/table_manger_control.js" beforeDir="false" afterPath="$PROJECT_DIR$/disk/static/scripts/disk/table_manger_control.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/disk/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/disk/views.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/venv/" />
@@ -70,20 +69,20 @@
     <session id="-2019707207">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="13" />
+          <entry key="project.closed" value="14" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.30" value="1" />
           <entry key="project.open.time.32" value="1" />
           <entry key="project.open.time.35" value="1" />
-          <entry key="project.open.time.37" value="1" />
+          <entry key="project.open.time.37" value="2" />
           <entry key="project.open.time.38" value="2" />
           <entry key="project.open.time.42" value="1" />
           <entry key="project.open.time.43" value="1" />
           <entry key="project.open.time.46" value="2" />
           <entry key="project.open.time.49" value="1" />
           <entry key="project.open.time.54" value="1" />
-          <entry key="project.opened" value="15" />
+          <entry key="project.opened" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -114,7 +113,7 @@
           <entry key="css" value="21" />
           <entry key="html" value="4074" />
           <entry key="js" value="4629" />
-          <entry key="py" value="9791" />
+          <entry key="py" value="9795" />
           <entry key="py@dtest" value="389" />
           <entry key="txt" value="26" />
         </counts>
@@ -126,7 +125,7 @@
           <entry key="HTML" value="4074" />
           <entry key="JavaScript" value="4629" />
           <entry key="PLAIN_TEXT" value="222" />
-          <entry key="Python" value="10150" />
+          <entry key="Python" value="10154" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -138,7 +137,7 @@
         <entry file="file://$PROJECT_DIR$/disk/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="513">
-              <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+              <caret line="21" column="38" lean-forward="true" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -147,7 +146,7 @@
         <entry file="file://$PROJECT_DIR$/disk/templates/disk/disk_control.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="108">
-              <caret line="4" column="49" lean-forward="true" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
+              <caret line="4" column="55" lean-forward="true" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -155,8 +154,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/disk/static/scripts/disk/table_manger_control.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-621">
-              <caret line="97" column="92" selection-start-line="97" selection-start-column="92" selection-end-line="97" selection-end-column="92" />
+            <state relative-caret-position="2457">
+              <caret line="97" column="92" lean-forward="true" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="92" />
             </state>
           </provider>
         </entry>
@@ -164,12 +163,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/disk/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="332" column="22" lean-forward="true" selection-start-line="332" selection-start-column="22" selection-end-line="332" selection-end-column="22" />
+            <state relative-caret-position="344">
+              <caret line="347" column="23" lean-forward="true" selection-start-line="347" selection-start-column="23" selection-end-line="347" selection-end-column="23" />
               <folding>
-                <element signature="e#24#61#0" expanded="true" />
-                <marker date="1536055097909" expanded="true" signature="10165:10170" ph="..." />
-                <marker date="1536055097909" expanded="true" signature="12008:12009" ph="..." />
+                <marker date="1536114241644" expanded="true" signature="10200:10205" ph="..." />
+                <marker date="1536114241644" expanded="true" signature="12599:12600" ph="..." />
               </folding>
             </state>
           </provider>
@@ -178,8 +176,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sql_update.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="45" column="12" lean-forward="true" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
+            <state relative-caret-position="1215">
+              <caret line="45" column="12" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
               <folding>
                 <marker date="1536053799796" expanded="true" signature="1445:1812" ph="..." />
               </folding>
@@ -190,10 +188,9 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sql_disk_update.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2211">
-              <caret line="87" column="30" lean-forward="true" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
+            <state relative-caret-position="2349">
+              <caret line="87" column="30" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
               <folding>
-                <element signature="e#117#132#0" expanded="true" />
                 <marker date="1536053799867" expanded="true" signature="563:568" ph="..." />
                 <marker date="1536053799867" expanded="true" signature="735:740" ph="..." />
               </folding>
@@ -339,19 +336,19 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\12\PycharmProjects\dtest\web\templates\web" />
-      <recent name="C:\Users\12\PycharmProjects\dtest\disk\static\scripts" />
-      <recent name="C:\Users\12\PycharmProjects\dtest\disk\static" />
-      <recent name="C:\Users\12\PycharmProjects\dtest\disk\static\css" />
-      <recent name="C:\Users\12\PycharmProjects\dtest\web\static" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\12\PycharmProjects\dtest\web\static\web" />
       <recent name="C:\Users\12\PycharmProjects\dtest\web\static\scripts\web" />
       <recent name="C:\Users\12\PycharmProjects\dtest\command" />
       <recent name="C:\Users\12\PycharmProjects\dtest\static" />
       <recent name="C:\Users\12\PycharmProjects\dtest\disk\static\css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\12\PycharmProjects\dtest\web\templates\web" />
+      <recent name="C:\Users\12\PycharmProjects\dtest\disk\static\scripts" />
+      <recent name="C:\Users\12\PycharmProjects\dtest\disk\static" />
+      <recent name="C:\Users\12\PycharmProjects\dtest\disk\static\css" />
+      <recent name="C:\Users\12\PycharmProjects\dtest\web\static" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -720,7 +717,14 @@
       <option name="project" value="LOCAL" />
       <updated>1536053807151</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="update 2018-09-04">
+      <created>1536055131991</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1536055131991</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -734,14 +738,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18656716" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18869936" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4978678" visible="true" weight="0.34201956" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4978678" visible="true" weight="0.34201956" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -854,9 +857,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-          <folding>
-            <element signature="e#538#574#0#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -891,10 +891,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
-          <folding>
-            <element signature="e#602#622#0#HTML" expanded="true" />
-            <element signature="e#855#891#0#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1006,11 +1002,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="115" column="77" lean-forward="true" selection-start-line="115" selection-start-column="77" selection-end-line="115" selection-end-column="77" />
-          <folding>
-            <element signature="e#24#63#0" expanded="true" />
-            <marker date="1536051175498" expanded="true" signature="853:1817" ph="..." />
-            <marker date="1536051175498" expanded="true" signature="2596:3262" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1070,16 +1061,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8050">
           <caret line="349" selection-start-line="349" selection-end-line="349" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/disk/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -1104,24 +1085,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sql_disk_update.py">
+    <entry file="file://$PROJECT_DIR$/sql_update.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2211">
-          <caret line="87" column="30" lean-forward="true" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
+        <state relative-caret-position="1215">
+          <caret line="45" column="12" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
           <folding>
-            <element signature="e#117#132#0" expanded="true" />
-            <marker date="1536053799867" expanded="true" signature="563:568" ph="..." />
-            <marker date="1536053799867" expanded="true" signature="735:740" ph="..." />
+            <marker date="1536053799796" expanded="true" signature="1445:1812" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sql_update.py">
+    <entry file="file://$PROJECT_DIR$/sql_disk_update.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="45" column="12" lean-forward="true" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
+        <state relative-caret-position="2349">
+          <caret line="87" column="30" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
           <folding>
-            <marker date="1536053799796" expanded="true" signature="1445:1812" ph="..." />
+            <marker date="1536053799867" expanded="true" signature="563:568" ph="..." />
+            <marker date="1536053799867" expanded="true" signature="735:740" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1129,25 +1109,31 @@
     <entry file="file://$PROJECT_DIR$/disk/templates/disk/disk_control.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
-          <caret line="4" column="49" lean-forward="true" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
+          <caret line="4" column="55" lean-forward="true" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/disk/static/scripts/disk/table_manger_control.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-621">
-          <caret line="97" column="92" selection-start-line="97" selection-start-column="92" selection-end-line="97" selection-end-column="92" />
+        <state relative-caret-position="2457">
+          <caret line="97" column="92" lean-forward="true" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/disk/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="21" column="38" lean-forward="true" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/disk/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="332" column="22" lean-forward="true" selection-start-line="332" selection-start-column="22" selection-end-line="332" selection-end-column="22" />
+        <state relative-caret-position="344">
+          <caret line="347" column="23" lean-forward="true" selection-start-line="347" selection-start-column="23" selection-end-line="347" selection-end-column="23" />
           <folding>
-            <element signature="e#24#61#0" expanded="true" />
-            <marker date="1536055097909" expanded="true" signature="10165:10170" ph="..." />
-            <marker date="1536055097909" expanded="true" signature="12008:12009" ph="..." />
+            <marker date="1536114241644" expanded="true" signature="10200:10205" ph="..." />
+            <marker date="1536114241644" expanded="true" signature="12599:12600" ph="..." />
           </folding>
         </state>
       </provider>

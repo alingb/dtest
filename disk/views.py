@@ -7,6 +7,7 @@ import hashlib
 import json
 
 import time
+from subprocess import Popen, PIPE
 
 from django.forms.models import model_to_dict
 from django.http.response import HttpResponse, HttpResponseBadRequest, HttpResponseRedirect, FileResponse
@@ -334,24 +335,36 @@ def diskControl(request):
             data = i.split(':')
             print(data)
         if msg == "start":
-            for i in id:
-                disk = DiskStat.objects.get(id=i)
-                if disk.disk_off_stat == 0:
-                    continue
-                else:
-                    disk.disk_off_stat = 0
-                disk.disk_stat = "OK"
-                disk.save()
+            for i in name:
+                num, disk_name =  i.split(':')
+                var = Popen(r'/bin/disk_cotrol -o {} -d {}'.format(num, disk_name), stdout=PIPE, stderr=PIPE, shell=True)
+                var.communicate()
+                var.returncode
+
+            # for i in id:
+            #     disk = DiskStat.objects.get(id=i)
+            #     if disk.disk_off_stat == 0:
+            #         continue
+            #     else:
+            #         disk.disk_off_stat = 0
+            #     disk.disk_stat = "OK"
+            #     disk.save()
             return HttpResponse()
         if msg == "stop":
-            for i in id:
-                disk = DiskStat.objects.get(id=i)
-                if disk.disk_off_stat == 1:
-                    continue
-                else:
-                    disk.disk_off_stat = 1
-                disk.disk_stat = "OFF"
-                disk.save()
+            for i in name:
+                num, disk_name =  i.split(':')
+                var = Popen(r'/bin/disk_cotrol -c {} -d {}'.format(num, disk_name), stdout=PIPE, stderr=PIPE, shell=True)
+                var.communicate()
+                var.returncode
+
+            # for i in id:
+            #     disk = DiskStat.objects.get(id=i)
+            #     if disk.disk_off_stat == 1:
+            #         continue
+            #     else:
+            #         disk.disk_off_stat = 1
+            #     disk.disk_stat = "OFF"
+            #     disk.save()
             return HttpResponse()
     else:
         return render(request, "disk/disk_control.html")
@@ -359,6 +372,9 @@ def diskControl(request):
 
 def diskMangerInfo(request):
     if request.GET:
+        var = Popen(r'storge_stat', stdout=PIPE, stderr=PIPE, shell=True)
+        var.communicate()
+        var.returncode
         file_info = DiskStat.objects.all()
         limit = request.GET.get("limit")
         offset = request.GET.get("offset")

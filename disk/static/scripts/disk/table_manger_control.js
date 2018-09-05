@@ -95,7 +95,7 @@ function buttonclick() {
             return;
         }
         var id = $.map(select, function (row){return row.id});
-        var name = $.map(select, function (row){return row.id + ':' + row.disk_stat_name });
+        var name = $.map(select, function (row){return row.disk_slot + ':' + row.disk_stat_name });
         var $btn = $(this).button('loading');
         $("#disk_stop").attr("disabled",true);
         $.ajax({
@@ -119,7 +119,7 @@ function buttonclick() {
         }
         $("#disk_start").attr("disabled",true);
         var id = $.map(select, function (row){return row.id});
-        var name = $.map(select, function (row){return row.id + ':' + row.disk_stat_name });
+        var name = $.map(select, function (row){return row.disk_slot + ':' + row.disk_stat_name });
         var $btn = $(this).button('loading');
         $.ajax({
             type: "post",

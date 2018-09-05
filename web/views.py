@@ -122,12 +122,14 @@ def get_info(req, getname):
         data = []
         for each in cpu_stat:
             data.append([int(each.add_time), float(each.stat)])
+        sorted(data)
         return HttpResponse(json.dumps(data))
     elif getname == 'mem':
         mem_stat = MemStat.objects.all()
         data = []
         for each in mem_stat:
             data.append([int(each.add_time), float(each.stat)])
+        sorted(data)
         return HttpResponse(json.dumps(data))
     elif "on" in getname:
         netname = getname.split("_")[0]
