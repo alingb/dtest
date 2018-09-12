@@ -99,7 +99,12 @@ def diskStat(req):
 
 @login_required
 def logStat(req):
-    return render(req, 'web/logstat.html', )
+    return render(req, 'web/logstat.html')
+
+
+@login_required
+def user(req):
+    return render(req, 'web/user.html')
 
 
 @login_required
@@ -116,6 +121,7 @@ def netStat(req, netname):
     return render(req, 'web/netstat.html', {"name": name, "netname": netname})
 
 
+@login_required
 def get_info(req, getname):
     if getname == 'cpu':
         cpu_stat = CpuStat.objects.all().order_by('add_time')

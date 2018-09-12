@@ -27,81 +27,86 @@ function netID(name, tilte) {
 function main(url, name, tilte, msg){
    // $.getJSON('https://data.jianshukeji.com/jsonp?filename=json/new-intraday.json&callback=?', function (data) {
     $.getJSON(url, function (data) {
-	// create the chart
-	Highcharts.stockChart(name, {
-		credits:{
-			enabled:false,
-		},
-		title: {
-			text: tilte
-		},
-		subtitle: {
-			text: ''
-		},
-		// xAxis: {
-		// 	breaks: [{ // Nights
-		// 		from: Date.UTC(2012, 9, 6, 16),
-		// 		to: Date.UTC(2012, 9, 7, 8),
-		// 		repeat: 24 * 36e5
-		// 	}, { // Weekends
-		// 		from: Date.UTC(2012, 9, 7, 16),
-		// 		to: Date.UTC(2012, 9, 10, 8),
-		// 		repeat: 7 * 24 * 36e5
-		// 	},{
-		// 	}]
-		// },
-		rangeSelector : {
-			buttons : [{
-				type : 'second',
-				count : 30,
-				text : '30s'
-			},{
-				type : 'minute',
-				count : 1,
-				text : '1m'
-			}, {
-				type : 'hour',
-				count : 1,
-				text : '1h'
-			}, {
-				type : 'day',
-				count : 1,
-				text : '1D'
-			}, {
-				type : 'all',
-				count : 1,
-				text : 'All'
-			}],
-			selected : 1,
-			inputEnabled : true
-		},
-		tooltip: {
-			split: true
-		},
-		series : [{
-			name : msg,
-			type: 'area',
-			data : data,
-			gapSize: 5,
-			tooltip: {
-				valueDecimals: 2
-			},
-			fillColor : {
-				linearGradient : {
-					x1: 0,
-					y1: 0,
-					x2: 0,
-					y2: 1
-				},
-				stops : [
-					[0, Highcharts.getOptions().colors[0]],
-					[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-				]
-			},
-			threshold: null
-		}]
-	});
-});
+        // create the chart
+        Highcharts.setOptions({
+            global: {
+                useUTC: false
+            }
+        });
+        Highcharts.stockChart(name, {
+            credits: {
+                enabled: false,
+            },
+            title: {
+                text: tilte
+            },
+            subtitle: {
+                text: ''
+            },
+            // xAxis: {
+            // 	breaks: [{ // Nights
+            // 		from: Date.UTC(2012, 9, 6, 16),
+            // 		to: Date.UTC(2012, 9, 7, 8),
+            // 		repeat: 24 * 36e5
+            // 	}, { // Weekends
+            // 		from: Date.UTC(2012, 9, 7, 16),
+            // 		to: Date.UTC(2012, 9, 10, 8),
+            // 		repeat: 7 * 24 * 36e5
+            // 	},{
+            // 	}]
+            // },
+            rangeSelector: {
+                buttons: [{
+                    type: 'second',
+                    count: 30,
+                    text: '30s'
+                }, {
+                    type: 'minute',
+                    count: 1,
+                    text: '1m'
+                }, {
+                    type: 'hour',
+                    count: 1,
+                    text: '1h'
+                }, {
+                    type: 'day',
+                    count: 1,
+                    text: '1D'
+                }, {
+                    type: 'all',
+                    count: 1,
+                    text: 'All'
+                }],
+                selected: 1,
+                inputEnabled: true
+            },
+            tooltip: {
+                split: true
+            },
+            series: [{
+                name: msg,
+                type: 'area',
+                data: data,
+                gapSize: 5,
+                tooltip: {
+                    valueDecimals: 2
+                },
+                fillColor: {
+                    linearGradient: {
+                        x1: 0,
+                        y1: 0,
+                        x2: 0,
+                        y2: 1
+                    },
+                    stops: [
+                        [0, Highcharts.getOptions().colors[0]],
+                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                    ]
+                },
+                threshold: null
+            }]
+        });
+    });
 }
 
 function test(name, tilte) {
@@ -120,12 +125,17 @@ function test(name, tilte) {
      * @returns {undefined}
      */
 function testChart(title) {
-	Highcharts.stockChart(name, {
-		credits:{
-			enabled:false,
-		},
-		title: {
-			text: 'NETSTAT: ' + title.split('_')[0].toUpperCase()
+    Highcharts.setOptions({
+        global: {
+            useUTC: false,
+        }
+    });
+    Highcharts.stockChart(name, {
+        credits: {
+            enabled: false,
+        },
+        title: {
+            text: 'NETSTAT: ' + title.split('_')[0].toUpperCase()
 		},
 		subtitle: {
 			text: ''

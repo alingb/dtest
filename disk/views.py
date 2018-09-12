@@ -372,7 +372,7 @@ def diskMangerInfo(request):
         var = Popen(r'storge_stat', stdout=PIPE, stderr=PIPE, shell=True)
         var.communicate()
         var.returncode
-        file_info = DiskStat.objects.all()
+        file_info = DiskStat.objects.all().order_by('disk_slot')
         limit = request.GET.get("limit")
         offset = request.GET.get("offset")
         lenth = len(file_info)
@@ -400,6 +400,7 @@ def diskMangerInfo(request):
             file_info.disk_slot = value['slot']
             file_info.disk_off_stat = value['off']
             file_info.disk_uuid = value['UUID']
+            file_info.disk_name = value['name']
             file_info.save()
         return HttpResponse()
     else:

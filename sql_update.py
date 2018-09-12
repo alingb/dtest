@@ -55,7 +55,7 @@ def netSpeed():
         if net_transmit > 0:
             net_transmit = net_transmit * 8 / 1024
         net[net_name] = [net_receive, net_transmit]
-    return net
+    return '%.2f' % net
 
 
 def memStat():

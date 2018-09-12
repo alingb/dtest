@@ -39,6 +39,16 @@ class GetDiskMessage(object):
             uuid = ""
         return uuid
 
+    def getProduct(self, msg):
+        cmd = 'smartctl -i {}'.format(msg)
+        disk_msg = re.compile(r'Product:\s+(.*)[\s\S]+Serial number:\s+(.*)')
+        product = disk_msg.search(self.getInfo(cmd))
+        if product:
+            data = product.group(1) + '-' + product.group(2)
+        else:
+            data = ''
+        return data
+
     def getSlotNumber(self):
         cmd = "sg_ses -p2 {}".format(self.enclosu)
         msg = self.getInfo(cmd).split("Element type:")[1]
@@ -56,7 +66,8 @@ class GetDiskMessage(object):
         for id, status, off in msg_list:
             for key, value in disk_num.items():
                 if value == id:
-                    slot_num[key] = {"status": status, "slot": id, "off": off, "UUID":self.getUUID(key)}
+                    slot_num[key] = {"status": status, "slot": id, "off": off, "UUID": self.getUUID(key),
+                                     'name': self.getProduct(key)}
         return slot_num
 
     def parseInfo(self):
@@ -77,6 +88,7 @@ class GetDiskMessage(object):
             return info, self.enclosu
         else:
             return False
+
 
 if __name__ == '__main__':
     msg = GetDiskMessage()

@@ -247,7 +247,6 @@
                     <li><a href="/web/log/">日志查看</a></li>
                 </ul>
             </li>
-            {#        <li><a href="/control"><i class="glyphicon glyphicon-folder-open"></i> <span>远程控制</span></a></li>#}
             <li class="treeview">
                 <a href="#" id="disk_id"><i class="glyphicon glyphicon-folder-open"></i> <span>硬盘管理</span>
                     <span class="pull-right-container">
@@ -261,6 +260,9 @@
                     <li><a href="/disk/disk_manger/">硬盘操作</a></li>
                 </ul>
             </li>
+            {% if user.is_superuser %}
+             <li><a href="/user"><i class="glyphicon glyphicon-folder-open"></i> <span>用户管理</span></a></li>
+            {% endif %}
         </ul>
       <!-- /.sidebar-menu -->
     </section>

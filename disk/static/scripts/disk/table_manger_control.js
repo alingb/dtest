@@ -73,6 +73,7 @@ var TableInit = function () {
             }, {
                 field: 'disk_uuid',
                 title: 'UUID',
+                visible: false
             }, {
                field: "disk_name",
                title: "硬盘名称"
