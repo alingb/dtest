@@ -8,6 +8,7 @@ from subprocess import Popen, PIPE
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.forms.models import model_to_dict
 from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.hashers import make_password
@@ -104,7 +105,10 @@ def logStat(req):
 
 @login_required
 def user(req):
-    return render(req, 'web/user.html')
+    if req.user.is_superuser:
+        return render(req, 'web/super_user.html')
+    else:
+        return render(req, 'web/user.html')
 
 
 @login_required
@@ -175,7 +179,7 @@ def get_info(req, getname):
                         log_dict['name'] = log_msg[1]
                         log_dict['type'] = log_msg[0]
                     else:
-                        log_dict['name'] =  log_dict['type'] = data[3]
+                        log_dict['name'] = log_dict['type'] = data[3]
                 log_dict['desc'] = data[4] + '-' + data[5]
                 log_list.append(log_dict)
             lenth = len(log_list)
@@ -193,4 +197,14 @@ def get_info(req, getname):
             lenth = 1
             return HttpResponse(json.dumps({"rows": log_list, "total": lenth}))
         return HttpResponse(json.dumps({"rows": log_list, "total": lenth}))
+    elif getname == "user":
+        user = User.objects.all()
+        lenth = len(user)
+        user_list = []
+        for each in user:
+            list_dict = model_to_dict(each)
+            list_dict.update({'last_login': each.last_login.strftime("%y-%m-%d %H:%M:%S")})
+            list_dict.update({'date_joined': each.date_joined.strftime("%y-%m-%d %H:%M:%S")})
+            user_list.append(list_dict)
+        return HttpResponse(json.dumps({"rows": user_list, "total": lenth}))
 

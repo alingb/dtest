@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block header %}
+<script src="{% static "web/scripts/user.js" %}"></script>
+{% endblock %}
+
+
+{% block contentHeader %}
+    <h1 style="text-align: center"><b>user manger</b></h1>
+    <table id="user_table_id"></table>
+{% endblock %}

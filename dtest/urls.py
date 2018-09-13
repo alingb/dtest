@@ -18,14 +18,14 @@ from django.contrib import admin
 from web import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'login/', views.login_user, name="login"),
-    url(r'logout/', views.logout_user, name="logout"),
-    url(r'signup/', views.signup, name="signup"),
+    url(r'^login/', views.login_user, name="login"),
+    url(r'^logout/', views.logout_user, name="logout"),
+    url(r'^signup/', views.signup, name="signup"),
     url(r'^$', views.index, name="index"),
-    url(r'user/', views.user, name="user"),
-    url(r'web/', include('web.urls')),
-    url(r'command/', include('command.urls')),
-    url(r'detail/', include('detail.urls')),
-    url(r'control/', include('control.urls')),
-    url(r'disk/', include('disk.urls')),
+    url(r'^user/', views.user, name="user"),
+    url(r'^web/', include('web.urls')),
+    url(r'^command/', include('command.urls')),
+    url(r'^detail/', include('detail.urls')),
+    url(r'^control/', include('control.urls')),
+    url(r'^disk/', include('disk.urls')),
 ]

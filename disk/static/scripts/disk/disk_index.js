@@ -186,15 +186,18 @@ var FileTableInit = function () {
     };
     return oFileTableInit;
 };
+
 function operateFormatter(value, row, index) {
-            return [
-                '<button type="button" class="RoleOfD btn btn-default  btn-sm" style="margin-right:15px;">查看</button>',
-            ].join('');
+    return [
+        '<button type="button" class="RoleOfD btn btn-default  btn-sm" style="margin-right:15px;">查看</button>',
+    ].join('');
 }
+
 window.operateEvents = {
-          'click .RoleOfD': function (e, value, row, index) {
-                window.location.href = "/disk/file/" + row.id + "/"
-         },};
+    'click .RoleOfD': function (e, value, row, index) {
+        window.location.href = "/disk/file/" + row.id + "/"
+    },
+};
 
 function get_check_data() {
     $("#btn_print").click(function () {

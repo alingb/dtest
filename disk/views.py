@@ -3,10 +3,9 @@ from __future__ import print_function
 from __future__ import unicode_literals
 
 import datetime
-import hashlib
 import json
-
 import time
+from django.contrib.auth.hashers import make_password, check_password
 from subprocess import Popen, PIPE
 
 from django.forms.models import model_to_dict
@@ -333,7 +332,7 @@ def diskControl(request):
         name = post_msg["name"]
         if msg == "start":
             for i in name:
-                num, disk_name =  i.split(':')
+                num, disk_name = i.split(':')
                 var = Popen(r'/bin/disk_cotrol -o {} -d {}'.format(num, disk_name), stdout=PIPE, stderr=PIPE, shell=True)
                 var.communicate()
                 var.returncode
@@ -406,4 +405,3 @@ def diskMangerInfo(request):
     else:
         return HttpResponse()
 
-from django.contrib.auth.hashers import make_password, check_password

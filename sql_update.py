@@ -54,8 +54,8 @@ def netSpeed():
         net_transmit = int(net_bye[1]) - int(net_msg_1[net_name][1])
         if net_transmit > 0:
             net_transmit = net_transmit * 8 / 1024
-        net[net_name] = [net_receive, net_transmit]
-    return '%.2f' % net
+        net[net_name] = ['%.2f' % net_receive, '%.2f' % net_transmit]
+    return net
 
 
 def memStat():
@@ -85,7 +85,7 @@ def cpuUser():
 
 def connMysql():
     try:
-        con = MySQLdb.connect('127.0.0.1', 'trusme', 'Trusem6286280300!', 'blog')
+        con = MySQLdb.connect('127.0.0.1', 'trusme', 'Trusme6286280300!', 'blog')
     except Exception as e:
         logger.warning(e)
         return ''
