@@ -13,7 +13,6 @@
 {% endblock %}
 
 {% block contentHeader %}
-    <!-- 按钮触发模态框 -->
     <div id="container">
         <form action="#" method="post" class="mobile-device" style="margin: 100px">
 
@@ -40,7 +39,7 @@
                 <div class="form-group">
                     <button type="submit" class="btn btn-success" name="submit_first" id="submit_first">下一步</button>
                 </div>
-            </div>      <!-- clearfix -->
+            </div>
 
 
             <!-- #second_step -->
@@ -106,8 +105,11 @@
                         <td>冻结时间</td>
                         <td>
                             <select class="selectpicker" data-style="btn-info" id="cold_time">
-                                <option class="text-left" value="100">100</option>
-                                <option class="text-left" value="200">200</option>
+                                <option class="text-left" value="3600">3600</option>
+                                <option class="text-left" value="7200">7200</option>
+                                <option class="text-left" value="9600">9600</option>
+                                <option class="text-left" value="10800">10800</option>
+                                <option class="text-left" value="14200">142000</option>
                             </select>
                         </td>
                     </tr>
@@ -115,8 +117,8 @@
                         <td>EnablePackSmallFilesr</td>
                         <td>
                             <select class="selectpicker" data-style="btn-info">
-                                <option class="text-left" value="100">0</option>
-                                <option class="text-left" value="200">1</option>
+                                <option class="text-left" value="0">0</option>
+                                <option class="text-left" value="1">1</option>
                             </select>
                             启用(1)/禁用(0)打包SFOSmallFileMaxSize以下的小文件功能。
                         </td>
@@ -125,8 +127,8 @@
                         <td>EnablePackSpecialFiles</td>
                         <td>
                             <select class="selectpicker" data-style="btn-info">
-                                <option class="text-left" value="100">0</option>
-                                <option class="text-left" value="200">1</option>
+                                <option class="text-left" value="0">0</option>
+                                <option class="text-left" value="1">1</option>
                             </select>
                             启用(1)/禁用(0)打包长命名文件或不UTF8文件和符号链接功能。。
                         </td>
@@ -144,7 +146,7 @@
                         </button>
                     </li>
                 </ul>
-            </div>      <!-- clearfix -->
+            </div>
 
 
             <!-- #fourth_step -->
