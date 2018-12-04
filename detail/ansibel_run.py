@@ -176,6 +176,6 @@ if __name__ == '__main__':
     failed = result['failed']
     # 不可到达
     unreachable = result['unreachable']
-    for key,value in succ.items():
-	print key
+    for key, value in succ.items():
+        print key
         print value['stdout']
